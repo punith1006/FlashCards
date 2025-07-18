@@ -45,24 +45,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Scrolling Features Banner */}
-      <div className="bg-white border-t border-gray-200 py-4 overflow-hidden">
-        <div className="flex animate-scroll whitespace-nowrap">
-          <div className="flex items-center space-x-12 px-6">
-            <span className="text-gray-600 font-medium">America's #1 Keto Brand</span>
-            <span className="text-gray-400">•</span>
-            <span className="text-gray-600 font-medium">Clean Ingredients</span>
-            <span className="text-gray-400">•</span>
-            <span className="text-gray-600 font-medium">No added sugar or seed oils</span>
-            <span className="text-gray-400">•</span>
-            <span className="text-gray-600 font-medium">America's #1 Keto Brand</span>
-            <span className="text-gray-400">•</span>
-            <span className="text-gray-600 font-medium">Clean Ingredients</span>
-            <span className="text-gray-400">•</span>
-            <span className="text-gray-600 font-medium">No added sugar or seed oils</span>
-          </div>
-        </div>
-      </div>
+      
 
       {/* Three Features Section */}
       <div className="bg-gray-50 py-16">
