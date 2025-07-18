@@ -66,27 +66,14 @@ export function FeaturedProducts() {
     }
   ];
 
-  // Calculate number of slides based on screen size
-  const getVisibleProducts = () => {
-    if (typeof window !== 'undefined') {
-      if (window.innerWidth < 768) return 1; // Mobile: 1 product
-      if (window.innerWidth < 1024) return 2; // Tablet: 2 products
-      return 3; // Desktop: 3 products
-    }
-    return 3;
-  };
-
-  const visibleProducts = getVisibleProducts();
-  const totalSlides = Math.ceil(products.length / visibleProducts);
-
   // Handle scroll to update current slide indicator
   useEffect(() => {
     const handleScroll = () => {
       if (sliderRef.current) {
         const scrollLeft = sliderRef.current.scrollLeft;
-        const cardWidth = 320; // 80 * 4 (w-80 = 20rem = 320px) + gap
-        const newSlide = Math.round(scrollLeft / cardWidth);
-        setCurrentSlide(Math.min(newSlide, totalSlides - 1));
+        const maxScroll = sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
+        const scrollPercentage = maxScroll > 0 ? scrollLeft / maxScroll : 0;
+        setCurrentSlide(scrollPercentage);
       }
     };
 
@@ -95,18 +82,7 @@ export function FeaturedProducts() {
       slider.addEventListener('scroll', handleScroll);
       return () => slider.removeEventListener('scroll', handleScroll);
     }
-  }, [totalSlides]);
-
-  // Navigate to specific slide
-  const goToSlide = (slideIndex: number) => {
-    if (sliderRef.current) {
-      const slideWidth = sliderRef.current.offsetWidth;
-      sliderRef.current.scrollTo({
-        left: slideIndex * slideWidth,
-        behavior: 'smooth'
-      });
-    }
-  };
+  }, []);
 
   return (
     <section className="py-20 bg-white">
@@ -129,11 +105,9 @@ export function FeaturedProducts() {
           {/* Products Slider */}
           <div 
             ref={sliderRef}
-            className="flex overflow-x-scroll gap-6 pb-4 cursor-grab active:cursor-grabbing"
+            className="flex overflow-x-scroll gap-6 pb-4 scrollbar-hide"
             style={{ 
-              scrollSnapType: 'x mandatory',
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none'
+              scrollSnapType: 'x mandatory'
             }}
           >
             {products.map((product) => (
@@ -177,11 +151,11 @@ export function FeaturedProducts() {
           
           {/* Single Slider Progress Bar */}
           <div className="mt-6">
-            <div className="relative w-80 h-2 bg-gray-400 rounded-full overflow-hidden">
+            <div className="relative w-full max-w-2xl h-0.5 bg-gray-300 rounded-full overflow-hidden">
               <div 
-                className="absolute top-0 left-0 h-full bg-gray-700 rounded-full transition-all duration-300 ease-out"
+                className="absolute top-0 left-0 h-full bg-gray-600 rounded-full transition-all duration-150 ease-out"
                 style={{ 
-                  width: `${((currentSlide + 1) / totalSlides) * 100}%` 
+                  width: `${currentSlide * 100}%` 
                 }}
               />
             </div>

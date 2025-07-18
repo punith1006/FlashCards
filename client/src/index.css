@@ -118,9 +118,14 @@
     cursor: grabbing;
   }
 
-  /* Additional scrollbar hiding for product slider */
-  .overflow-x-scroll::-webkit-scrollbar {
-    display: none;
+  /* Hide scrollbar for better UX */
+  .scrollbar-hide {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* WebKit */
   }
   
   @keyframes fadeIn {
