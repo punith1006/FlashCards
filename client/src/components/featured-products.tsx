@@ -101,7 +101,9 @@ export function FeaturedProducts() {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 relative" style={{
+      background: 'linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(241, 245, 249, 0.95) 100%)',
+    }}>
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Section Header */}
         <div className="flex justify-between items-center mb-12">
@@ -110,7 +112,15 @@ export function FeaturedProducts() {
           </h2>
           <Button 
             variant="outline" 
-            className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:text-gray-900 font-medium px-6 py-3 rounded-full flex items-center gap-2"
+            className="font-medium px-6 py-3 rounded-full flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            style={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              border: '1px solid rgba(107, 114, 128, 0.3)',
+              color: 'rgba(55, 65, 81, 0.9)',
+              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+            }}
           >
             Shop All Products
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -125,27 +135,45 @@ export function FeaturedProducts() {
           <button
             onClick={scrollLeft}
             disabled={!canScrollLeft}
-            className={`absolute -left-16 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center transition-all duration-200 ${
+            className={`absolute -left-16 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 ${
               canScrollLeft 
-                ? 'opacity-100 hover:shadow-lg hover:bg-gray-50 cursor-pointer' 
+                ? 'opacity-100 cursor-pointer' 
                 : 'opacity-30 cursor-not-allowed'
             }`}
+            style={{
+              background: 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
+            }}
             aria-label="Previous products"
           >
-            <ChevronLeft className={`w-6 h-6 ${canScrollLeft ? 'text-gray-700' : 'text-gray-400'}`} />
+            <ChevronLeft className={`w-6 h-6 transition-colors duration-300 ${
+              canScrollLeft ? 'text-slate-700' : 'text-slate-400'
+            }`} />
           </button>
           
           <button
             onClick={scrollRight}
             disabled={!canScrollRight}
-            className={`absolute -right-16 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center transition-all duration-200 ${
+            className={`absolute -right-16 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 ${
               canScrollRight 
-                ? 'opacity-100 hover:shadow-lg hover:bg-gray-50 cursor-pointer' 
+                ? 'opacity-100 cursor-pointer' 
                 : 'opacity-30 cursor-not-allowed'
             }`}
+            style={{
+              background: 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
+            }}
             aria-label="Next products"
           >
-            <ChevronRight className={`w-6 h-6 ${canScrollRight ? 'text-gray-700' : 'text-gray-400'}`} />
+            <ChevronRight className={`w-6 h-6 transition-colors duration-300 ${
+              canScrollRight ? 'text-slate-700' : 'text-slate-400'
+            }`} />
           </button>
 
           {/* Products Slider */}
@@ -159,36 +187,109 @@ export function FeaturedProducts() {
             {products.map((product) => (
               <Card 
                 key={product.id}
-                className="flex-shrink-0 w-80 h-96 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white rounded-2xl shadow-lg border-0"
-                style={{ scrollSnapAlign: 'start' }}
+                className="flex-shrink-0 w-80 h-96 group relative overflow-hidden rounded-2xl border-0 transition-all duration-500 hover:-translate-y-2"
+                style={{ 
+                  scrollSnapAlign: 'start',
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  backdropFilter: 'blur(16px)',
+                  WebkitBackdropFilter: 'blur(16px)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
+                }}
               >
-                <CardContent className="p-6 h-full flex flex-col">
-                  <img 
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-48 object-cover rounded-xl mb-4 flex-shrink-0"
-                  />
-                  <h4 className="text-xl font-semibold text-[hsl(210,24%,16%)] mb-2 flex-shrink-0">
+                {/* Glass overlay with enhanced hover effect */}
+                <div 
+                  className="absolute inset-0 transition-all duration-500 group-hover:opacity-100 opacity-0 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%)',
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)',
+                  }}
+                />
+                
+                {/* Enhanced border glow on hover */}
+                <div 
+                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1))',
+                    padding: '1px',
+                    mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                    maskComposite: 'xor',
+                    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                    WebkitMaskComposite: 'xor',
+                  }}
+                />
+                
+                <CardContent className="p-6 h-full flex flex-col relative z-10">
+                  <div className="relative w-full h-48 mb-4 flex-shrink-0 rounded-xl overflow-hidden group/image">
+                    <img 
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    {/* Glass overlay on image */}
+                    <div 
+                      className="absolute inset-0 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
+                        backdropFilter: 'blur(2px)',
+                        WebkitBackdropFilter: 'blur(2px)',
+                      }}
+                    />
+                  </div>
+                  <h4 className="text-xl font-semibold mb-2 flex-shrink-0 transition-colors duration-300" 
+                      style={{ 
+                        color: 'rgba(16, 24, 40, 0.9)',
+                        textShadow: '0 1px 2px rgba(255, 255, 255, 0.5)'
+                      }}>
                     {product.name}
                   </h4>
                   <div className="flex items-center gap-2 mb-4 flex-shrink-0">
                     {product.originalPrice && (
-                      <p className="text-lg text-gray-500 line-through">
+                      <p className="text-lg line-through transition-colors duration-300"
+                         style={{ 
+                           color: 'rgba(107, 114, 128, 0.8)',
+                           textShadow: '0 1px 1px rgba(255, 255, 255, 0.3)'
+                         }}>
                         {product.originalPrice}
                       </p>
                     )}
-                    <p className={`text-2xl font-bold ${
+                    <p className={`text-2xl font-bold transition-colors duration-300 ${
                       product.originalPrice 
                         ? 'text-[hsl(13,100%,60%)]' 
-                        : 'text-[hsl(210,24%,16%)]'
-                    }`}>
+                        : ''
+                    }`}
+                    style={{ 
+                      color: product.originalPrice 
+                        ? 'hsl(13,100%,60%)' 
+                        : 'rgba(16, 24, 40, 0.9)',
+                      textShadow: '0 1px 2px rgba(255, 255, 255, 0.5)'
+                    }}>
                       {product.price}
                     </p>
                   </div>
                   <Button 
-                    className="w-full bg-[hsl(210,24%,16%)] text-white hover:bg-[hsl(210,24%,12%)] py-3 rounded-xl font-semibold transition-colors duration-300 mt-auto"
+                    className="w-full py-3 rounded-xl font-semibold mt-auto relative overflow-hidden group/button transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(16, 24, 40, 0.9) 0%, rgba(16, 24, 40, 0.8) 100%)',
+                      backdropFilter: 'blur(10px)',
+                      WebkitBackdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      color: 'rgba(255, 255, 255, 0.95)',
+                      textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
+                      boxShadow: '0 4px 16px rgba(16, 24, 40, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+                    }}
                   >
-                    Shop Now
+                    {/* Button glass overlay */}
+                    <div 
+                      className="absolute inset-0 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
+                        backdropFilter: 'blur(8px)',
+                        WebkitBackdropFilter: 'blur(8px)',
+                      }}
+                    />
+                    <span className="relative z-10">Shop Now</span>
                   </Button>
                 </CardContent>
               </Card>
