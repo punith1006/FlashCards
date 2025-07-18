@@ -110,7 +110,7 @@ export function FeaturedProducts() {
           </h2>
           <Button 
             variant="outline" 
-            className="font-medium px-6 py-3 rounded-lg flex items-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            className="px-6 py-3 rounded-lg flex items-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-lg text-[20px] font-semibold"
             style={{
               background: 'rgba(255, 255, 255, 0.1)',
               backdropFilter: 'blur(16px)',
