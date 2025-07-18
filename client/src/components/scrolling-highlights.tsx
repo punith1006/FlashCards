@@ -6,7 +6,7 @@ export function ScrollingHighlights() {
   ];
 
   return (
-    <section className="py-3 bg-gray-100 text-gray-800 overflow-hidden border-y border-gray-200">
+    <section className="py-3 bg-white text-black overflow-hidden border-y border-gray-200">
       <div className="relative">
         <div className="flex animate-scroll">
           {/* First set */}
@@ -14,7 +14,7 @@ export function ScrollingHighlights() {
             {highlights.map((highlight, index) => (
               <div key={`first-${index}`} className="flex items-center">
                 <span className="text-sm font-medium px-12">{highlight}</span>
-                <span className="text-gray-400 px-4">•</span>
+                <span className="text-gray-600 px-4">•</span>
               </div>
             ))}
           </div>
@@ -24,7 +24,7 @@ export function ScrollingHighlights() {
             {highlights.map((highlight, index) => (
               <div key={`second-${index}`} className="flex items-center">
                 <span className="text-sm font-medium px-12">{highlight}</span>
-                <span className="text-gray-400 px-4">•</span>
+                <span className="text-gray-600 px-4">•</span>
               </div>
             ))}
           </div>
@@ -34,7 +34,7 @@ export function ScrollingHighlights() {
             {highlights.map((highlight, index) => (
               <div key={`third-${index}`} className="flex items-center">
                 <span className="text-sm font-medium px-12">{highlight}</span>
-                <span className="text-gray-400 px-4">•</span>
+                <span className="text-gray-600 px-4">•</span>
               </div>
             ))}
           </div>
