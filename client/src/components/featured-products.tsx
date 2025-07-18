@@ -110,7 +110,7 @@ export function FeaturedProducts() {
           </h2>
           <Button 
             variant="outline" 
-            className="font-medium px-6 py-3 rounded-full flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            className="font-medium px-6 py-3 rounded-lg flex items-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-lg"
             style={{
               background: 'rgba(255, 255, 255, 0.1)',
               backdropFilter: 'blur(16px)',
@@ -121,8 +121,8 @@ export function FeaturedProducts() {
             }}
           >
             Shop All Products
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg className="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </Button>
         </div>
