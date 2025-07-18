@@ -171,20 +171,16 @@ export function FeaturedProducts() {
             ))}
           </div>
           
-          {/* Navigation Dots */}
-          <div className="flex justify-center mt-6 space-x-2">
-            {Array.from({ length: totalSlides }, (_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  currentSlide === index
-                    ? 'bg-[hsl(13,100%,60%)] w-8'
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
+          {/* Single Slider Progress Bar */}
+          <div className="flex justify-center mt-6">
+            <div className="relative w-64 h-1 bg-gray-300 rounded-full overflow-hidden">
+              <div 
+                className="absolute top-0 left-0 h-full bg-[hsl(13,100%,60%)] rounded-full transition-all duration-300 ease-out"
+                style={{ 
+                  width: `${((currentSlide + 1) / totalSlides) * 100}%` 
+                }}
               />
-            ))}
+            </div>
           </div>
         </div>
       </div>
