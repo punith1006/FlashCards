@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 interface Product {
   id: number;
@@ -14,6 +14,7 @@ interface Product {
 
 export function FeaturedProducts() {
   const sliderRef = useRef<HTMLDivElement>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const products: Product[] = [
     {
@@ -67,7 +68,47 @@ export function FeaturedProducts() {
     }
   ];
 
+  // Calculate number of slides based on screen size
+  const getVisibleProducts = () => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth < 768) return 1; // Mobile: 1 product
+      if (window.innerWidth < 1024) return 2; // Tablet: 2 products
+      return 3; // Desktop: 3 products
+    }
+    return 3;
+  };
 
+  const visibleProducts = getVisibleProducts();
+  const totalSlides = Math.ceil(products.length / visibleProducts);
+
+  // Handle scroll to update current slide indicator
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sliderRef.current) {
+        const scrollLeft = sliderRef.current.scrollLeft;
+        const slideWidth = sliderRef.current.offsetWidth;
+        const newSlide = Math.round(scrollLeft / slideWidth);
+        setCurrentSlide(newSlide);
+      }
+    };
+
+    const slider = sliderRef.current;
+    if (slider) {
+      slider.addEventListener('scroll', handleScroll);
+      return () => slider.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
+
+  // Navigate to specific slide
+  const goToSlide = (slideIndex: number) => {
+    if (sliderRef.current) {
+      const slideWidth = sliderRef.current.offsetWidth;
+      sliderRef.current.scrollTo({
+        left: slideIndex * slideWidth,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <section className="py-20 bg-white">
@@ -132,13 +173,20 @@ export function FeaturedProducts() {
             ))}
           </div>
           
-          {/* Scroll Indicator */}
-          <div className="flex justify-center mt-4 space-x-2">
-            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-            <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+          {/* Navigation Dots */}
+          <div className="flex justify-center mt-6 space-x-2">
+            {Array.from({ length: totalSlides }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  currentSlide === index
+                    ? 'bg-orange-500 w-8'
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </div>
