@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
 interface Product {
@@ -12,7 +13,8 @@ interface Product {
 
 export function FeaturedProducts() {
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
   const products: Product[] = [
     {
@@ -66,23 +68,37 @@ export function FeaturedProducts() {
     }
   ];
 
-  // Handle scroll to update current slide indicator
+  // Handle scroll to update navigation button states
   useEffect(() => {
     const handleScroll = () => {
       if (sliderRef.current) {
-        const scrollLeft = sliderRef.current.scrollLeft;
-        const maxScroll = sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
-        const scrollPercentage = maxScroll > 0 ? scrollLeft / maxScroll : 0;
-        setCurrentSlide(scrollPercentage);
+        const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
+        setCanScrollLeft(scrollLeft > 0);
+        setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
       }
     };
 
     const slider = sliderRef.current;
     if (slider) {
       slider.addEventListener('scroll', handleScroll);
+      // Initial check
+      handleScroll();
       return () => slider.removeEventListener('scroll', handleScroll);
     }
   }, []);
+
+  // Navigation functions
+  const scrollLeft = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: -320, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: 320, behavior: 'smooth' });
+    }
+  };
 
   return (
     <section className="py-20 bg-white">
@@ -102,10 +118,37 @@ export function FeaturedProducts() {
 
         {/* Product Slider Container */}
         <div className="relative">
+          {/* Navigation Buttons */}
+          <button
+            onClick={scrollLeft}
+            disabled={!canScrollLeft}
+            className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center transition-all duration-200 ${
+              canScrollLeft 
+                ? 'opacity-100 hover:shadow-xl cursor-pointer' 
+                : 'opacity-50 cursor-not-allowed'
+            }`}
+            aria-label="Previous products"
+          >
+            <ChevronLeft className="w-6 h-6 text-gray-600" />
+          </button>
+          
+          <button
+            onClick={scrollRight}
+            disabled={!canScrollRight}
+            className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center transition-all duration-200 ${
+              canScrollRight 
+                ? 'opacity-100 hover:shadow-xl cursor-pointer' 
+                : 'opacity-50 cursor-not-allowed'
+            }`}
+            aria-label="Next products"
+          >
+            <ChevronRight className="w-6 h-6 text-gray-600" />
+          </button>
+
           {/* Products Slider */}
           <div 
             ref={sliderRef}
-            className="flex overflow-x-scroll gap-6 pb-4 scrollbar-hide"
+            className="flex overflow-x-scroll gap-6 pb-4 scrollbar-hide px-16"
             style={{ 
               scrollSnapType: 'x mandatory'
             }}
@@ -149,17 +192,7 @@ export function FeaturedProducts() {
             ))}
           </div>
           
-          {/* Single Slider Progress Bar */}
-          <div className="mt-6">
-            <div className="relative w-full max-w-2xl h-0.5 bg-gray-300 rounded-full overflow-hidden">
-              <div 
-                className="absolute top-0 left-0 h-full bg-gray-600 rounded-full transition-all duration-150 ease-out"
-                style={{ 
-                  width: `${currentSlide * 100}%` 
-                }}
-              />
-            </div>
-          </div>
+
         </div>
       </div>
     </section>
