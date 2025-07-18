@@ -13,7 +13,7 @@ export function ScrollingHighlights() {
           <div className="flex-shrink-0 flex items-center whitespace-nowrap">
             {highlights.map((highlight, index) => (
               <div key={`first-${index}`} className="flex items-center">
-                <span className="text-sm font-medium px-12">{highlight}</span>
+                <span className="text-base font-bold px-12">{highlight}</span>
                 <span className="text-gray-600 px-4">•</span>
               </div>
             ))}
@@ -23,7 +23,7 @@ export function ScrollingHighlights() {
           <div className="flex-shrink-0 flex items-center whitespace-nowrap">
             {highlights.map((highlight, index) => (
               <div key={`second-${index}`} className="flex items-center">
-                <span className="text-sm font-medium px-12">{highlight}</span>
+                <span className="text-base font-bold px-12">{highlight}</span>
                 <span className="text-gray-600 px-4">•</span>
               </div>
             ))}
@@ -33,7 +33,7 @@ export function ScrollingHighlights() {
           <div className="flex-shrink-0 flex items-center whitespace-nowrap">
             {highlights.map((highlight, index) => (
               <div key={`third-${index}`} className="flex items-center">
-                <span className="text-sm font-medium px-12">{highlight}</span>
+                <span className="text-base font-bold px-12">{highlight}</span>
                 <span className="text-gray-600 px-4">•</span>
               </div>
             ))}
