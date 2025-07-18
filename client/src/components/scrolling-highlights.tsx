@@ -6,15 +6,15 @@ export function ScrollingHighlights() {
   ];
 
   return (
-    <section className="py-6 bg-[hsl(210,24%,16%)] text-white overflow-hidden">
+    <section className="py-3 bg-gray-100 text-gray-800 overflow-hidden border-y border-gray-200">
       <div className="relative">
         <div className="flex animate-scroll">
           {/* First set */}
           <div className="flex-shrink-0 flex items-center whitespace-nowrap">
             {highlights.map((highlight, index) => (
               <div key={`first-${index}`} className="flex items-center">
-                <span className="text-sm font-medium px-8">{highlight}</span>
-                <span className="text-[hsl(173,48%,53%)] px-4">•</span>
+                <span className="text-sm font-medium px-12">{highlight}</span>
+                <span className="text-gray-400 px-4">•</span>
               </div>
             ))}
           </div>
@@ -23,8 +23,8 @@ export function ScrollingHighlights() {
           <div className="flex-shrink-0 flex items-center whitespace-nowrap">
             {highlights.map((highlight, index) => (
               <div key={`second-${index}`} className="flex items-center">
-                <span className="text-sm font-medium px-8">{highlight}</span>
-                <span className="text-[hsl(173,48%,53%)] px-4">•</span>
+                <span className="text-sm font-medium px-12">{highlight}</span>
+                <span className="text-gray-400 px-4">•</span>
               </div>
             ))}
           </div>
@@ -33,8 +33,8 @@ export function ScrollingHighlights() {
           <div className="flex-shrink-0 flex items-center whitespace-nowrap">
             {highlights.map((highlight, index) => (
               <div key={`third-${index}`} className="flex items-center">
-                <span className="text-sm font-medium px-8">{highlight}</span>
-                <span className="text-[hsl(173,48%,53%)] px-4">•</span>
+                <span className="text-sm font-medium px-12">{highlight}</span>
+                <span className="text-gray-400 px-4">•</span>
               </div>
             ))}
           </div>
