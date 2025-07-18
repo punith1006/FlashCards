@@ -103,6 +103,7 @@ export function FeaturedProducts() {
   return (
     <section className="py-20 relative" style={{
       background: 'linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(241, 245, 249, 0.95) 100%)',
+      backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.3) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(173, 216, 230, 0.2) 0%, transparent 50%)',
     }}>
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Section Header */}
@@ -187,36 +188,56 @@ export function FeaturedProducts() {
             {products.map((product) => (
               <Card 
                 key={product.id}
-                className="flex-shrink-0 w-80 h-96 group relative overflow-hidden rounded-2xl border-0 transition-all duration-500 hover:-translate-y-2"
+                className="flex-shrink-0 w-80 h-96 group relative overflow-hidden rounded-2xl border-0 transition-all duration-500 hover:-translate-y-2 glass-card glass-hover"
                 style={{ 
                   scrollSnapAlign: 'start',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  backdropFilter: 'blur(16px)',
-                  WebkitBackdropFilter: 'blur(16px)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(255, 255, 255, 0.18)',
+                  boxShadow: '0 8px 32px rgba(31, 38, 135, 0.37), 0 4px 16px rgba(31, 38, 135, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
                 }}
               >
-                {/* Glass overlay with enhanced hover effect */}
+                {/* Liquid Glass Base Layer */}
                 <div 
-                  className="absolute inset-0 transition-all duration-500 group-hover:opacity-100 opacity-0 pointer-events-none"
+                  className="absolute inset-0 pointer-events-none"
                   style={{
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%)',
-                    backdropFilter: 'blur(20px)',
-                    WebkitBackdropFilter: 'blur(20px)',
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%)',
+                    backdropFilter: 'blur(25px)',
+                    WebkitBackdropFilter: 'blur(25px)',
                   }}
                 />
                 
-                {/* Enhanced border glow on hover */}
+                {/* Enhanced liquid glass hover effect */}
                 <div 
-                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  className="absolute inset-0 transition-all duration-700 group-hover:opacity-100 opacity-0 pointer-events-none"
                   style={{
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1))',
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%)',
+                    backdropFilter: 'blur(30px)',
+                    WebkitBackdropFilter: 'blur(30px)',
+                  }}
+                />
+                
+                {/* Liquid glass border effect */}
+                <div 
+                  className="absolute inset-0 rounded-2xl opacity-40 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1))',
                     padding: '1px',
                     mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
                     maskComposite: 'xor',
                     WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
                     WebkitMaskComposite: 'xor',
+                  }}
+                />
+                
+                {/* iOS-style frosted glass overlay */}
+                <div 
+                  className="absolute inset-0 rounded-2xl opacity-30 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none"
+                  style={{
+                    background: 'radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 70%, transparent 100%)',
+                    backdropFilter: 'blur(15px) saturate(150%)',
+                    WebkitBackdropFilter: 'blur(15px) saturate(150%)',
                   }}
                 />
                 
