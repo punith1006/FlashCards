@@ -30,6 +30,16 @@ export function ScrollingHighlights() {
               </div>
             ))}
           </div>
+          
+          {/* Third set for better loop coverage */}
+          <div className="flex-shrink-0 flex items-center space-x-12 px-6 whitespace-nowrap">
+            {highlights.map((highlight, index) => (
+              <div key={`third-${index}`} className="flex items-center space-x-12">
+                <span className="text-sm font-medium">{highlight}</span>
+                <span className="text-teal-400">•</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
