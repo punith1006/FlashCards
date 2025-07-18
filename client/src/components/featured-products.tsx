@@ -118,37 +118,37 @@ export function FeaturedProducts() {
 
         {/* Product Slider Container */}
         <div className="relative">
-          {/* Navigation Buttons */}
+          {/* Navigation Buttons - Outside the product lineup */}
           <button
             onClick={scrollLeft}
             disabled={!canScrollLeft}
-            className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center transition-all duration-200 ${
+            className={`absolute -left-16 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center transition-all duration-200 ${
               canScrollLeft 
                 ? 'opacity-100 hover:shadow-lg hover:bg-gray-50 cursor-pointer' 
                 : 'opacity-30 cursor-not-allowed'
             }`}
             aria-label="Previous products"
           >
-            <ChevronLeft className={`w-5 h-5 ${canScrollLeft ? 'text-gray-700' : 'text-gray-400'}`} />
+            <ChevronLeft className={`w-6 h-6 ${canScrollLeft ? 'text-gray-700' : 'text-gray-400'}`} />
           </button>
           
           <button
             onClick={scrollRight}
             disabled={!canScrollRight}
-            className={`absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center transition-all duration-200 ${
+            className={`absolute -right-16 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center transition-all duration-200 ${
               canScrollRight 
                 ? 'opacity-100 hover:shadow-lg hover:bg-gray-50 cursor-pointer' 
                 : 'opacity-30 cursor-not-allowed'
             }`}
             aria-label="Next products"
           >
-            <ChevronRight className={`w-5 h-5 ${canScrollRight ? 'text-gray-700' : 'text-gray-400'}`} />
+            <ChevronRight className={`w-6 h-6 ${canScrollRight ? 'text-gray-700' : 'text-gray-400'}`} />
           </button>
 
           {/* Products Slider */}
           <div 
             ref={sliderRef}
-            className="flex overflow-x-scroll gap-6 pb-4 scrollbar-hide px-12"
+            className="flex overflow-x-scroll gap-6 pb-4 scrollbar-hide"
             style={{ 
               scrollSnapType: 'x mandatory'
             }}
