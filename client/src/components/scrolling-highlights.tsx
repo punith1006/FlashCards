@@ -6,7 +6,7 @@ export function ScrollingHighlights() {
   ];
 
   return (
-    <section className="py-3 bg-white text-black overflow-hidden border-y border-gray-200">
+    <section className="py-3 text-black overflow-hidden border-y border-gray-200 bg-[#FEF1E1] font-bold text-[18px]">
       <div className="relative">
         <div className="flex animate-scroll">
           {/* First set */}
