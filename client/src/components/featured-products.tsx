@@ -73,16 +73,16 @@ export function FeaturedProducts() {
     const handleScroll = () => {
       if (sliderRef.current) {
         const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
-        setCanScrollLeft(scrollLeft > 0);
-        setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+        setCanScrollLeft(scrollLeft > 5); // Small threshold for precision
+        setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 5);
       }
     };
 
     const slider = sliderRef.current;
     if (slider) {
       slider.addEventListener('scroll', handleScroll);
-      // Initial check
-      handleScroll();
+      // Initial check after a small delay to ensure proper rendering
+      setTimeout(handleScroll, 100);
       return () => slider.removeEventListener('scroll', handleScroll);
     }
   }, []);
@@ -122,33 +122,33 @@ export function FeaturedProducts() {
           <button
             onClick={scrollLeft}
             disabled={!canScrollLeft}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center transition-all duration-200 ${
+            className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center transition-all duration-200 ${
               canScrollLeft 
-                ? 'opacity-100 hover:shadow-xl cursor-pointer' 
-                : 'opacity-50 cursor-not-allowed'
+                ? 'opacity-100 hover:shadow-lg hover:bg-gray-50 cursor-pointer' 
+                : 'opacity-30 cursor-not-allowed'
             }`}
             aria-label="Previous products"
           >
-            <ChevronLeft className="w-6 h-6 text-gray-600" />
+            <ChevronLeft className={`w-5 h-5 ${canScrollLeft ? 'text-gray-700' : 'text-gray-400'}`} />
           </button>
           
           <button
             onClick={scrollRight}
             disabled={!canScrollRight}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center transition-all duration-200 ${
+            className={`absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center transition-all duration-200 ${
               canScrollRight 
-                ? 'opacity-100 hover:shadow-xl cursor-pointer' 
-                : 'opacity-50 cursor-not-allowed'
+                ? 'opacity-100 hover:shadow-lg hover:bg-gray-50 cursor-pointer' 
+                : 'opacity-30 cursor-not-allowed'
             }`}
             aria-label="Next products"
           >
-            <ChevronRight className="w-6 h-6 text-gray-600" />
+            <ChevronRight className={`w-5 h-5 ${canScrollRight ? 'text-gray-700' : 'text-gray-400'}`} />
           </button>
 
           {/* Products Slider */}
           <div 
             ref={sliderRef}
-            className="flex overflow-x-scroll gap-6 pb-4 scrollbar-hide px-16"
+            className="flex overflow-x-scroll gap-6 pb-4 scrollbar-hide px-12"
             style={{ 
               scrollSnapType: 'x mandatory'
             }}
