@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef } from "react";
 
 interface Product {
@@ -68,20 +67,7 @@ export function FeaturedProducts() {
     }
   ];
 
-  const scrollProducts = (direction: 'left' | 'right') => {
-    if (sliderRef.current) {
-      const scrollAmount = 320; // Width of one product card plus gap
-      const currentScroll = sliderRef.current.scrollLeft;
-      const targetScroll = direction === 'left' 
-        ? currentScroll - scrollAmount 
-        : currentScroll + scrollAmount;
-      
-      sliderRef.current.scrollTo({
-        left: targetScroll,
-        behavior: 'smooth'
-      });
-    }
-  };
+
 
   return (
     <section className="py-20 bg-white">
@@ -101,29 +87,10 @@ export function FeaturedProducts() {
 
         {/* Product Slider Container */}
         <div className="relative">
-          {/* Navigation Arrows */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-            onClick={() => scrollProducts('left')}
-          >
-            <ChevronLeft className="w-6 h-6 text-slate-800" />
-          </Button>
-          
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-            onClick={() => scrollProducts('right')}
-          >
-            <ChevronRight className="w-6 h-6 text-slate-800" />
-          </Button>
-
           {/* Products Slider */}
           <div 
             ref={sliderRef}
-            className="flex overflow-x-auto scrollbar-hide gap-6 pb-4 scroll-smooth"
+            className="flex overflow-x-auto scrollbar-hide gap-6 pb-4 scroll-smooth cursor-grab active:cursor-grabbing"
             style={{ scrollSnapType: 'x mandatory' }}
           >
             {products.map((product) => (
@@ -163,6 +130,15 @@ export function FeaturedProducts() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          
+          {/* Scroll Indicator */}
+          <div className="flex justify-center mt-4 space-x-2">
+            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+            <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
           </div>
         </div>
       </div>

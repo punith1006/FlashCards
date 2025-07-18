@@ -69,6 +69,31 @@
   scroll-behavior: smooth;
 }
 
+/* Enhanced slider styles */
+.cursor-grab {
+  cursor: grab;
+}
+
+.cursor-grab:active {
+  cursor: grabbing;
+}
+
+/* Smooth scroll snap for better user experience */
+.scroll-snap-x {
+  scroll-snap-type: x mandatory;
+}
+
+.scroll-snap-start {
+  scroll-snap-align: start;
+}
+
+/* Mobile touch scrolling improvements */
+@media (max-width: 768px) {
+  .scrollbar-hide {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 /* Custom gradient backgrounds */
 .gradient-bg {
   background: linear-gradient(135deg, rgb(240, 253, 250) 0%, rgb(255, 251, 235) 100%);
