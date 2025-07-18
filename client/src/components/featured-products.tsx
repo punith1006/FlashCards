@@ -101,7 +101,7 @@ export function FeaturedProducts() {
   };
 
   return (
-    <section className="py-20 relative">
+    <section className="py-12 relative">
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Section Header */}
         <div className="flex justify-between items-center mb-12">

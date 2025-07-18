@@ -37,17 +37,17 @@ function Feature({ icon, title, description, delay = 0 }: FeatureProps) {
       }`}
     >
       {/* Simple clean icon */}
-      <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+      <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
         {icon}
       </div>
       
       {/* Title */}
-      <h3 className="text-xl font-semibold text-gray-900 mb-4">
+      <h3 className="text-2xl font-semibold text-gray-900 mb-4">
         {title}
       </h3>
       
       {/* Description */}
-      <p className="text-gray-600 text-sm leading-relaxed">
+      <p className="text-gray-600 text-base leading-relaxed">
         {description}
       </p>
     </div>
@@ -57,24 +57,24 @@ function Feature({ icon, title, description, delay = 0 }: FeatureProps) {
 export function FeaturesSection() {
   const features = [
     {
-      icon: <Scale className="w-12 h-12 text-gray-700" />,
+      icon: <Scale className="w-14 h-14 text-gray-700" />,
       title: "Support Weight Loss",
       description: "Turn fat into fuel. Easy for beginners and effective for pros."
     },
     {
-      icon: <Utensils className="w-12 h-12 text-gray-700" />,
+      icon: <Utensils className="w-14 h-14 text-gray-700" />,
       title: "Enjoy Tasty Food", 
       description: "You can still indulge. A keto diet is a delicious diet that fuels your body and mind."
     },
     {
-      icon: <Zap className="w-12 h-12 text-gray-700" />,
+      icon: <Zap className="w-14 h-14 text-gray-700" />,
       title: "Feel Energized",
       description: "Focus for longer, think more clearly, and power through your workouts."
     }
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-12 bg-gray-50">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid md:grid-cols-3 gap-12">
           {features.map((feature, index) => (
