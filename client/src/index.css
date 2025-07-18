@@ -98,6 +98,25 @@
   .product-slider > * {
     scroll-snap-align: start;
   }
+
+  /* Hide scrollbar for slider */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+  }
+
+  /* Enhanced slider styles */
+  .cursor-grab {
+    cursor: grab;
+  }
+
+  .cursor-grab:active {
+    cursor: grabbing;
+  }
   
   @keyframes fadeIn {
     from { 

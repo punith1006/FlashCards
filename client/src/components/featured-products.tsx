@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 interface Product {
   id: number;
@@ -13,6 +12,7 @@ interface Product {
 
 export function FeaturedProducts() {
   const sliderRef = useRef<HTMLDivElement>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const products: Product[] = [
     {
@@ -66,16 +66,43 @@ export function FeaturedProducts() {
     }
   ];
 
-  const scrollProducts = (direction: 'left' | 'right') => {
+  // Calculate number of slides based on screen size
+  const getVisibleProducts = () => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth < 768) return 1; // Mobile: 1 product
+      if (window.innerWidth < 1024) return 2; // Tablet: 2 products
+      return 3; // Desktop: 3 products
+    }
+    return 3;
+  };
+
+  const visibleProducts = getVisibleProducts();
+  const totalSlides = Math.ceil(products.length / visibleProducts);
+
+  // Handle scroll to update current slide indicator
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sliderRef.current) {
+        const scrollLeft = sliderRef.current.scrollLeft;
+        const slideWidth = sliderRef.current.offsetWidth;
+        const newSlide = Math.round(scrollLeft / slideWidth);
+        setCurrentSlide(newSlide);
+      }
+    };
+
+    const slider = sliderRef.current;
+    if (slider) {
+      slider.addEventListener('scroll', handleScroll);
+      return () => slider.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
+
+  // Navigate to specific slide
+  const goToSlide = (slideIndex: number) => {
     if (sliderRef.current) {
-      const scrollAmount = 320; // Width of one product card plus gap
-      const currentScroll = sliderRef.current.scrollLeft;
-      const targetScroll = direction === 'left' 
-        ? currentScroll - scrollAmount 
-        : currentScroll + scrollAmount;
-      
+      const slideWidth = sliderRef.current.offsetWidth;
       sliderRef.current.scrollTo({
-        left: targetScroll,
+        left: slideIndex * slideWidth,
         behavior: 'smooth'
       });
     }
@@ -99,45 +126,28 @@ export function FeaturedProducts() {
 
         {/* Product Slider Container */}
         <div className="relative">
-          {/* Navigation Arrows */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-            onClick={() => scrollProducts('left')}
-          >
-            <ChevronLeft className="w-6 h-6 text-[hsl(210,24%,16%)]" />
-          </Button>
-          
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-            onClick={() => scrollProducts('right')}
-          >
-            <ChevronRight className="w-6 h-6 text-[hsl(210,24%,16%)]" />
-          </Button>
-
           {/* Products Slider */}
           <div 
             ref={sliderRef}
-            className="flex overflow-x-auto product-slider gap-6 pb-4"
+            className="flex overflow-x-auto scrollbar-hide gap-6 pb-4 scroll-smooth cursor-grab active:cursor-grabbing"
+            style={{ scrollSnapType: 'x mandatory' }}
           >
             {products.map((product) => (
               <Card 
                 key={product.id}
-                className="flex-shrink-0 w-80 hover-lift bg-white rounded-2xl shadow-lg border-0"
+                className="flex-shrink-0 w-80 h-96 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white rounded-2xl shadow-lg border-0"
+                style={{ scrollSnapAlign: 'start' }}
               >
-                <CardContent className="p-6">
+                <CardContent className="p-6 h-full flex flex-col">
                   <img 
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-48 object-cover rounded-xl mb-4"
+                    className="w-full h-48 object-cover rounded-xl mb-4 flex-shrink-0"
                   />
-                  <h4 className="text-xl font-semibold text-[hsl(210,24%,16%)] mb-2">
+                  <h4 className="text-xl font-semibold text-[hsl(210,24%,16%)] mb-2 flex-shrink-0">
                     {product.name}
                   </h4>
-                  <div className="flex items-center gap-2 mb-4">
+                  <div className="flex items-center gap-2 mb-4 flex-shrink-0">
                     {product.originalPrice && (
                       <p className="text-lg text-gray-500 line-through">
                         {product.originalPrice}
@@ -152,12 +162,28 @@ export function FeaturedProducts() {
                     </p>
                   </div>
                   <Button 
-                    className="w-full bg-[hsl(210,24%,16%)] text-white hover:bg-[hsl(210,24%,12%)] py-3 rounded-xl font-semibold transition-colors duration-300"
+                    className="w-full bg-[hsl(210,24%,16%)] text-white hover:bg-[hsl(210,24%,12%)] py-3 rounded-xl font-semibold transition-colors duration-300 mt-auto"
                   >
                     Shop Now
                   </Button>
                 </CardContent>
               </Card>
+            ))}
+          </div>
+          
+          {/* Navigation Dots */}
+          <div className="flex justify-center mt-6 space-x-2">
+            {Array.from({ length: totalSlides }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  currentSlide === index
+                    ? 'bg-[hsl(13,100%,60%)] w-8'
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
             ))}
           </div>
         </div>
