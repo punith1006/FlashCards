@@ -101,10 +101,7 @@ export function FeaturedProducts() {
   };
 
   return (
-    <section className="py-20 relative" style={{
-      background: 'linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(241, 245, 249, 0.95) 100%)',
-      backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.3) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(173, 216, 230, 0.2) 0%, transparent 50%)',
-    }}>
+    <section className="py-20 relative">
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Section Header */}
         <div className="flex justify-between items-center mb-12">
