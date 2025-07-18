@@ -38,13 +38,14 @@ function Feature({ icon, title, description, delay = 0 }: FeatureProps) {
     >
       {/* Liquid Glass Container */}
       <div 
-        className="relative p-8 rounded-3xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+        className="relative p-8 rounded-3xl transition-all duration-500 hover:-translate-y-2 overflow-hidden h-full flex flex-col justify-between"
         style={{
           background: 'rgba(255, 255, 255, 0.08)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
           border: '1px solid rgba(255, 255, 255, 0.18)',
           boxShadow: '0 8px 32px rgba(31, 38, 135, 0.37), 0 4px 16px rgba(31, 38, 135, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
+          minHeight: '320px',
         }}
       >
         {/* Liquid Glass Base Layer */}
@@ -91,7 +92,7 @@ function Feature({ icon, title, description, delay = 0 }: FeatureProps) {
         />
 
         {/* Content - relative positioning to appear above glass layers */}
-        <div className="relative z-10">
+        <div className="relative z-10 flex flex-col h-full">
           <div 
             className="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110"
             style={{
@@ -104,14 +105,14 @@ function Feature({ icon, title, description, delay = 0 }: FeatureProps) {
           >
             {icon}
           </div>
-          <h3 className="text-2xl font-bold mb-4 transition-colors duration-300" 
+          <h3 className="text-2xl font-bold mb-4 transition-colors duration-300 text-center" 
               style={{ 
                 color: 'rgba(16, 24, 40, 0.9)',
                 textShadow: '0 1px 2px rgba(255, 255, 255, 0.5)'
               }}>
             {title}
           </h3>
-          <p className="leading-relaxed transition-colors duration-300"
+          <p className="leading-relaxed transition-colors duration-300 text-center flex-grow flex items-center justify-center"
              style={{ 
                color: 'rgba(107, 114, 128, 0.8)',
                textShadow: '0 1px 1px rgba(255, 255, 255, 0.3)'
@@ -149,7 +150,7 @@ export function FeaturesSection() {
       backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.3) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(173, 216, 230, 0.2) 0%, transparent 50%)',
     }}>
       <div className="container mx-auto px-6 max-w-6xl">
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-3 gap-12 items-stretch">
           {features.map((feature, index) => (
             <Feature
               key={index}
