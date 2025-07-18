@@ -105,14 +105,17 @@ export function FeaturedProducts() {
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Section Header */}
         <div className="flex justify-between items-center mb-12">
-          <h2 className="text-4xl font-bold text-[hsl(210,24%,16%)]">
+          <h2 className="text-5xl font-bold text-[hsl(210,24%,16%)] tracking-tight">
             Featured products
           </h2>
           <Button 
-            variant="link" 
-            className="text-[hsl(13,100%,60%)] hover:text-[hsl(13,100%,50%)] font-semibold text-lg p-0"
+            variant="outline" 
+            className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:text-gray-900 font-medium px-6 py-3 rounded-full flex items-center gap-2"
           >
-            Explore All →
+            Shop All Products
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </Button>
         </div>
 
