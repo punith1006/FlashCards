@@ -185,42 +185,42 @@ export function FeaturedProducts() {
             {products.map((product) => (
               <Card 
                 key={product.id}
-                className="flex-shrink-0 w-80 h-96 group relative overflow-hidden rounded-2xl border-0 transition-all duration-500 hover:-translate-y-2 glass-card glass-hover"
+                className="flex-shrink-0 w-80 h-96 group relative overflow-hidden rounded-3xl border-0 transition-all duration-500 hover:-translate-y-2"
                 style={{ 
                   scrollSnapAlign: 'start',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  backdropFilter: 'blur(20px)',
-                  WebkitBackdropFilter: 'blur(20px)',
-                  border: '1px solid rgba(255, 255, 255, 0.18)',
-                  boxShadow: '0 8px 32px rgba(31, 38, 135, 0.37), 0 4px 16px rgba(31, 38, 135, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
+                  background: 'rgba(255, 255, 255, 0.03)',
+                  backdropFilter: 'blur(40px) saturate(150%)',
+                  WebkitBackdropFilter: 'blur(40px) saturate(150%)',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 16px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
                 }}
               >
-                {/* Liquid Glass Base Layer */}
+                {/* Ultra-transparent iOS glass base */}
                 <div 
-                  className="absolute inset-0 pointer-events-none"
+                  className="absolute inset-0 pointer-events-none rounded-3xl"
                   style={{
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%)',
-                    backdropFilter: 'blur(25px)',
-                    WebkitBackdropFilter: 'blur(25px)',
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%)',
+                    backdropFilter: 'blur(50px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(50px) saturate(180%)',
                   }}
                 />
                 
-                {/* Enhanced liquid glass hover effect */}
+                {/* iOS-style hover enhancement */}
                 <div 
-                  className="absolute inset-0 transition-all duration-700 group-hover:opacity-100 opacity-0 pointer-events-none"
+                  className="absolute inset-0 transition-all duration-700 group-hover:opacity-100 opacity-0 pointer-events-none rounded-3xl"
                   style={{
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%)',
-                    backdropFilter: 'blur(30px)',
-                    WebkitBackdropFilter: 'blur(30px)',
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.01) 100%)',
+                    backdropFilter: 'blur(60px) saturate(200%)',
+                    WebkitBackdropFilter: 'blur(60px) saturate(200%)',
                   }}
                 />
                 
-                {/* Liquid glass border effect */}
+                {/* Subtle border glow */}
                 <div 
-                  className="absolute inset-0 rounded-2xl opacity-40 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  className="absolute inset-0 rounded-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"
                   style={{
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1))',
-                    padding: '1px',
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05))',
+                    padding: '0.5px',
                     mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
                     maskComposite: 'xor',
                     WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
@@ -228,37 +228,37 @@ export function FeaturedProducts() {
                   }}
                 />
                 
-                {/* iOS-style frosted glass overlay */}
+                {/* Ultra-subtle radial highlight */}
                 <div 
-                  className="absolute inset-0 rounded-2xl opacity-30 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none"
+                  className="absolute inset-0 rounded-3xl opacity-10 group-hover:opacity-25 transition-opacity duration-500 pointer-events-none"
                   style={{
-                    background: 'radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 70%, transparent 100%)',
-                    backdropFilter: 'blur(15px) saturate(150%)',
-                    WebkitBackdropFilter: 'blur(15px) saturate(150%)',
+                    background: 'radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 50%, transparent 100%)',
+                    backdropFilter: 'blur(20px) saturate(150%)',
+                    WebkitBackdropFilter: 'blur(20px) saturate(150%)',
                   }}
                 />
                 
                 <CardContent className="p-6 h-full flex flex-col relative z-10">
-                  <div className="relative w-full h-48 mb-4 flex-shrink-0 rounded-xl overflow-hidden group/image">
+                  <div className="relative w-full h-48 mb-4 flex-shrink-0 rounded-2xl overflow-hidden group/image">
                     <img 
                       src={product.image}
                       alt={product.name}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    {/* Glass overlay on image */}
+                    {/* Ultra-subtle glass overlay on image */}
                     <div 
-                      className="absolute inset-0 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300"
+                      className="absolute inset-0 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 rounded-2xl"
                       style={{
-                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
-                        backdropFilter: 'blur(2px)',
-                        WebkitBackdropFilter: 'blur(2px)',
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%)',
+                        backdropFilter: 'blur(1px) saturate(120%)',
+                        WebkitBackdropFilter: 'blur(1px) saturate(120%)',
                       }}
                     />
                   </div>
                   <h4 className="text-xl font-semibold mb-2 flex-shrink-0 transition-colors duration-300" 
                       style={{ 
-                        color: 'rgba(16, 24, 40, 0.9)',
-                        textShadow: '0 1px 2px rgba(255, 255, 255, 0.5)'
+                        color: 'rgba(16, 24, 40, 0.95)',
+                        textShadow: '0 0.5px 1px rgba(255, 255, 255, 0.3)'
                       }}>
                     {product.name}
                   </h4>
@@ -266,8 +266,8 @@ export function FeaturedProducts() {
                     {product.originalPrice && (
                       <p className="text-lg line-through transition-colors duration-300"
                          style={{ 
-                           color: 'rgba(107, 114, 128, 0.8)',
-                           textShadow: '0 1px 1px rgba(255, 255, 255, 0.3)'
+                           color: 'rgba(107, 114, 128, 0.85)',
+                           textShadow: '0 0.5px 1px rgba(255, 255, 255, 0.2)'
                          }}>
                         {product.originalPrice}
                       </p>
@@ -280,31 +280,31 @@ export function FeaturedProducts() {
                     style={{ 
                       color: product.originalPrice 
                         ? 'hsl(13,100%,60%)' 
-                        : 'rgba(16, 24, 40, 0.9)',
-                      textShadow: '0 1px 2px rgba(255, 255, 255, 0.5)'
+                        : 'rgba(16, 24, 40, 0.95)',
+                      textShadow: '0 0.5px 1px rgba(255, 255, 255, 0.3)'
                     }}>
                       {product.price}
                     </p>
                   </div>
                   <Button 
-                    className="w-full py-3 rounded-xl font-semibold mt-auto relative overflow-hidden group/button transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                    className="w-full py-3 rounded-2xl font-semibold mt-auto relative overflow-hidden group/button transition-all duration-300 hover:scale-105 hover:shadow-lg"
                     style={{
-                      background: 'linear-gradient(135deg, rgba(16, 24, 40, 0.9) 0%, rgba(16, 24, 40, 0.8) 100%)',
-                      backdropFilter: 'blur(10px)',
-                      WebkitBackdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      background: 'rgba(16, 24, 40, 0.85)',
+                      backdropFilter: 'blur(25px) saturate(140%)',
+                      WebkitBackdropFilter: 'blur(25px) saturate(140%)',
+                      border: '1px solid rgba(255, 255, 255, 0.08)',
                       color: 'rgba(255, 255, 255, 0.95)',
-                      textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
-                      boxShadow: '0 4px 16px rgba(16, 24, 40, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+                      textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
+                      boxShadow: '0 4px 20px rgba(16, 24, 40, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
                     }}
                   >
-                    {/* Button glass overlay */}
+                    {/* Ultra-subtle button glass overlay */}
                     <div 
-                      className="absolute inset-0 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300"
+                      className="absolute inset-0 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300 rounded-2xl"
                       style={{
-                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
-                        backdropFilter: 'blur(8px)',
-                        WebkitBackdropFilter: 'blur(8px)',
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%)',
+                        backdropFilter: 'blur(15px) saturate(150%)',
+                        WebkitBackdropFilter: 'blur(15px) saturate(150%)',
                       }}
                     />
                     <span className="relative z-10">Shop Now</span>
