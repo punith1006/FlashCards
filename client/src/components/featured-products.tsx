@@ -84,9 +84,9 @@ export function FeaturedProducts() {
     const handleScroll = () => {
       if (sliderRef.current) {
         const scrollLeft = sliderRef.current.scrollLeft;
-        const slideWidth = sliderRef.current.offsetWidth;
-        const newSlide = Math.round(scrollLeft / slideWidth);
-        setCurrentSlide(newSlide);
+        const cardWidth = 320; // 80 * 4 (w-80 = 20rem = 320px) + gap
+        const newSlide = Math.round(scrollLeft / cardWidth);
+        setCurrentSlide(Math.min(newSlide, totalSlides - 1));
       }
     };
 
@@ -95,7 +95,7 @@ export function FeaturedProducts() {
       slider.addEventListener('scroll', handleScroll);
       return () => slider.removeEventListener('scroll', handleScroll);
     }
-  }, []);
+  }, [totalSlides]);
 
   // Navigate to specific slide
   const goToSlide = (slideIndex: number) => {
@@ -129,8 +129,12 @@ export function FeaturedProducts() {
           {/* Products Slider */}
           <div 
             ref={sliderRef}
-            className="flex overflow-x-auto scrollbar-hide gap-6 pb-4 scroll-smooth cursor-grab active:cursor-grabbing"
-            style={{ scrollSnapType: 'x mandatory' }}
+            className="flex overflow-x-scroll gap-6 pb-4 cursor-grab active:cursor-grabbing"
+            style={{ 
+              scrollSnapType: 'x mandatory',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none'
+            }}
           >
             {products.map((product) => (
               <Card 
@@ -172,10 +176,10 @@ export function FeaturedProducts() {
           </div>
           
           {/* Single Slider Progress Bar */}
-          <div className="flex justify-center mt-6">
-            <div className="relative w-64 h-1 bg-gray-300 rounded-full overflow-hidden">
+          <div className="mt-6">
+            <div className="relative w-80 h-2 bg-gray-400 rounded-full overflow-hidden">
               <div 
-                className="absolute top-0 left-0 h-full bg-[hsl(13,100%,60%)] rounded-full transition-all duration-300 ease-out"
+                className="absolute top-0 left-0 h-full bg-gray-700 rounded-full transition-all duration-300 ease-out"
                 style={{ 
                   width: `${((currentSlide + 1) / totalSlides) * 100}%` 
                 }}

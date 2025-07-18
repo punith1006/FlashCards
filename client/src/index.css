@@ -117,6 +117,11 @@
   .cursor-grab:active {
     cursor: grabbing;
   }
+
+  /* Additional scrollbar hiding for product slider */
+  .overflow-x-scroll::-webkit-scrollbar {
+    display: none;
+  }
   
   @keyframes fadeIn {
     from { 
