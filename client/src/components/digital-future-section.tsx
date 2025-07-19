@@ -13,7 +13,7 @@ export function DigitalFutureSection() {
   };
 
   return (
-    <section className="relative py-32 px-4 bg-white overflow-hidden">
+    <section className="relative px-4 bg-white overflow-hidden">
       <div 
         className={`mx-auto rounded-t-[3rem] relative overflow-hidden transform-gpu transition-all duration-1000 ease-in-out ${
           isExpanded ? 'max-w-6xl bg-gray-50 shadow-2xl' : 'w-full bg-black shadow-lg'
