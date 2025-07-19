@@ -5,7 +5,7 @@ export function DigitalFutureSection() {
   const [isScaled, setIsScaled] = useState(false);
 
   const handleGetStartedClick = () => {
-    setIsScaled(true);
+    setIsScaled(!isScaled);
   };
 
   return (
