@@ -61,8 +61,8 @@ export function LearnAboutKeto() {
             {/* Question 1 - What is keto? */}
             <div className="flex gap-5">
               <div className="flex-shrink-0">
-                <div className="w-15 h-15 bg-green-100 rounded-full flex items-center justify-center">
-                  <div className="w-7.5 h-7.5 bg-[#58CC88] rounded-full flex items-center justify-center">
+                <div className="w-[60px] h-[60px] bg-green-100 rounded-full flex items-center justify-center">
+                  <div className="w-[30px] h-[30px] bg-[#58CC88] rounded-full flex items-center justify-center">
                     <span className="text-white text-base font-bold">?</span>
                   </div>
                 </div>
@@ -90,8 +90,8 @@ export function LearnAboutKeto() {
             {/* Question 2 - How do I start keto? */}
             <div className="flex gap-5">
               <div className="flex-shrink-0">
-                <div className="w-15 h-15 bg-green-100 rounded-full flex items-center justify-center">
-                  <div className="w-7.5 h-7.5 bg-[#58CC88] rounded-full flex items-center justify-center">
+                <div className="w-[60px] h-[60px] bg-green-100 rounded-full flex items-center justify-center">
+                  <div className="w-[30px] h-[30px] bg-[#58CC88] rounded-full flex items-center justify-center">
                     <ArrowRight className="w-5 h-5 text-white" />
                   </div>
                 </div>
@@ -119,8 +119,8 @@ export function LearnAboutKeto() {
             {/* Question 3 - Will I lose weight on keto? */}
             <div className="flex gap-5">
               <div className="flex-shrink-0">
-                <div className="w-15 h-15 bg-green-100 rounded-full flex items-center justify-center">
-                  <div className="w-7.5 h-7.5 bg-[#58CC88] rounded-full flex items-center justify-center">
+                <div className="w-[60px] h-[60px] bg-green-100 rounded-full flex items-center justify-center">
+                  <div className="w-[30px] h-[30px] bg-[#58CC88] rounded-full flex items-center justify-center">
                     <span className="text-white text-xl font-bold leading-none">×</span>
                   </div>
                 </div>
