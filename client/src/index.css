@@ -144,10 +144,9 @@
     }
   }
   
-  /* Custom carousel gradient - high contrast fade */
+  /* Custom carousel gradient */
   .carousel-gradient {
-    background: linear-gradient(to bottom, #e5e7eb 0%, #d1d5db 20%, #b3b8c0 60%, #9ca3af 85%, #f9fafb 100%);
-    border: 1px solid rgba(209, 213, 219, 0.3);
+    background: linear-gradient(to bottom, #d1d5db 0%, #c4c9d0 50%, #b8bfc7 100%);
   }
   
   @keyframes slideUp {
