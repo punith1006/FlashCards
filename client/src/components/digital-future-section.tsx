@@ -2,7 +2,7 @@ import { ArrowRight, Play } from "lucide-react";
 
 export function DigitalFutureSection() {
   return (
-    <section className="relative py-32 px-4 bg-black overflow-hidden">
+    <section className="relative py-32 px-4 bg-black overflow-hidden rounded-t-[3rem]">
       {/* Background Video */}
       <div className="absolute inset-0">
         <video
