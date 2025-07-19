@@ -55,7 +55,7 @@ export function LearnAboutKeto() {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Questions and Answers */}
           <div className="space-y-12">
             {/* Question 1 - What is keto? */}
@@ -146,7 +146,7 @@ export function LearnAboutKeto() {
           </div>
 
           {/* Right side - Product Guide Carousel */}
-          <div className="relative">
+          <div className="relative h-full flex flex-col justify-center">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center">
@@ -164,22 +164,22 @@ export function LearnAboutKeto() {
               </a>
             </div>
 
-            <div className="bg-gray-300 rounded-lg relative overflow-hidden">
-              <div className="px-6 pt-6 pb-4">
-                <h4 className="text-lg font-bold text-gray-900 mb-3">
+            <div className="bg-gray-300 rounded-lg relative overflow-hidden min-h-[480px]">
+              <div className="px-8 pt-8 pb-6 h-full flex flex-col">
+                <h4 className="text-xl font-bold text-gray-900 mb-4">
                   {productGuides[currentSlide].title}
                 </h4>
-                <p className="text-gray-700 text-sm leading-relaxed mb-6">
+                <p className="text-gray-700 text-sm leading-relaxed mb-8 flex-shrink-0">
                   {productGuides[currentSlide].description}
                 </p>
                 
-                {/* Product image container */}
-                <div className="flex justify-center items-end pb-4">
+                {/* Product image container - takes remaining space */}
+                <div className="flex justify-center items-center flex-1 pb-6">
                   <div className="relative">
                     <img 
                       src={productGuides[currentSlide].image}
                       alt={productGuides[currentSlide].title}
-                      className="w-32 h-40 object-contain"
+                      className="w-40 h-48 object-contain"
                     />
                   </div>
                 </div>
@@ -188,13 +188,13 @@ export function LearnAboutKeto() {
               {/* Navigation arrows - positioned at mid-height */}
               <button 
                 onClick={prevSlide}
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-sm flex items-center justify-center hover:bg-gray-50 transition-colors"
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors"
               >
                 <ChevronLeft className="w-5 h-5 text-gray-600" />
               </button>
               <button 
                 onClick={nextSlide}
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-sm flex items-center justify-center hover:bg-gray-50 transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors"
               >
                 <ChevronRight className="w-5 h-5 text-gray-600" />
               </button>
