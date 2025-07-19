@@ -147,69 +147,69 @@ export function LearnAboutKeto() {
 
           {/* Right side - Product Guide Carousel */}
           <div className="relative">
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center">
-                  <span className="text-xs font-semibold text-white">{currentSlide + 1}</span>
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center">
+                  <span className="text-xs font-bold text-white">{currentSlide + 1}</span>
                 </div>
-                <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
                   HOW TO USE
                 </span>
               </div>
               <a 
                 href="#" 
-                className="text-xs text-gray-500 hover:text-gray-700 font-medium"
+                className="text-xs text-gray-500 hover:text-gray-700"
               >
                 All Product Guides →
               </a>
             </div>
 
-            <div className="bg-gray-200 rounded-lg relative overflow-hidden min-h-[400px]">
-              <div className="p-8">
-                <h4 className="text-xl font-bold text-gray-900 mb-4">
+            <div className="bg-gray-300 rounded-lg relative overflow-hidden">
+              <div className="px-6 pt-6 pb-4">
+                <h4 className="text-lg font-bold text-gray-900 mb-3">
                   {productGuides[currentSlide].title}
                 </h4>
-                <p className="text-gray-700 text-sm leading-relaxed mb-8">
+                <p className="text-gray-700 text-sm leading-relaxed mb-6">
                   {productGuides[currentSlide].description}
                 </p>
                 
                 {/* Product image container */}
-                <div className="flex justify-center items-center min-h-[200px]">
+                <div className="flex justify-center items-end pb-4">
                   <div className="relative">
                     <img 
                       src={productGuides[currentSlide].image}
                       alt={productGuides[currentSlide].title}
-                      className="w-40 h-40 object-contain drop-shadow-lg"
+                      className="w-32 h-40 object-contain"
                     />
                   </div>
                 </div>
               </div>
 
-              {/* Navigation arrows - positioned inside the gray area */}
+              {/* Navigation arrows - positioned at mid-height */}
               <button 
                 onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-all duration-200 hover:scale-105"
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-sm flex items-center justify-center hover:bg-gray-50 transition-colors"
               >
-                <ChevronLeft className="w-6 h-6 text-gray-600" />
+                <ChevronLeft className="w-5 h-5 text-gray-600" />
               </button>
               <button 
                 onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-all duration-200 hover:scale-105"
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-sm flex items-center justify-center hover:bg-gray-50 transition-colors"
               >
-                <ChevronRight className="w-6 h-6 text-gray-600" />
+                <ChevronRight className="w-5 h-5 text-gray-600" />
               </button>
             </div>
 
             {/* Dots indicator */}
-            <div className="flex justify-center gap-2 mt-6">
+            <div className="flex justify-center gap-1.5 mt-4">
               {productGuides.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-200 ${
+                  className={`w-2 h-2 rounded-full transition-all duration-200 ${
                     index === currentSlide 
-                      ? 'bg-gray-400 scale-125' 
-                      : 'bg-gray-300 hover:bg-gray-350'
+                      ? 'bg-gray-600' 
+                      : 'bg-gray-400 hover:bg-gray-500'
                   }`}
                 />
               ))}
