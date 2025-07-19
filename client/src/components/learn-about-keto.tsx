@@ -185,21 +185,21 @@ export function LearnAboutKeto() {
                 </div>
               </div>
 
-              {/* Navigation arrows - positioned at the very edges */}
+              {/* Navigation arrows - positioned at the container edges */}
               {currentSlide > 0 && (
                 <button 
                   onClick={prevSlide}
-                  className="absolute -left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 hover:shadow-lg hover:scale-105 transition-all duration-200 z-10"
                 >
-                  <ChevronLeft className="w-5 h-5 text-gray-600" />
+                  <ChevronLeft className="w-4 h-4 text-gray-600" />
                 </button>
               )}
               {currentSlide < productGuides.length - 1 && (
                 <button 
                   onClick={nextSlide}
-                  className="absolute -right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 hover:shadow-lg hover:scale-105 transition-all duration-200 z-10"
                 >
-                  <ChevronRight className="w-5 h-5 text-gray-600" />
+                  <ChevronRight className="w-4 h-4 text-gray-600" />
                 </button>
               )}
             </div>
