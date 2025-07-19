@@ -101,8 +101,8 @@ export function FeaturedProducts() {
   };
 
   return (
-    <section className="py-12 relative">
-      <div className="container mx-auto px-6 max-w-7xl">
+    <section className="py-12 relative overflow-hidden w-full">
+      <div className="container mx-auto px-6 max-w-7xl w-full">
         {/* Section Header */}
         <div className="flex justify-between items-center mb-12">
           <h2 className="text-5xl font-bold text-[hsl(210,24%,16%)] tracking-tight">
@@ -133,7 +133,7 @@ export function FeaturedProducts() {
           <button
             onClick={scrollLeft}
             disabled={!canScrollLeft}
-            className={`absolute -left-16 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+            className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 ${
               canScrollLeft 
                 ? 'opacity-100 cursor-pointer' 
                 : 'opacity-30 cursor-not-allowed'
@@ -155,7 +155,7 @@ export function FeaturedProducts() {
           <button
             onClick={scrollRight}
             disabled={!canScrollRight}
-            className={`absolute -right-16 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+            className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 ${
               canScrollRight 
                 ? 'opacity-100 cursor-pointer' 
                 : 'opacity-30 cursor-not-allowed'

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-orange-50 via-white to-orange-100 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-orange-50 via-white to-orange-100 overflow-hidden w-full">
       {/* Content Container */}
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex items-center justify-between min-h-[70vh] py-20">

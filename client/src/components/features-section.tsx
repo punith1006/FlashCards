@@ -74,8 +74,8 @@ export function FeaturesSection() {
   ];
 
   return (
-    <section className="py-12 bg-[#F6F8F9]">
-      <div className="container mx-auto px-6 max-w-6xl">
+    <section className="py-12 bg-[#F6F8F9] overflow-hidden w-full">
+      <div className="container mx-auto px-6 max-w-6xl w-full">
         <div className="grid md:grid-cols-3 gap-12">
           {features.map((feature, index) => (
             <Feature
