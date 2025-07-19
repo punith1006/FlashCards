@@ -147,21 +147,23 @@ export function LearnAboutKeto() {
 
           {/* Right side - Product Guide Carousel */}
           <div className="relative h-full flex flex-col justify-center">
-            <div className="flex items-center justify-between mb-5">
-              <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 bg-gray-400 rounded-full flex items-center justify-center">
-                  <span className="text-sm font-bold text-white">{currentSlide + 1}</span>
+            <div className="max-w-[25.6rem] mx-auto w-full">
+              <div className="flex items-center justify-between mb-5">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 bg-gray-400 rounded-full flex items-center justify-center">
+                    <span className="text-sm font-bold text-white">{currentSlide + 1}</span>
+                  </div>
+                  <span className="text-sm font-medium text-gray-500 uppercase tracking-wide">
+                    HOW TO USE
+                  </span>
                 </div>
-                <span className="text-sm font-medium text-gray-500 uppercase tracking-wide">
-                  HOW TO USE
-                </span>
+                <a 
+                  href="#" 
+                  className="text-sm text-gray-500 hover:text-gray-700"
+                >
+                  All Product Guides →
+                </a>
               </div>
-              <a 
-                href="#" 
-                className="text-sm text-gray-500 hover:text-gray-700"
-              >
-                All Product Guides →
-              </a>
             </div>
 
             <div className="carousel-gradient rounded-lg relative overflow-hidden min-h-[480px] max-w-[25.6rem] mx-auto">
