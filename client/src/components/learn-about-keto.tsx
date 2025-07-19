@@ -191,11 +191,11 @@ export function LearnAboutKeto() {
                   onClick={prevSlide}
                   className="absolute left-2 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-100 cursor-pointer z-10"
                   style={{
-                    background: 'rgba(255, 255, 255, 0.95)',
+                    background: 'rgba(255, 255, 255, 0.15)',
                     backdropFilter: 'blur(16px)',
                     WebkitBackdropFilter: 'blur(16px)',
-                    border: '2px solid rgba(0, 0, 0, 0.8)',
-                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15)',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
                   }}
                   aria-label="Previous product guide"
                 >
@@ -207,11 +207,11 @@ export function LearnAboutKeto() {
                   onClick={nextSlide}
                   className="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-100 cursor-pointer z-10"
                   style={{
-                    background: 'rgba(255, 255, 255, 0.95)',
+                    background: 'rgba(255, 255, 255, 0.15)',
                     backdropFilter: 'blur(16px)',
                     WebkitBackdropFilter: 'blur(16px)',
-                    border: '2px solid rgba(0, 0, 0, 0.8)',
-                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15)',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
                   }}
                   aria-label="Next product guide"
                 >
