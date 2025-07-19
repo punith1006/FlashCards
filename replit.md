@@ -4,6 +4,8 @@
 
 This is a full-stack web application for a keto-focused e-commerce platform, built with modern web technologies. The application features a React frontend with TypeScript, an Express.js backend, and PostgreSQL database integration using Drizzle ORM. It's designed to showcase keto products with a clean, professional interface inspired by Perfect Keto's branding.
 
+Successfully migrated from Replit Agent to Replit environment on July 19, 2025.
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
@@ -49,8 +51,17 @@ The application uses a well-structured schema with two main entities:
 
 ### Frontend Pages
 - **Home Page**: Hero section with video background, scrolling highlights, features section, and product showcase
+- **Learn About Keto Section**: Educational section with keto FAQs and product guides carousel
 - **Product Display**: Featured products carousel with product cards
 - **Responsive Design**: Mobile-first approach with responsive breakpoints
+
+## Recent Changes
+
+### July 19, 2025
+- ✓ Successfully migrated project from Replit Agent to Replit environment
+- ✓ Added "Learn about keto" section to homepage with three FAQ items and product guide carousel
+- ✓ Section matches Perfect Keto design with green accent colors and clean typography
+- ✓ Responsive design implemented for mobile and desktop viewing
 
 ### API Structure
 - **RESTful Design**: Express routes prefixed with `/api` for clear API separation
