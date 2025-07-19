@@ -164,22 +164,22 @@ export function LearnAboutKeto() {
               </a>
             </div>
 
-            <div className="bg-gray-300 rounded-lg relative overflow-hidden min-h-[480px]">
-              <div className="px-8 pt-8 pb-6 h-full flex flex-col">
-                <h4 className="text-xl font-bold text-gray-900 mb-4">
+            <div className="carousel-gradient rounded-lg relative overflow-hidden min-h-[400px]">
+              <div className="px-6 pt-6 pb-4 h-full flex flex-col">
+                <h4 className="text-lg font-bold text-gray-900 mb-3">
                   {productGuides[currentSlide].title}
                 </h4>
-                <p className="text-gray-700 text-sm leading-relaxed mb-8 flex-shrink-0">
+                <p className="text-gray-700 text-sm leading-relaxed mb-6 flex-shrink-0">
                   {productGuides[currentSlide].description}
                 </p>
                 
-                {/* Product image container - takes remaining space */}
-                <div className="flex justify-center items-center flex-1 pb-6">
+                {/* Product image container - takes remaining space with larger image */}
+                <div className="flex justify-center items-center flex-1 pb-4">
                   <div className="relative">
                     <img 
                       src={productGuides[currentSlide].image}
                       alt={productGuides[currentSlide].title}
-                      className="w-40 h-48 object-contain"
+                      className="w-52 h-60 object-contain drop-shadow-lg"
                     />
                   </div>
                 </div>

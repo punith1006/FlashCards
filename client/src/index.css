@@ -144,6 +144,11 @@
     }
   }
   
+  /* Custom carousel gradient */
+  .carousel-gradient {
+    background: linear-gradient(to bottom, #d1d5db, #bfc5cf);
+  }
+  
   @keyframes slideUp {
     from { 
       opacity: 0; 
