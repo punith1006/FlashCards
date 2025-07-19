@@ -9,7 +9,7 @@ interface ProductGuide {
 }
 
 export function LearnAboutKeto() {
-  const [currentSlide, setCurrentSlide] = useState(2); // Start with Keto Nootropic (index 2)
+  const [currentSlide, setCurrentSlide] = useState(0); // Start with first slide (index 0)
 
   const productGuides: ProductGuide[] = [
     {
