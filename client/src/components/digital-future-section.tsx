@@ -9,14 +9,15 @@ export function DigitalFutureSection() {
   };
 
   return (
-    <section className="relative py-32 px-4 bg-black overflow-hidden rounded-t-[3rem] transition-all duration-1000 ease-in-out">
+    <section className="relative py-32 px-4 bg-white overflow-hidden">
       <div 
-        className={`mx-auto transition-all duration-1000 ease-in-out ${
+        className={`mx-auto bg-black rounded-t-[3rem] transition-all duration-1000 ease-in-out relative overflow-hidden ${
           isScaled ? 'max-w-6xl' : 'w-full'
         }`}
+        style={{ minHeight: '500px' }}
       >
         {/* Background Video */}
-        <div className="absolute inset-0 rounded-t-[3rem] overflow-hidden">
+        <div className="absolute inset-0 rounded-t-[3rem] overflow-hidden py-16">
           <video
             className="w-full h-full object-cover opacity-40"
             autoPlay
@@ -36,7 +37,7 @@ export function DigitalFutureSection() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
+        <div className="relative z-10 max-w-4xl mx-auto text-center py-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 leading-tight">
             READY TO STEP INTO YOUR
             <br />
