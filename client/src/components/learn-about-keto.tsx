@@ -166,7 +166,12 @@ export function LearnAboutKeto() {
               </div>
             </div>
 
-            <div className="carousel-gradient rounded-lg relative overflow-hidden min-h-[480px] max-w-[25.6rem] mx-auto shadow-lg border border-gray-200/60 ring-1 ring-gray-100/50">
+            <div 
+              className="carousel-gradient rounded-lg relative overflow-hidden min-h-[480px] max-w-[25.6rem] mx-auto shadow-lg border border-gray-200/60 ring-1 ring-gray-100/50"
+              style={{
+                boxShadow: `-12px 0 24px -8px #F3F1F1, 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)`
+              }}
+            >
               <div className="px-5 pt-5 pb-4 h-full flex flex-col">
                 <h4 className="text-lg font-bold text-gray-900 mb-2.5">
                   {productGuides[currentSlide].title}
