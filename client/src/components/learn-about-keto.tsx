@@ -147,9 +147,9 @@ export function LearnAboutKeto() {
 
           {/* Right side - Product Guide Carousel */}
           <div className="relative h-full flex flex-col justify-center">
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center">
+                <div className="w-5 h-5 bg-gray-400 rounded-full flex items-center justify-center">
                   <span className="text-xs font-bold text-white">{currentSlide + 1}</span>
                 </div>
                 <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
@@ -164,22 +164,22 @@ export function LearnAboutKeto() {
               </a>
             </div>
 
-            <div className="carousel-gradient rounded-lg relative overflow-hidden min-h-[400px]">
-              <div className="px-5 pt-5 pb-3 h-full flex flex-col">
-                <h4 className="text-lg font-bold text-gray-900 mb-2">
+            <div className="carousel-gradient rounded-lg relative overflow-hidden min-h-[320px]">
+              <div className="px-4 pt-4 pb-3 h-full flex flex-col">
+                <h4 className="text-base font-bold text-gray-900 mb-2 leading-tight">
                   {productGuides[currentSlide].title}
                 </h4>
-                <p className="text-gray-700 text-sm leading-relaxed mb-4 flex-shrink-0">
+                <p className="text-gray-700 text-sm leading-relaxed mb-3 flex-shrink-0">
                   {productGuides[currentSlide].description}
                 </p>
                 
-                {/* Product image container - takes remaining space with much larger emphasized image */}
+                {/* Product image container - compact and centered */}
                 <div className="flex justify-center items-center flex-1 pb-2">
                   <div className="relative">
                     <img 
                       src={productGuides[currentSlide].image}
                       alt={productGuides[currentSlide].title}
-                      className="w-72 h-[22rem] object-contain drop-shadow-2xl"
+                      className="w-48 h-56 object-contain drop-shadow-lg"
                     />
                   </div>
                 </div>
@@ -189,7 +189,7 @@ export function LearnAboutKeto() {
               {currentSlide > 0 && (
                 <button 
                   onClick={prevSlide}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-100 cursor-pointer z-10"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-100 cursor-pointer z-10"
                   style={{
                     background: 'rgba(255, 255, 255, 0.15)',
                     backdropFilter: 'blur(16px)',
@@ -199,13 +199,13 @@ export function LearnAboutKeto() {
                   }}
                   aria-label="Previous product guide"
                 >
-                  <ChevronLeft className="w-6 h-6 text-slate-700 transition-colors duration-300" />
+                  <ChevronLeft className="w-5 h-5 text-slate-700 transition-colors duration-300" />
                 </button>
               )}
               {currentSlide < productGuides.length - 1 && (
                 <button 
                   onClick={nextSlide}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-100 cursor-pointer z-10"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-100 cursor-pointer z-10"
                   style={{
                     background: 'rgba(255, 255, 255, 0.15)',
                     backdropFilter: 'blur(16px)',
@@ -215,13 +215,13 @@ export function LearnAboutKeto() {
                   }}
                   aria-label="Next product guide"
                 >
-                  <ChevronRight className="w-6 h-6 text-slate-700 transition-colors duration-300" />
+                  <ChevronRight className="w-5 h-5 text-slate-700 transition-colors duration-300" />
                 </button>
               )}
             </div>
 
             {/* Dots indicator */}
-            <div className="flex justify-center gap-1.5 mt-4">
+            <div className="flex justify-center gap-1.5 mt-3">
               {productGuides.map((_, index) => (
                 <button
                   key={index}
