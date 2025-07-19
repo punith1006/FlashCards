@@ -55,7 +55,7 @@ export function LearnAboutKeto() {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-[2fr,1fr] gap-16 items-center">
+        <div className="grid lg:grid-cols-[1.2fr,1fr] gap-16 items-center">
           {/* Left side - Questions and Answers */}
           <div className="space-y-8">
             {/* Question 1 - What is keto? */}
