@@ -55,7 +55,7 @@ export function LearnAboutKeto() {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-[2fr,1fr] gap-16 items-center">
           {/* Left side - Questions and Answers */}
           <div className="space-y-12">
             {/* Question 1 - What is keto? */}
@@ -164,22 +164,22 @@ export function LearnAboutKeto() {
               </a>
             </div>
 
-            <div className="carousel-gradient rounded-lg relative overflow-hidden min-h-[400px]">
-              <div className="px-5 pt-5 pb-3 h-full flex flex-col">
-                <h4 className="text-lg font-bold text-gray-900 mb-2">
+            <div className="carousel-gradient rounded-lg relative overflow-hidden min-h-[400px] max-w-sm mx-auto">
+              <div className="px-4 pt-4 pb-3 h-full flex flex-col">
+                <h4 className="text-base font-bold text-gray-900 mb-2">
                   {productGuides[currentSlide].title}
                 </h4>
-                <p className="text-gray-700 text-sm leading-relaxed mb-4 flex-shrink-0">
+                <p className="text-gray-700 text-xs leading-relaxed mb-3 flex-shrink-0">
                   {productGuides[currentSlide].description}
                 </p>
                 
-                {/* Product image container - takes remaining space with much larger emphasized image */}
+                {/* Product image container - takes remaining space with smaller image */}
                 <div className="flex justify-center items-center flex-1 pb-2">
                   <div className="relative">
                     <img 
                       src={productGuides[currentSlide].image}
                       alt={productGuides[currentSlide].title}
-                      className="w-72 h-[22rem] object-contain drop-shadow-2xl"
+                      className="w-48 h-64 object-contain drop-shadow-2xl"
                     />
                   </div>
                 </div>
