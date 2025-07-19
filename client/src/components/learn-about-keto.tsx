@@ -179,7 +179,7 @@ export function LearnAboutKeto() {
                     <img 
                       src={productGuides[currentSlide].image}
                       alt={productGuides[currentSlide].title}
-                      className="w-72 h-96 object-contain drop-shadow-xl"
+                      className="w-80 h-[26rem] object-contain drop-shadow-2xl scale-105"
                     />
                   </div>
                 </div>
