@@ -57,21 +57,21 @@ export function LearnAboutKeto() {
 
         <div className="grid lg:grid-cols-[1.2fr,1fr] gap-16 items-center">
           {/* Left side - Questions and Answers */}
-          <div className="space-y-8">
+          <div className="space-y-10">
             {/* Question 1 - What is keto? */}
-            <div className="flex gap-4">
+            <div className="flex gap-5">
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <div className="w-6 h-6 bg-[#58CC88] rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm font-bold">?</span>
+                <div className="w-15 h-15 bg-green-100 rounded-full flex items-center justify-center">
+                  <div className="w-7.5 h-7.5 bg-[#58CC88] rounded-full flex items-center justify-center">
+                    <span className="text-white text-base font-bold">?</span>
                   </div>
                 </div>
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-2.5">
                   What is keto?
                 </h3>
-                <p className="text-gray-600 text-base leading-relaxed mb-3">
+                <p className="text-gray-600 text-lg leading-relaxed mb-4">
                   What makes it different from other low-carb diets? How do I 
                   do it, and how do I know it's working? Learn everything you 
                   need to know about keto, its many benefits and the science 
@@ -79,28 +79,28 @@ export function LearnAboutKeto() {
                 </p>
                 <a 
                   href="#" 
-                  className="inline-flex items-center text-[#58CC88] hover:text-[#4bb377] font-medium text-base group border-b-2 border-[#58CC88] hover:border-[#4bb377] transition-colors"
+                  className="inline-flex items-center text-[#58CC88] hover:text-[#4bb377] font-medium text-lg group border-b-2 border-[#58CC88] hover:border-[#4bb377] transition-colors"
                 >
                   Learn all about Keto
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
             </div>
 
             {/* Question 2 - How do I start keto? */}
-            <div className="flex gap-4">
+            <div className="flex gap-5">
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <div className="w-6 h-6 bg-[#58CC88] rounded-full flex items-center justify-center">
-                    <ArrowRight className="w-4 h-4 text-white" />
+                <div className="w-15 h-15 bg-green-100 rounded-full flex items-center justify-center">
+                  <div className="w-7.5 h-7.5 bg-[#58CC88] rounded-full flex items-center justify-center">
+                    <ArrowRight className="w-5 h-5 text-white" />
                   </div>
                 </div>
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-2.5">
                   How do I start keto?
                 </h3>
-                <p className="text-gray-600 text-base leading-relaxed mb-3">
+                <p className="text-gray-600 text-lg leading-relaxed mb-4">
                   Ready to get started but feel overwhelmed by this new 
                   lifestyle and all you have to learn about it? Follow this step-by-step 
                   program where we'll walk you through how to begin 
@@ -108,38 +108,38 @@ export function LearnAboutKeto() {
                 </p>
                 <a 
                   href="#" 
-                  className="inline-flex items-center text-[#58CC88] hover:text-[#4bb377] font-medium text-base group border-b-2 border-[#58CC88] hover:border-[#4bb377] transition-colors"
+                  className="inline-flex items-center text-[#58CC88] hover:text-[#4bb377] font-medium text-lg group border-b-2 border-[#58CC88] hover:border-[#4bb377] transition-colors"
                 >
                   Get into Keto
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
             </div>
 
             {/* Question 3 - Will I lose weight on keto? */}
-            <div className="flex gap-4">
+            <div className="flex gap-5">
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <div className="w-6 h-6 bg-[#58CC88] rounded-full flex items-center justify-center">
-                    <span className="text-white text-lg font-bold leading-none">×</span>
+                <div className="w-15 h-15 bg-green-100 rounded-full flex items-center justify-center">
+                  <div className="w-7.5 h-7.5 bg-[#58CC88] rounded-full flex items-center justify-center">
+                    <span className="text-white text-xl font-bold leading-none">×</span>
                   </div>
                 </div>
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-2.5">
                   Will I lose weight on keto?
                 </h3>
-                <p className="text-gray-600 text-base leading-relaxed mb-3">
+                <p className="text-gray-600 text-lg leading-relaxed mb-4">
                   The Ketogenic Diet is quickly becoming known for its 
                   incredible weight loss benefits. Learn how you can use keto 
                   can help you meet your weightloss and health goals.
                 </p>
                 <a 
                   href="#" 
-                  className="inline-flex items-center text-[#58CC88] hover:text-[#4bb377] font-medium text-base group border-b-2 border-[#58CC88] hover:border-[#4bb377] transition-colors"
+                  className="inline-flex items-center text-[#58CC88] hover:text-[#4bb377] font-medium text-lg group border-b-2 border-[#58CC88] hover:border-[#4bb377] transition-colors"
                 >
                   Weight Loss & Keto
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
             </div>
