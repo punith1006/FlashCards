@@ -214,4 +214,25 @@
     transform: translateY(-8px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 8px 24px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   }
+
+  /* Smooth width animation with impressive easing */
+  .width-animate {
+    transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-origin: center;
+    will-change: width, max-width, transform, box-shadow;
+  }
+
+  /* Add subtle breathing effect during animation */
+  @keyframes breathe {
+    0%, 100% { 
+      transform: scale(1); 
+    }
+    50% { 
+      transform: scale(1.005); 
+    }
+  }
+
+  .animate-breathe {
+    animation: breathe 2s ease-in-out infinite;
+  }
 }

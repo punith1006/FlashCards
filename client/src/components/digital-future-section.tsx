@@ -11,10 +11,14 @@ export function DigitalFutureSection() {
   return (
     <section className="relative py-32 px-4 bg-white overflow-hidden">
       <div 
-        className={`mx-auto bg-black rounded-t-[3rem] transition-all duration-1000 ease-in-out relative overflow-hidden ${
-          isScaled ? 'max-w-6xl' : 'w-full'
+        className={`mx-auto bg-black rounded-t-[3rem] relative overflow-hidden transform-gpu ${
+          isScaled ? 'max-w-6xl shadow-2xl' : 'w-full shadow-lg'
         }`}
-        style={{ minHeight: '500px' }}
+        style={{ 
+          minHeight: '500px',
+          transition: 'all 1.2s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.8s ease-out',
+          willChange: 'width, max-width, box-shadow'
+        }}
       >
         {/* Background Video */}
         <div className="absolute inset-0 rounded-t-[3rem] overflow-hidden py-16">
@@ -48,7 +52,7 @@ export function DigitalFutureSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button 
               onClick={handleGetStartedClick}
-              className="inline-flex items-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-200 group transform hover:scale-105"
+              className="inline-flex items-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 group transform hover:scale-105 hover:shadow-xl active:scale-95"
             >
               Get started
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
