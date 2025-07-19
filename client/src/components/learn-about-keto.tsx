@@ -15,25 +15,25 @@ export function LearnAboutKeto() {
     {
       title: "Exogenous Ketones",
       description: "Doctor-developed powder made from high-quality beta hydroxy-butyrate (BHB). Boost ketone levels. Get back into ketosis.",
-      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",
+      image: "https://cdn.shopify.com/s/files/1/1786/3461/files/PK_Base-Ketones-Tub-Strawberry-Lemonade_RENDER_950x950_61dc97c4-9d01-4fac-b997-29f865ec008b.png?v=1736348870&width=300",
       link: "#"
     },
     {
       title: "Keto Bars",
       description: "Stay keto and healthy on the go with these clean and delicious bars, available in four flavors.",
-      image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",
+      image: "https://cdn.shopify.com/s/files/1/1786/3461/files/PK_CollagenProteinBars-ChocolateAlmondBrownie-RENDER-Film_Box_24-07-08.png?v=1721765759&width=300",
       link: "#"
     },
     {
       title: "MCT Oil Powder",
       description: "Helps make ketones readily available for your body to use, making ketosis easier to achieve and maintain.",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",
+      image: "https://cdn.shopify.com/s/files/1/1786/3461/files/PK_MCT-Oil-Powder-Tub-Salted-Caramel_RENDER_950x950_8d7fba76-4548-431e-bcd6-00c2d5b2f224.png?v=1736349062&width=300",
       link: "#"
     },
     {
       title: "Keto Nootropic",
       description: 'Also known as "brain boosters," "smart drugs", or "cognitive enhancers", nootropics are compounds that may enhance various mental functions.',
-      image: "https://images.unsplash.com/photo-1594736797933-d0f25c5376d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",
+      image: "https://cdn.shopify.com/s/files/1/1786/3461/files/PK_Nola-Bar_Box_White-Choc-Macadamia_RENDER_24-07-26.png?v=1724780571&width=300",
       link: "#"
     }
   ];
@@ -146,57 +146,57 @@ export function LearnAboutKeto() {
           </div>
 
           {/* Right side - Product Guide Carousel */}
-          <div className="bg-gray-100 rounded-xl p-8 relative">
+          <div className="relative">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
-                  <span className="text-sm font-semibold text-gray-600">{currentSlide + 1}</span>
+                <div className="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center">
+                  <span className="text-xs font-semibold text-white">{currentSlide + 1}</span>
                 </div>
-                <span className="text-sm font-medium text-gray-500 uppercase tracking-wider">
+                <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">
                   HOW TO USE
                 </span>
               </div>
               <a 
                 href="#" 
-                className="text-sm text-gray-500 hover:text-gray-700 font-medium"
+                className="text-xs text-gray-500 hover:text-gray-700 font-medium"
               >
                 All Product Guides →
               </a>
             </div>
 
-            <div className="relative overflow-hidden">
-              <div className="mb-6">
-                <h4 className="text-xl font-bold text-gray-900 mb-3">
+            <div className="bg-gray-200 rounded-lg relative overflow-hidden min-h-[400px]">
+              <div className="p-8">
+                <h4 className="text-xl font-bold text-gray-900 mb-4">
                   {productGuides[currentSlide].title}
                 </h4>
-                <p className="text-gray-600 text-base leading-relaxed mb-6">
+                <p className="text-gray-700 text-sm leading-relaxed mb-8">
                   {productGuides[currentSlide].description}
                 </p>
                 
-                {/* Product image */}
-                <div className="flex justify-center mb-6">
-                  <div className="w-48 h-48 bg-gradient-to-br from-pink-50 to-orange-50 rounded-xl flex items-center justify-center p-4">
+                {/* Product image container */}
+                <div className="flex justify-center items-center min-h-[200px]">
+                  <div className="relative">
                     <img 
                       src={productGuides[currentSlide].image}
                       alt={productGuides[currentSlide].title}
-                      className="w-32 h-32 object-contain rounded-lg"
+                      className="w-40 h-40 object-contain drop-shadow-lg"
                     />
                   </div>
                 </div>
               </div>
 
-              {/* Navigation arrows */}
+              {/* Navigation arrows - positioned inside the gray area */}
               <button 
                 onClick={prevSlide}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-all duration-200 hover:scale-105"
               >
-                <ChevronLeft className="w-5 h-5 text-gray-600" />
+                <ChevronLeft className="w-6 h-6 text-gray-600" />
               </button>
               <button 
                 onClick={nextSlide}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-all duration-200 hover:scale-105"
               >
-                <ChevronRight className="w-5 h-5 text-gray-600" />
+                <ChevronRight className="w-6 h-6 text-gray-600" />
               </button>
             </div>
 
@@ -206,8 +206,10 @@ export function LearnAboutKeto() {
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentSlide ? 'bg-[#58CC88]' : 'bg-gray-300'
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-200 ${
+                    index === currentSlide 
+                      ? 'bg-gray-400 scale-125' 
+                      : 'bg-gray-300 hover:bg-gray-350'
                   }`}
                 />
               ))}
