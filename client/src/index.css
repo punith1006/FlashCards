@@ -146,7 +146,7 @@
   
   /* Custom carousel gradient */
   .carousel-gradient {
-    background: linear-gradient(to bottom, #d1d5db, #bfc5cf);
+    background: linear-gradient(to bottom, #d1d5db 0%, #c4c9d0 50%, #b8bfc7 100%);
   }
   
   @keyframes slideUp {

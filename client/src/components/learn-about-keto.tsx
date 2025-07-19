@@ -164,22 +164,22 @@ export function LearnAboutKeto() {
               </a>
             </div>
 
-            <div className="carousel-gradient rounded-lg relative overflow-hidden min-h-[400px]">
-              <div className="px-6 pt-6 pb-4 h-full flex flex-col">
-                <h4 className="text-lg font-bold text-gray-900 mb-3">
+            <div className="carousel-gradient rounded-lg relative overflow-hidden min-h-[360px]">
+              <div className="px-5 pt-5 pb-3 h-full flex flex-col">
+                <h4 className="text-lg font-bold text-gray-900 mb-2">
                   {productGuides[currentSlide].title}
                 </h4>
-                <p className="text-gray-700 text-sm leading-relaxed mb-6 flex-shrink-0">
+                <p className="text-gray-700 text-sm leading-relaxed mb-4 flex-shrink-0">
                   {productGuides[currentSlide].description}
                 </p>
                 
-                {/* Product image container - takes remaining space with larger image */}
-                <div className="flex justify-center items-center flex-1 pb-4">
+                {/* Product image container - takes remaining space with much larger image */}
+                <div className="flex justify-center items-center flex-1 pb-2">
                   <div className="relative">
                     <img 
                       src={productGuides[currentSlide].image}
                       alt={productGuides[currentSlide].title}
-                      className="w-52 h-60 object-contain drop-shadow-lg"
+                      className="w-56 h-72 object-contain drop-shadow-xl"
                     />
                   </div>
                 </div>
@@ -188,15 +188,15 @@ export function LearnAboutKeto() {
               {/* Navigation arrows - positioned at mid-height */}
               <button 
                 onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors"
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
               >
-                <ChevronLeft className="w-5 h-5 text-gray-600" />
+                <ChevronLeft className="w-4 h-4 text-gray-600" />
               </button>
               <button 
                 onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors"
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
               >
-                <ChevronRight className="w-5 h-5 text-gray-600" />
+                <ChevronRight className="w-4 h-4 text-gray-600" />
               </button>
             </div>
 
