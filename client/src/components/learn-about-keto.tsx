@@ -164,32 +164,32 @@ export function LearnAboutKeto() {
               </a>
             </div>
 
-            <div className="carousel-gradient rounded-lg relative overflow-hidden min-h-[450px]">
-              <div className="px-6 pt-6 pb-4 h-full flex flex-col">
-                <h4 className="text-xl font-bold text-gray-900 mb-3">
+            <div className="carousel-gradient rounded-lg relative overflow-hidden min-h-[400px]">
+              <div className="px-5 pt-5 pb-3 h-full flex flex-col">
+                <h4 className="text-lg font-bold text-gray-900 mb-2">
                   {productGuides[currentSlide].title}
                 </h4>
-                <p className="text-gray-700 text-sm leading-relaxed mb-6 flex-shrink-0">
+                <p className="text-gray-700 text-sm leading-relaxed mb-4 flex-shrink-0">
                   {productGuides[currentSlide].description}
                 </p>
                 
                 {/* Product image container - takes remaining space with much larger emphasized image */}
-                <div className="flex justify-center items-center flex-1 pb-3">
+                <div className="flex justify-center items-center flex-1 pb-2">
                   <div className="relative">
                     <img 
                       src={productGuides[currentSlide].image}
                       alt={productGuides[currentSlide].title}
-                      className="w-80 h-[26rem] object-contain drop-shadow-2xl scale-105"
+                      className="w-72 h-[22rem] object-contain drop-shadow-2xl"
                     />
                   </div>
                 </div>
               </div>
 
-              {/* Navigation arrows - positioned at mid-height */}
+              {/* Navigation arrows - positioned at the very edges */}
               {currentSlide > 0 && (
                 <button 
                   onClick={prevSlide}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+                  className="absolute -left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
                 >
                   <ChevronLeft className="w-5 h-5 text-gray-600" />
                 </button>
@@ -197,7 +197,7 @@ export function LearnAboutKeto() {
               {currentSlide < productGuides.length - 1 && (
                 <button 
                   onClick={nextSlide}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+                  className="absolute -right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
                 >
                   <ChevronRight className="w-5 h-5 text-gray-600" />
                 </button>
