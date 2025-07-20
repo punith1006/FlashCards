@@ -4,9 +4,9 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
   
   return (
     <div className={`
-      relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300
+      relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300
       ${isDark ? 'bg-gray-900 text-white' : 'bg-orange-50 text-gray-800'}
-      h-[400px]
+      h-[480px] transform hover:scale-105
     `}>
       {/* Background Image for dark cards */}
       {testimonial.hasBackgroundImage && (
@@ -30,19 +30,19 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
       
       {/* Content container */}
       <div className={`
-        relative z-20 p-8 h-full flex flex-col
-        ${testimonial.isStoryCard ? 'pt-16' : 'pt-8'}
+        relative z-20 p-10 h-full flex flex-col
+        ${testimonial.isStoryCard ? 'pt-20' : 'pt-10'}
       `}>
         {/* Header - Fixed at top */}
-        <div className="space-y-3 flex-shrink-0">
+        <div className="space-y-4 flex-shrink-0">
           <h3 className={`
             ${isDark ? 'text-white' : 'text-gray-900'} 
-            text-xl font-bold leading-tight
+            text-2xl font-bold leading-tight
           `}>
             {testimonial.title}
           </h3>
           <p className={`
-            text-sm font-medium
+            text-base font-medium
             ${isDark ? 'text-white/80' : 'text-gray-600'}
           `}>
             {testimonial.subtitle}
@@ -50,9 +50,9 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
         </div>
 
         {/* Quote - Scrollable content area */}
-        <div className="flex-1 py-6 overflow-y-auto scrollbar-hide">
+        <div className="flex-1 py-8 overflow-y-auto scrollbar-hide">
           <blockquote className={`
-            leading-relaxed italic text-sm
+            leading-relaxed italic text-base
             ${isDark ? 'text-white' : 'text-gray-700'}
           `}>
             "{testimonial.quote}"
@@ -60,23 +60,23 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
         </div>
 
         {/* Author Info - Fixed at bottom */}
-        <div className="flex items-center gap-4 flex-shrink-0 mt-auto">
-          <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+        <div className="flex items-center gap-5 flex-shrink-0 mt-auto">
+          <div className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white/20">
             <img 
-              src={`https://ui-avatars.com/api/?name=${testimonial.author}&background=4F46E5&color=fff&size=48`}
+              src={`https://ui-avatars.com/api/?name=${testimonial.author}&background=4F46E5&color=fff&size=56`}
               alt={testimonial.author}
               className="w-full h-full object-cover"
             />
           </div>
           <div>
             <div className={`
-              font-semibold text-sm
+              font-semibold text-base
               ${isDark ? 'text-white' : 'text-gray-900'}
             `}>
               {testimonial.role}, {testimonial.author}
             </div>
             <div className={`
-              text-xs
+              text-sm
               ${isDark ? 'text-white/70' : 'text-gray-500'}
             `}>
               {testimonial.since}
@@ -89,13 +89,13 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
 }
 
 export function TestimonialsSection() {
-  // Testimonials data matching reference image exactly
+  // Expanded testimonials data based on Snackpass website
   const testimonials = [
     {
       id: "xing-fu-tang",
       title: "Xing Fu Tang",
       subtitle: "Taiwan's No.1 Boba Brand",
-      quote: "When it comes time to really service a lot of tickets in short order, it is very helpful to be able to turn the POS into a kiosk",
+      quote: "When it comes time to service a lot of tickets in short order, it is very helpful to be able to turn the POS into a kiosk… and have customers order for themselves and then dedicate that man power to making the actual drinks.",
       author: "Andrew Chuang",
       role: "CEO",
       company: "Xing Fu Tang",
@@ -107,7 +107,7 @@ export function TestimonialsSection() {
       id: "ole-ole-burrito",
       title: "Ole Ole Burrito Express",
       subtitle: "30K Subscribers On Snackpass",
-      quote: "With Snackpass we were finally able to bring all our operations under one roof, eliminating the stress of integrating and purchasing multiple solutions. Our day-to-day work has been more efficient.",
+      quote: "With Snackpass we were finally able to bring all our operations under one roof, eliminating the stress of integrating and purchasing multiple solutions. Our day-to-day work has never been more efficient.",
       author: "Amin Fasil",
       role: "Owner",
       company: "Ole Ole Burrito Express",
@@ -116,14 +116,26 @@ export function TestimonialsSection() {
       hasBackgroundImage: false
     },
     {
-      id: "presotea",
-      title: "Presotea",
-      subtitle: "Stories Collection",
-      quote: "Snackpass technology has been a great addition to our corporate and franchise locations. Not only has it helped streamline operations, but it's been the most valuable tool for our marketing and customer engagement efforts. The integration was seamless and our customers love the convenience it provides. We've seen a significant increase in repeat orders and customer satisfaction since implementing this solution.",
-      author: "Regional Manager",
-      role: "Operations",
-      company: "Presotea",
-      since: "Snackpass Partner Since 2022",
+      id: "riceful",
+      title: "Riceful",
+      subtitle: "1st Okinawa Onigiri Shop in the US",
+      quote: "Everything is connected. Customers can order in-store, online, or via the app and always earn points. This consistency keeps our customers loyal and coming back.",
+      author: "Kai Tang",
+      role: "Owner",
+      company: "Riceful",
+      since: "Snackpass Partner Since 2020",
+      cardType: "light-beige",
+      hasBackgroundImage: false
+    },
+    {
+      id: "empanada-factory",
+      title: "Empanada Factory",
+      subtitle: "3.4K Subscribers Through Snackpass",
+      quote: "Implementing Snackpass wasn't just a tech upgrade; it was a revenue game-changer. With Snackpass on board, we've been able to bring more customers back through the door and boost everyday earnings.",
+      author: "Marcelo Gutierrez",
+      role: "CEO",
+      company: "Empanada Factory",
+      since: "Snackpass Partner Since 2021",
       cardType: "dark-overlay",
       hasBackgroundImage: true,
       isStoryCard: true
@@ -131,51 +143,58 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <div className="bg-gray-50 py-20">
-      <div className="container mx-auto px-8 max-w-[1400px]">
-        <div className="flex gap-16 items-start">
-          {/* Left Content - Exactly as in reference */}
-          <div className="flex-shrink-0 w-[320px] space-y-10">
-            <div className="space-y-6">
-              <h2 className="text-4xl font-serif text-gray-900 leading-[1.2] font-normal">
-                Why fast growing<br />
-                restaurant brands<br />
-                choose Snackpass
-              </h2>
-              <div className="space-y-4">
-                <p className="text-gray-600 leading-relaxed">
-                  Future proof your business. Stay ahead of the competition without spending millions.
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                  Offer next generation customer experiences like Starbucks and McDonalds. All customized to your brand.
-                </p>
-              </div>
-            </div>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200">
+    <div className="bg-gray-50 py-32">
+      <div className="container mx-auto px-8 max-w-[1600px]">
+        {/* Header Section */}
+        <div className="text-center mb-20">
+          <h2 className="text-5xl lg:text-6xl font-serif text-gray-900 leading-[1.1] font-normal mb-8">
+            Why fast growing<br />
+            restaurant brands<br />
+            choose Snackpass
+          </h2>
+          <div className="max-w-3xl mx-auto space-y-6">
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Future proof your business. Stay ahead of the competition without spending millions.
+            </p>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Offer next generation customer experiences like Starbucks and McDonalds. All customized to your brand.
+            </p>
+          </div>
+          <div className="mt-12">
+            <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 shadow-lg">
               Case Studies
             </button>
           </div>
+        </div>
 
-          {/* Right Content - Testimonial Cards Grid */}
-          <div className="flex-1">
-            {/* Desktop: 3-column grid matching reference */}
-            <div className="hidden lg:grid lg:grid-cols-3 gap-6 items-start">
-              {testimonials.slice(0, 3).map((testimonial, index) => (
-                <div key={testimonial.id}>
+        {/* Testimonial Cards Grid - Much Larger */}
+        <div className="space-y-12">
+          {/* Desktop: 4-column grid for maximum impact */}
+          <div className="hidden lg:grid lg:grid-cols-4 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={testimonial.id}>
+                <TestimonialCard testimonial={testimonial} index={index} />
+              </div>
+            ))}
+          </div>
+
+          {/* Tablet: 2-column grid */}
+          <div className="hidden md:grid lg:hidden md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={testimonial.id}>
+                <TestimonialCard testimonial={testimonial} index={index} />
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile: Horizontal scroll with larger cards */}
+          <div className="md:hidden overflow-x-auto scrollbar-hide">
+            <div className="flex gap-8 pb-6" style={{ width: 'max-content' }}>
+              {testimonials.map((testimonial, index) => (
+                <div key={testimonial.id} className="w-96 flex-shrink-0">
                   <TestimonialCard testimonial={testimonial} index={index} />
                 </div>
               ))}
-            </div>
-
-            {/* Mobile: Horizontal scroll */}
-            <div className="lg:hidden overflow-x-auto scrollbar-hide">
-              <div className="flex gap-6 pb-4" style={{ width: 'max-content' }}>
-                {testimonials.map((testimonial, index) => (
-                  <div key={testimonial.id} className="w-80 flex-shrink-0">
-                    <TestimonialCard testimonial={testimonial} index={index} />
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
