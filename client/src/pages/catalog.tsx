@@ -112,9 +112,6 @@ function ProductCard({ product }: { product: typeof staticProducts[0] }) {
         <div className="mb-3">
           <div className="text-xs text-gray-500 mb-1">Sale price</div>
           <div className="flex items-baseline gap-2">
-            {product.flavors && (
-              <span className="text-xs text-gray-500">From</span>
-            )}
             <span className="text-lg font-bold text-black">
               ${product.price}
             </span>
@@ -129,33 +126,6 @@ function ProductCard({ product }: { product: typeof staticProducts[0] }) {
         >
           Quick Buy
         </Button>
-
-        {/* Flavor Selection for products with flavors */}
-        {product.flavors && (
-          <div className="space-y-2 mb-3">
-            <div className="text-xs font-medium text-gray-700">Flavor</div>
-            <select className="w-full text-xs border border-gray-300 rounded px-2 py-2 bg-white">
-              {product.flavors.slice(0, 4).map((flavor, index) => (
-                <option key={index} value={flavor}>
-                  {flavor} / 1 Tub - ${product.price}
-                </option>
-              ))}
-            </select>
-          </div>
-        )}
-
-        {/* Price breakdown for flavored products */}
-        {product.flavors && (
-          <div className="text-xs text-gray-600 space-y-1 mb-3">
-            <div className="flex justify-between">
-              <span>Sale price</span>
-            </div>
-            <div className="flex justify-between">
-              <span>From</span>
-              <span className="font-medium">${product.price}</span>
-            </div>
-          </div>
-        )}
 
         {/* Add to Cart Button */}
         <Button className="w-full bg-black hover:bg-gray-800 text-white text-sm font-medium">
