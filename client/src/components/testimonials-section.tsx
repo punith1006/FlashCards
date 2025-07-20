@@ -41,11 +41,11 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
           </blockquote>
         </div>
 
-        {/* Bottom section - Fixed at bottom */}
-        <div className="flex-shrink-0 space-y-2">
+        {/* Bottom section - Fixed at bottom, slimmer */}
+        <div className="flex-shrink-0">
           {/* Snackpass Stories badge - only for story cards */}
           {testimonial.isStoryCard && (
-            <div className="mb-2">
+            <div className="mb-1">
               <span className="text-xs font-medium text-white/90 tracking-wide">Snackpass Stories</span>
             </div>
           )}
@@ -53,14 +53,14 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
           {/* Company name - Large title */}
           <h3 className={`
             ${isDark ? 'text-white' : 'text-gray-900'} 
-            text-4xl font-bold leading-tight mb-1
+            text-3xl font-bold leading-none
           `}>
             {testimonial.title}
           </h3>
 
           {/* Author name only - simple text below company */}
           <div className={`
-            text-base font-normal
+            text-sm font-normal mt-1
             ${isDark ? 'text-white/80' : 'text-gray-700'}
           `}>
             {testimonial.author}
