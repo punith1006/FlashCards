@@ -1,4 +1,4 @@
-import { Star } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -96,24 +96,7 @@ function ProductCard({ product }: { product: typeof staticProducts[0] }) {
             {product.name}
           </h3>
 
-          {/* Reviews */}
-          <div className="flex items-center gap-2">
-            <div className="flex items-center">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className={`w-3 h-3 ${
-                    i < Math.floor(product.rating)
-                      ? "text-yellow-400 fill-current"
-                      : "text-gray-300"
-                  }`}
-                />
-              ))}
-            </div>
-            <span className="text-xs text-gray-600">
-              {product.reviews.toLocaleString()} reviews
-            </span>
-          </div>
+
 
           {/* Badge */}
           {product.badge && (
@@ -203,58 +186,16 @@ export default function Catalog() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="flex gap-8">
-          {/* Sidebar - Categories */}
-          <div className="hidden lg:block w-64 flex-shrink-0">
-            <div className="sticky top-8">
-              <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">
-                Filter by
-              </h3>
-              
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-sm font-medium text-gray-900 mb-3">Categories</h4>
-                  <div className="space-y-2">
-                    {["Best Sellers", "Collagen", "Supplements", "Food", "Bars"].map((category) => (
-                      <label key={category} className="flex items-center text-sm text-gray-600">
-                        <input type="checkbox" className="mr-2 rounded border-gray-300" />
-                        {category}
-                      </label>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              
-              <div className="mt-6 pt-6 border-t border-gray-200">
-                <Button variant="outline" size="sm" className="w-full">
-                  Clear All
-                </Button>
-              </div>
-            </div>
-          </div>
-
+        <div>
           {/* Products Grid */}
-          <div className="flex-1">
-            {/* Mobile Filter */}
-            <div className="lg:hidden mb-6 flex items-center justify-between">
-              <p className="text-sm text-gray-600">{staticProducts.length} Products</p>
-              <div className="flex gap-2">
-                <Button variant="outline" size="sm">
-                  Refine
-                </Button>
-                <Button variant="outline" size="sm">
-                  Clear All
-                </Button>
-              </div>
-            </div>
-
-            {/* Desktop Product Count */}
-            <div className="hidden lg:block mb-6">
+          <div>
+            {/* Product Count */}
+            <div className="mb-6">
               <p className="text-sm text-gray-600">{staticProducts.length} Products</p>
             </div>
 
             {/* Products Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {staticProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
