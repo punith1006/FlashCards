@@ -140,22 +140,32 @@ export default function Catalog() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section - Exact Perfect Keto styling */}
-      <div className="bg-white py-12 px-4">
+      <div className="bg-white py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-4xl font-bold text-gray-900">All products</h1>
+            <div className="flex-1">
+              <h1 className="text-5xl font-bold text-gray-900">All products</h1>
             </div>
-            <div className="hidden md:block">
-              <div className="relative w-96 h-48 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg overflow-hidden">
+            <div className="hidden md:block ml-8">
+              <div className="relative w-80 h-40 bg-gradient-to-br from-blue-100 via-blue-150 to-blue-200 rounded-2xl overflow-hidden">
+                {/* Product arrangement - multiple collagen jars */}
+                <div className="absolute inset-0 flex items-end justify-center pb-8">
+                  <div className="relative flex items-end space-x-2">
+                    {/* Left jar - smaller */}
+                    <div className="w-12 h-16 bg-green-100 rounded-lg border border-gray-200 shadow-sm"></div>
+                    {/* Center back jar - tallest */}
+                    <div className="w-14 h-20 bg-amber-100 rounded-lg border border-gray-200 shadow-sm -mb-2"></div>
+                    {/* Center front jar - medium */}
+                    <div className="w-13 h-18 bg-orange-100 rounded-lg border border-gray-200 shadow-sm"></div>
+                    {/* Right jar - medium */}
+                    <div className="w-12 h-17 bg-teal-100 rounded-lg border border-gray-200 shadow-sm"></div>
+                  </div>
+                  {/* Decorative elements */}
+                  <div className="absolute bottom-12 left-8 w-4 h-4 bg-green-300 rounded-full opacity-70"></div>
+                  <div className="absolute bottom-16 right-12 w-3 h-6 bg-amber-600 rounded opacity-60"></div>
+                </div>
                 {/* Yellow accent bar */}
-                <div className="absolute bottom-0 left-0 right-0 h-8 bg-yellow-400"></div>
-                {/* Product showcase image */}
-                <img 
-                  src="https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=400&h=200&fit=crop"
-                  alt="Perfect Keto Products"
-                  className="w-full h-full object-contain p-4"
-                />
+                <div className="absolute bottom-0 left-0 right-0 h-6 bg-yellow-400"></div>
               </div>
             </div>
           </div>
