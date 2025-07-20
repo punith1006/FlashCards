@@ -366,84 +366,45 @@ export function DigitalFutureSection() {
               </div>
 
               {/* Right Content - Testimonial Cards */}
-              <div className="lg:col-span-7 relative">
-                <div className="flex overflow-hidden">
-                  <div 
-                    className="flex transition-transform duration-500 ease-in-out"
-                    style={{ transform: `translateX(-${activeTestimonialIndex * 100}%)` }}
-                  >
-                    {testimonials.map((testimonial) => (
-                      <div 
-                        key={testimonial.id}
-                        className="w-full flex-shrink-0 px-4"
-                      >
-                        <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm">
-                          {/* Header */}
-                          <div className="mb-6">
-                            <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                              {testimonial.title}
-                            </h3>
-                            <p className="text-gray-600 font-medium">
-                              {testimonial.subtitle}
-                            </p>
+              <div className="lg:col-span-7">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {testimonials.slice(0, 4).map((testimonial) => (
+                    <div 
+                      key={testimonial.id}
+                      className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow duration-200"
+                    >
+                      {/* Header */}
+                      <div className="mb-4">
+                        <h3 className="text-xl font-bold text-gray-900 mb-1">
+                          {testimonial.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm font-medium">
+                          {testimonial.subtitle}
+                        </p>
+                      </div>
+
+                      {/* Quote */}
+                      <blockquote className="text-gray-800 leading-relaxed mb-6 text-sm">
+                        "{testimonial.quote.slice(0, 120)}..."
+                      </blockquote>
+
+                      {/* Author Info */}
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-[#58CC88] rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-white text-sm font-bold">
+                            {testimonial.image}
+                          </span>
+                        </div>
+                        <div>
+                          <div className="font-semibold text-gray-900 text-sm">
+                            {testimonial.role}, {testimonial.author}
                           </div>
-
-                          {/* Quote */}
-                          <blockquote className="text-lg text-gray-800 leading-relaxed mb-8 font-medium">
-                            "{testimonial.quote}"
-                          </blockquote>
-
-                          {/* Author Info */}
-                          <div className="flex items-start gap-4">
-                            <div className="w-12 h-12 bg-[#58CC88] rounded-full flex items-center justify-center flex-shrink-0">
-                              <span className="text-white text-lg font-bold">
-                                {testimonial.image}
-                              </span>
-                            </div>
-                            <div>
-                              <div className="font-semibold text-gray-900">
-                                {testimonial.role}, {testimonial.author}
-                              </div>
-                              <div className="text-gray-600 text-sm mt-1">
-                                {testimonial.since}
-                              </div>
-                            </div>
+                          <div className="text-gray-500 text-xs">
+                            {testimonial.since}
                           </div>
                         </div>
                       </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Navigation */}
-                <div className="flex justify-center mt-8 gap-4">
-                  <button
-                    onClick={() => setActiveTestimonialIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-                    className="p-2 rounded-full border border-gray-300 hover:border-gray-400 transition-colors duration-200"
-                    aria-label="Previous testimonial"
-                  >
-                    <ArrowLeft className="w-5 h-5 text-gray-600" />
-                  </button>
-                  <button
-                    onClick={() => setActiveTestimonialIndex((prev) => (prev + 1) % testimonials.length)}
-                    className="p-2 rounded-full border border-gray-300 hover:border-gray-400 transition-colors duration-200"
-                    aria-label="Next testimonial"
-                  >
-                    <ArrowRight className="w-5 h-5 text-gray-600" />
-                  </button>
-                </div>
-
-                {/* Dots Indicator */}
-                <div className="flex justify-center mt-4 gap-2">
-                  {testimonials.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveTestimonialIndex(index)}
-                      className={`w-2 h-2 rounded-full transition-colors duration-200 ${
-                        index === activeTestimonialIndex ? 'bg-blue-500' : 'bg-gray-300'
-                      }`}
-                      aria-label={`Go to testimonial ${index + 1}`}
-                    />
+                    </div>
                   ))}
                 </div>
               </div>
