@@ -140,26 +140,23 @@ export default function Catalog() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section - Exact Perfect Keto replica */}
-      <div className="bg-white py-12 px-4">
-        <div className="max-w-5xl mx-auto">
+      <div className="bg-white py-16 px-4">
+        <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-4xl font-bold text-gray-900">All products</h1>
+              <h1 className="text-5xl font-bold text-gray-900">All products</h1>
             </div>
-            <div className="hidden md:block">
-              <div className="relative w-80 h-32">
-                {/* Light blue background container */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg"></div>
-                
-                {/* Product image - using the actual Perfect Keto collagen products image */}
+            <div className="hidden lg:block">
+              <div className="relative w-96 h-28 rounded-lg overflow-hidden">
+                {/* Kitchen scene image matching Perfect Keto */}
                 <img 
-                  src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=320&h=120&fit=crop&crop=center"
-                  alt="Perfect Keto Collagen Products"
-                  className="absolute inset-0 w-full h-full object-contain p-2"
+                  src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=120&fit=crop"
+                  alt="Perfect Keto Kitchen Scene"
+                  className="w-full h-full object-cover"
                 />
                 
                 {/* Yellow accent bar at bottom */}
-                <div className="absolute bottom-0 left-0 right-0 h-4 bg-yellow-400 rounded-b-lg"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-3 bg-yellow-400"></div>
               </div>
             </div>
           </div>
@@ -167,7 +164,7 @@ export default function Catalog() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-5xl mx-auto px-4 py-8">
+      <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Product Count */}
         <div className="mb-8 pb-4 border-b border-gray-200">
           <p className="text-sm font-medium text-gray-700">{staticProducts.length} Products</p>
