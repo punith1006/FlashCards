@@ -139,30 +139,7 @@ export function ProductOverview() {
               </p>
             </div>
 
-            {/* Flavor Selection */}
-            <div className="mb-6">
-              <h3 className="font-semibold text-black mb-4">Flavor</h3>
-              <div className="grid grid-cols-4 gap-3">
-                {flavorOptions.map((flavor) => (
-                  <button
-                    key={flavor.id}
-                    onClick={() => setSelectedFlavor(flavor.id)}
-                    className={`p-3 border rounded-lg text-center hover:border-black transition-colors ${
-                      selectedFlavor === flavor.id ? 'border-black bg-gray-50' : 'border-gray-300'
-                    }`}
-                  >
-                    <div className="w-12 h-12 mx-auto mb-2 bg-white rounded-full flex items-center justify-center">
-                      <img 
-                        src={flavor.image} 
-                        alt={flavor.name}
-                        className="w-8 h-8 object-contain"
-                      />
-                    </div>
-                    <p className="text-xs text-black font-medium">{flavor.name}</p>
-                  </button>
-                ))}
-              </div>
-            </div>
+            
 
             {/* Quantity and Add to Cart Section */}
             <div className="space-y-4">
