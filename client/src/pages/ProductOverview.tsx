@@ -136,28 +136,13 @@ export function ProductOverview() {
               </Button>
             </div>
 
-            {/* Product Highlights */}
-            <div className="bg-gray-50 p-4 rounded">
-              <h3 className="text-base font-semibold text-black mb-3">Highlights</h3>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li>
-                  <span className="font-semibold">Made to:</span>{' '}
-                  <span className="italic">Maintain joint health, promote hair, skin and nail growth, help muscle recovery, support digestion, increase focus</span>
-                </li>
-                <li>• Made with grass-fed collagen and added MCTs for focus and satiation</li>
-                <li>• Dairy free</li>
-                <li>• No artificial sweeteners</li>
-              </ul>
-            </div>
+            
           </div>
         </div>
 
         
 
-        {/* Move Better, Feel Better Section */}
-        <div className="mt-12">
-          <h2 className="text-2xl font-bold text-black">Move Better, Feel Better</h2>
-        </div>
+        
       </div>
     </div>
   );
