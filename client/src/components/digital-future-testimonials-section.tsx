@@ -567,10 +567,10 @@ export function DigitalFutureTestimonialsSection() {
                   choose Snackpass
                 </h2>
                 <div className="space-y-6">
-                  <p className="text-base text-gray-600 leading-relaxed">
+                  <p className="text-lg text-gray-600 leading-relaxed">
                     Future proof your business. Stay ahead of the competition without spending millions.
                   </p>
-                  <p className="text-base text-gray-600 leading-relaxed">
+                  <p className="text-lg text-gray-600 leading-relaxed">
                     Offer next generation customer experiences like Starbucks and McDonalds. All customized to your brand.
                   </p>
                 </div>
