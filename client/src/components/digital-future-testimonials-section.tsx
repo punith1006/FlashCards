@@ -557,17 +557,17 @@ export function DigitalFutureTestimonialsSection() {
         }}
       >
         <div className="container mx-auto px-8 max-w-[1400px] pt-16">
-          {/* Desktop Layout: Header section and horizontal scrolling cards */}
-          <div className="hidden lg:block">
-            {/* Header Section */}
-            <div className="flex justify-between items-center mb-12">
-              <div className="max-w-lg">
-                <h2 className="text-4xl font-serif text-black leading-[1.15] font-normal mb-6">
+          {/* Desktop Layout: Single row with header and cards */}
+          <div className="hidden lg:flex lg:items-start lg:gap-8">
+            {/* Header Section - Fixed width column */}
+            <div className="flex-shrink-0 w-80 flex flex-col justify-between h-[580px]">
+              <div className="space-y-10">
+                <h2 className="text-4xl font-serif text-black leading-[1.15] font-normal">
                   Why fast growing<br />
                   restaurant brands<br />
                   choose Snackpass
                 </h2>
-                <div className="space-y-4 mb-8">
+                <div className="space-y-6">
                   <p className="text-base text-gray-600 leading-relaxed">
                     Future proof your business. Stay ahead of the competition without spending millions.
                   </p>
@@ -575,44 +575,46 @@ export function DigitalFutureTestimonialsSection() {
                     Offer next generation customer experiences like Starbucks and McDonalds. All customized to your brand.
                   </p>
                 </div>
+              </div>
+              <div className="flex flex-col gap-4">
                 <button className="bg-[#1E90FF] hover:bg-[#1E90FF]/90 text-white px-8 py-4 rounded-xl font-semibold text-base transition-colors duration-200 w-fit">
                   Case Studies
                 </button>
-              </div>
-              
-              {/* Navigation Buttons */}
-              <div className="flex gap-2">
-                <button
-                  onClick={scrollTestimonialsLeft}
-                  disabled={!canScrollLeft}
-                  className={`p-3 rounded-full border transition-all duration-200 ${
-                    canScrollLeft 
-                      ? 'bg-white hover:bg-gray-50 border-gray-200 text-gray-700 hover:text-gray-900 shadow-sm hover:shadow-md' 
-                      : 'bg-gray-100 border-gray-100 text-gray-400 cursor-not-allowed'
-                  }`}
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                <button
-                  onClick={scrollTestimonialsRight}
-                  disabled={!canScrollRight}
-                  className={`p-3 rounded-full border transition-all duration-200 ${
-                    canScrollRight 
-                      ? 'bg-white hover:bg-gray-50 border-gray-200 text-gray-700 hover:text-gray-900 shadow-sm hover:shadow-md' 
-                      : 'bg-gray-100 border-gray-100 text-gray-400 cursor-not-allowed'
-                  }`}
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
+                
+                {/* Navigation Buttons */}
+                <div className="flex gap-2">
+                  <button
+                    onClick={scrollTestimonialsLeft}
+                    disabled={!canScrollLeft}
+                    className={`p-3 rounded-full border transition-all duration-200 ${
+                      canScrollLeft 
+                        ? 'bg-white hover:bg-gray-50 border-gray-200 text-gray-700 hover:text-gray-900 shadow-sm hover:shadow-md' 
+                        : 'bg-gray-100 border-gray-100 text-gray-400 cursor-not-allowed'
+                    }`}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={scrollTestimonialsRight}
+                    disabled={!canScrollRight}
+                    className={`p-3 rounded-full border transition-all duration-200 ${
+                      canScrollRight 
+                        ? 'bg-white hover:bg-gray-50 border-gray-200 text-gray-700 hover:text-gray-900 shadow-sm hover:shadow-md' 
+                        : 'bg-gray-100 border-gray-100 text-gray-400 cursor-not-allowed'
+                    }`}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
 
-            {/* Horizontal Scrolling Cards */}
-            <div className="overflow-x-auto pb-6 scrollbar-hide" ref={testimonialsSliderRef}>
+            {/* Horizontal Scrolling Cards - Takes remaining space */}
+            <div className="flex-1 overflow-x-auto pb-6 scrollbar-hide" ref={testimonialsSliderRef}>
               <div className="flex gap-6 min-w-max">
                 {testimonials.map((testimonial, index) => (
                   <div key={testimonial.id} className="w-80 flex-shrink-0">
