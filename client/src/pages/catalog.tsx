@@ -100,18 +100,6 @@ function ProductCard({ product }: { product: typeof staticProducts[0] }) {
           {product.name}
         </h3>
 
-        {/* Star Rating */}
-        <div className="flex items-center mb-2">
-          <div className="flex text-yellow-400">
-            {[...Array(5)].map((_, i) => (
-              <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                <path d="M10 1l2.5 6.5h6.5l-5.25 4 2 6.5-5.25-4-5.25 4 2-6.5L1.5 7.5h6.5L10 1z"/>
-              </svg>
-            ))}
-          </div>
-          <span className="text-sm text-gray-600 ml-2">20 reviews</span>
-        </div>
-
         {/* Badge */}
         {product.badge && (
           <p className="text-sm font-bold text-green-700 mb-2">{product.badge}</p>
