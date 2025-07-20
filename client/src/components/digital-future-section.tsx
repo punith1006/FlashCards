@@ -171,7 +171,7 @@ export function DigitalFutureSection() {
             {/* Back Button */}
             <button
               onClick={handleBackClick}
-              className="absolute top-6 left-6 inline-flex items-center px-4 py-2 text-gray-600 hover:text-gray-900 transition-colors duration-200"
+              className="absolute top-4 left-6 inline-flex items-center px-4 py-2 text-gray-600 hover:text-gray-900 transition-colors duration-200"
             >
               <ArrowLeft className="w-5 h-5 mr-2" />
               Back
