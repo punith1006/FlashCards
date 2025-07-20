@@ -213,53 +213,7 @@ export function TestimonialsSection() {
           ))}
         </div>
 
-        {/* Mobile & Tablet Layout: Stacked */}
-        <div className="lg:hidden space-y-16">
-          {/* Header Section */}
-          <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 leading-[1.1] font-normal mb-8">
-              Why fast growing<br />
-              restaurant brands<br />
-              choose Snackpass
-            </h2>
-            <div className="max-w-3xl mx-auto space-y-6">
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Future proof your business. Stay ahead of the competition without spending millions.
-              </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Offer next generation customer experiences like Starbucks and McDonalds. All customized to your brand.
-              </p>
-            </div>
-            <div className="mt-10">
-              <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 shadow-lg">
-                Case Studies
-              </button>
-            </div>
-          </div>
-
-          {/* Cards Grid */}
-          <div className="space-y-8">
-            {/* Tablet: 2-column grid */}
-            <div className="hidden md:grid md:grid-cols-2 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <div key={testimonial.id}>
-                  <TestimonialCard testimonial={testimonial} index={index} />
-                </div>
-              ))}
-            </div>
-
-            {/* Mobile: Horizontal scroll */}
-            <div className="md:hidden overflow-x-auto scrollbar-hide">
-              <div className="flex gap-6 pb-6" style={{ width: 'max-content' }}>
-                {testimonials.map((testimonial, index) => (
-                  <div key={testimonial.id} className="w-80 flex-shrink-0">
-                    <TestimonialCard testimonial={testimonial} index={index} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   );
