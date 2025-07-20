@@ -41,9 +41,16 @@ export function DigitalFutureSection() {
           const learnAboutKetoTop = learnAboutKetoRect.top + scrollY;
           const learnAboutKetoHeight = learnAboutKetoRect.height;
           
+          // Get the Digital Future section height
+          const digitalFutureRect = sectionRef.current.getBoundingClientRect();
+          const digitalFutureHeight = digitalFutureRect.height;
+          
           // Start animation when we're near the end of the Learn About Keto section
           const triggerStart = learnAboutKetoTop + learnAboutKetoHeight - windowHeight;
-          const animationDistance = windowHeight * 0.8; // 80vh of scroll for full animation
+          
+          // Calculate the distance needed for bottom-to-bottom alignment
+          // The Digital Future section needs to move up by its own height to align bottoms
+          const animationDistance = digitalFutureHeight;
           
           if (scrollY >= triggerStart) {
             const scrollDistance = scrollY - triggerStart;
@@ -72,7 +79,7 @@ export function DigitalFutureSection() {
       ref={sectionRef}
       className="relative bg-white overflow-hidden"
       style={{
-        transform: `translateY(${-scrollProgress * 100}px)`,
+        transform: `translateY(${-scrollProgress * (containerRef.current?.getBoundingClientRect().height || 500)}px)`,
         transition: 'transform 0.1s ease-out',
         zIndex: scrollProgress > 0 ? 10 : 1,
       }}
