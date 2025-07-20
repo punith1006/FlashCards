@@ -179,8 +179,8 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <div className="bg-gray-50 pt-0 pb-20">
-      <div className="container mx-auto px-8 max-w-[1400px]">
+    <div className="bg-gray-50 pb-20">
+      <div className="container mx-auto px-8 max-w-[1400px] pt-16">
         {/* Desktop Layout: 4-column grid with text section as first column */}
         <div className="hidden lg:grid lg:grid-cols-4 gap-6 items-start">
           {/* First Column - Header Section (plain text, same width as cards) */}
