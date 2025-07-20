@@ -70,10 +70,10 @@ function ProductCard({ product }: { product: typeof staticProducts[0] }) {
   const [currentImage, setCurrentImage] = useState(product.image);
 
   return (
-    <div className="group relative bg-white overflow-hidden">
+    <div className="group relative bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300">
       {/* Product Image */}
       <div 
-        className="relative aspect-square bg-white overflow-hidden cursor-pointer"
+        className="relative aspect-square bg-gray-50 overflow-hidden cursor-pointer"
         onMouseEnter={() => {
           if (product.hoverImage) setCurrentImage(product.hoverImage);
         }}
@@ -82,55 +82,54 @@ function ProductCard({ product }: { product: typeof staticProducts[0] }) {
         }}
       >
         {product.isNew && (
-          <div className="absolute top-3 left-3 z-10 bg-red-600 text-white text-xs font-bold px-2 py-1">
+          <div className="absolute top-3 left-3 z-10 bg-gray-900 text-white text-xs font-semibold px-2 py-1 rounded">
             NEW
           </div>
         )}
         <img
           src={currentImage}
           alt={product.name}
-          className="w-full h-full object-contain transition-all duration-300 group-hover:scale-105"
+          className="w-full h-full object-cover transition-all duration-300"
         />
       </div>
 
       {/* Product Info */}
-      <div className="pt-4 pb-2">
+      <div className="p-5">
         {/* Product Name */}
-        <h3 className="font-medium text-gray-900 text-sm leading-tight mb-2 line-clamp-2">
+        <h3 className="font-bold text-gray-900 text-lg leading-tight mb-2">
           {product.name}
         </h3>
 
+        {/* Star Rating */}
+        <div className="flex items-center mb-2">
+          <div className="flex text-yellow-400">
+            {[...Array(5)].map((_, i) => (
+              <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 1l2.5 6.5h6.5l-5.25 4 2 6.5-5.25-4-5.25 4 2-6.5L1.5 7.5h6.5L10 1z"/>
+              </svg>
+            ))}
+          </div>
+          <span className="text-sm text-gray-600 ml-2">20 reviews</span>
+        </div>
+
         {/* Badge */}
         {product.badge && (
-          <p className="text-xs font-bold text-green-700 mb-2">{product.badge}</p>
+          <p className="text-sm font-bold text-green-700 mb-2">{product.badge}</p>
         )}
 
         {/* Description */}
-        <p className="text-sm text-gray-600 mb-4">{product.description}</p>
+        <p className="text-sm text-gray-600 mb-4 leading-relaxed">{product.description}</p>
 
-        {/* Price Section */}
-        <div className="mb-3">
-          <div className="text-xs text-gray-500 mb-1">Sale price</div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-lg font-bold text-black">
-              ${product.price}
-            </span>
+        {/* Price and Button */}
+        <div className="flex items-end justify-between">
+          <div>
+            <p className="text-xs text-gray-500 mb-1">Sale price</p>
+            <p className="text-xl font-bold text-gray-900">${product.price}</p>
           </div>
+          <button className="px-6 py-2 border-2 border-gray-900 text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-900 hover:text-white transition-colors duration-200">
+            Quick Buy
+          </button>
         </div>
-
-        {/* Quick Buy Button */}
-        <Button 
-          variant="outline" 
-          size="sm" 
-          className="w-full text-xs border-gray-300 hover:bg-gray-50 mb-3"
-        >
-          Quick Buy
-        </Button>
-
-        {/* Add to Cart Button */}
-        <Button className="w-full bg-black hover:bg-gray-800 text-white text-sm font-medium">
-          Add to Cart
-        </Button>
       </div>
     </div>
   );
