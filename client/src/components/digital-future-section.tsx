@@ -291,10 +291,15 @@ export function DigitalFutureSection() {
                   </div>
                 </div>
               </div>
-              
-              {/* Testimonials Section - Integrated within expanded content */}
-              <div className="mt-16 bg-gray-50 rounded-3xl -mx-12 px-20 pt-16 pb-20">
-                <div className="max-w-[1400px] mx-auto">
+            </div>
+          </div>
+        )}
+        </div>
+      </section>
+
+      {/* Testimonials Section - Outside expanded content, visible on main page */}
+      <section className="bg-gray-50 pb-20">
+        <div className="container mx-auto px-8 max-w-[1400px] pt-16">
           {/* Desktop Layout: 4-column grid with text section as first column */}
           <div className="hidden lg:grid lg:grid-cols-4 gap-6 items-start">
             {/* First Column - Header Section */}
@@ -489,11 +494,6 @@ export function DigitalFutureSection() {
               </div>
             </div>
           </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
         </div>
       </section>
     </>
