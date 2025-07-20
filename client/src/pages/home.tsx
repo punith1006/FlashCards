@@ -3,6 +3,7 @@ import { ScrollingHighlights } from "@/components/scrolling-highlights";
 import { FeaturesSection } from "@/components/features-section";
 import { FeaturedProducts } from "@/components/featured-products";
 import { LearnAboutKeto } from "@/components/learn-about-keto";
+import { TestimonialsSection } from "@/components/testimonials-section";
 import { DigitalFutureSection } from "@/components/digital-future-section";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <FeaturesSection />
       <FeaturedProducts />
       <LearnAboutKeto />
+      <TestimonialsSection />
       <DigitalFutureSection />
     </div>
   );

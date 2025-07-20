@@ -6,7 +6,7 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
     <div className={`
       relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500
       ${isDark ? 'bg-gray-900 text-white' : 'text-gray-800'}
-      h-[480px] transform hover:scale-105
+      h-[580px] transform hover:scale-105
     `}
     style={!isDark ? {
       background: 'rgba(254, 241, 225, 0.35)',
@@ -179,12 +179,12 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <div className="bg-gray-50 py-32">
-      <div className="container mx-auto px-8 max-w-[1600px]">
+    <div className="bg-gray-50 py-40">
+      <div className="container mx-auto px-8 max-w-[1400px]">
         {/* Desktop Layout: 4-column grid with text section as first column */}
-        <div className="hidden lg:grid lg:grid-cols-4 gap-8 items-start">
+        <div className="hidden lg:grid lg:grid-cols-4 gap-6 items-start">
           {/* First Column - Header Section (plain text, same width as cards) */}
-          <div className="flex flex-col justify-between h-[480px] pr-8">
+          <div className="flex flex-col justify-between h-[580px] pr-6">
             <div className="space-y-10">
               <h2 className="text-4xl font-serif text-black leading-[1.15] font-normal">
                 Why fast growing<br />
