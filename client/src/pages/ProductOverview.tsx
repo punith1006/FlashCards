@@ -88,39 +88,7 @@ export function ProductOverview() {
               chain triglycerides) to help support cognition and mental clarity.
             </p>
 
-            {/* Clinicians' Choice Badge */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <div className="flex items-center space-x-3 mb-3">
-                <div className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                  Clinicians' Choice
-                </div>
-                <p className="text-sm text-gray-700 font-medium">
-                  127 clinicians share this on FrontrowMD without compensation.
-                </p>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="flex -space-x-2">
-                  <img 
-                    src="https://assets.app.thefrontrowhealth.com/6ga051ctceywn9jfxyxg03azzwc2" 
-                    alt="Dr. Keemberly Kim, MD"
-                    className="w-8 h-8 rounded-full border-2 border-white"
-                  />
-                  <img 
-                    src="https://assets.app.thefrontrowhealth.com/j3dpo0lkq5u6etn5fezqeizarel4" 
-                    alt="Ageless Aesthetics"
-                    className="w-8 h-8 rounded-full border-2 border-white"
-                  />
-                  <img 
-                    src="https://assets.app.thefrontrowhealth.com/4e8he28d9xopj5iyyv83w41q78xi" 
-                    alt="Brittany Reynolds, DNP"
-                    className="w-8 h-8 rounded-full border-2 border-white"
-                  />
-                </div>
-                <button className="text-blue-600 text-sm font-medium hover:underline">
-                  View clinicians & learn more
-                </button>
-              </div>
-            </div>
+            
 
             {/* Reviews */}
             <div className="flex items-center space-x-2">
@@ -139,28 +107,7 @@ export function ProductOverview() {
               </p>
             </div>
 
-            {/* Flavor Selection */}
-            <div>
-              <h3 className="text-base font-semibold text-black mb-3">Flavor</h3>
-              <div className="grid grid-cols-4 gap-2">
-                {flavorOptions.map((flavor) => (
-                  <button
-                    key={flavor.id}
-                    onClick={() => setSelectedFlavor(flavor.id)}
-                    className={`p-2 rounded-lg border text-center hover:border-gray-400 transition-colors ${
-                      selectedFlavor === flavor.id ? 'border-black bg-gray-50' : 'border-gray-200'
-                    }`}
-                  >
-                    <img 
-                      src={flavor.image} 
-                      alt={flavor.name}
-                      className="w-12 h-12 object-contain mx-auto mb-1"
-                    />
-                    <p className="text-xs text-gray-800 font-medium">{flavor.name}</p>
-                  </button>
-                ))}
-              </div>
-            </div>
+            
 
             {/* Quantity Selection */}
             <div>
@@ -255,41 +202,7 @@ export function ProductOverview() {
           </div>
         </div>
 
-        {/* When To Use Section */}
-        <div className="mt-16 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-2xl font-bold text-black mb-8">When To Use</h2>
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-semibold text-black text-lg">Morning</h4>
-                <p className="text-gray-600">Mix with your morning coffee.</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-black text-lg">Evening</h4>
-                <p className="text-gray-600">To help your muscles relax before bed.</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-black text-lg">Dessert</h4>
-                <p className="text-gray-600">To satisfy your sweet tooth.</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-black text-lg">Workout</h4>
-                <p className="text-gray-600">Help your sore joints recover.</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-black text-lg">Travel</h4>
-                <p className="text-gray-600">To support your digestion when away from home.</p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <img 
-              src="https://cdn.shopify.com/s/files/1/1786/3461/files/collagen_lifestyle_01.jpg?v=1689777431"
-              alt="Collagen lifestyle"
-              className="w-full rounded-lg"
-            />
-          </div>
-        </div>
+        
 
         {/* Move Better, Feel Better Section */}
         <div className="mt-12">
