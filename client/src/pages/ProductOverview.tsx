@@ -34,42 +34,9 @@ export function ProductOverview() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Top Banner */}
-      <div className="bg-black text-white text-center py-2 text-sm">
-        Free Shipping on All Orders $75+ 
-        <Button className="ml-4 text-sm font-bold bg-white text-black px-4 py-1 rounded hover:bg-gray-100 h-auto">
-          SHOP NOW
-        </Button>
-      </div>
+      
 
-      {/* Navigation Header */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-8">
-              <h1 className="text-xl font-bold text-black">Perfect Keto</h1>
-              <nav className="hidden md:flex space-x-6 text-sm">
-                <a href="#" className="text-gray-700 hover:text-black">Shop All</a>
-                <a href="#" className="text-gray-700 hover:text-black">Learn About Keto</a>
-                <a href="#" className="text-gray-700 hover:text-black">Keto Recipes</a>
-                <a href="#" className="text-gray-700 hover:text-black">Wholesale</a>
-              </nav>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Search className="w-5 h-5 text-gray-600" />
-              <span className="text-xs text-gray-600">SEARCH</span>
-              <MapPin className="w-5 h-5 text-gray-600" />
-              <span className="text-xs text-gray-600">ABOUT</span>
-              <span className="text-xs text-gray-600">LEARN</span>
-              <User className="w-5 h-5 text-gray-600" />
-              <span className="text-xs text-gray-600">ACCOUNT</span>
-              <ShoppingCart className="w-5 h-5 text-gray-600" />
-              <span className="text-xs text-gray-600">CART</span>
-              <span className="bg-orange-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">0</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      
 
       {/* Main Product Section */}
       <div className="container mx-auto px-6 py-8 max-w-7xl">
