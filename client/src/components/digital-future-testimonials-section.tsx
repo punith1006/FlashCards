@@ -155,17 +155,38 @@ export function DigitalFutureTestimonialsSection() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSection, setActiveSection] = useState('keto-insights');
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+  
+  const testimonialsSliderRef = useRef<HTMLDivElement>(null);
 
-  const scrollToCard4 = () => {
-    // For desktop, scroll to the centered card
-    const card4Element = document.getElementById('testimonial-card-4');
-    // For mobile, scroll to the card in the horizontal scroll
-    const card4MobileElement = document.getElementById('testimonial-card-4-mobile');
-    
-    if (card4Element && window.innerWidth >= 1024) {
-      card4Element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else if (card4MobileElement) {
-      card4MobileElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  // Handle scroll to update navigation button states for testimonials
+  useEffect(() => {
+    const handleScroll = () => {
+      if (testimonialsSliderRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = testimonialsSliderRef.current;
+        setCanScrollLeft(scrollLeft > 5);
+        setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 5);
+      }
+    };
+
+    const slider = testimonialsSliderRef.current;
+    if (slider) {
+      slider.addEventListener('scroll', handleScroll);
+      setTimeout(handleScroll, 100);
+      return () => slider.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
+
+  const scrollTestimonialsLeft = () => {
+    if (testimonialsSliderRef.current) {
+      testimonialsSliderRef.current.scrollBy({ left: -400, behavior: 'smooth' });
+    }
+  };
+
+  const scrollTestimonialsRight = () => {
+    if (testimonialsSliderRef.current) {
+      testimonialsSliderRef.current.scrollBy({ left: 400, behavior: 'smooth' });
     }
   };
   
@@ -536,17 +557,17 @@ export function DigitalFutureTestimonialsSection() {
         }}
       >
         <div className="container mx-auto px-8 max-w-[1400px] pt-16">
-          {/* Desktop Layout: First row with header + 3 cards */}
-          <div className="hidden lg:grid lg:grid-cols-4 gap-6 items-start mb-12">
-            {/* First Column - Header Section (plain text, same width as cards) */}
-            <div className="flex flex-col justify-between h-[580px] pr-6">
-              <div className="space-y-10">
-                <h2 className="text-4xl font-serif text-black leading-[1.15] font-normal">
+          {/* Desktop Layout: Header section and horizontal scrolling cards */}
+          <div className="hidden lg:block">
+            {/* Header Section */}
+            <div className="flex justify-between items-center mb-12">
+              <div className="max-w-lg">
+                <h2 className="text-4xl font-serif text-black leading-[1.15] font-normal mb-6">
                   Why fast growing<br />
                   restaurant brands<br />
                   choose Snackpass
                 </h2>
-                <div className="space-y-6">
+                <div className="space-y-4 mb-8">
                   <p className="text-base text-gray-600 leading-relaxed">
                     Future proof your business. Stay ahead of the competition without spending millions.
                   </p>
@@ -554,42 +575,55 @@ export function DigitalFutureTestimonialsSection() {
                     Offer next generation customer experiences like Starbucks and McDonalds. All customized to your brand.
                   </p>
                 </div>
+                <button className="bg-[#1E90FF] hover:bg-[#1E90FF]/90 text-white px-8 py-4 rounded-xl font-semibold text-base transition-colors duration-200 w-fit">
+                  Case Studies
+                </button>
               </div>
-              <button className="bg-[#1E90FF] hover:bg-[#1E90FF]/90 text-white px-8 py-4 rounded-xl font-semibold text-base transition-colors duration-200 w-fit">
-                Case Studies
-              </button>
+              
+              {/* Navigation Buttons */}
+              <div className="flex gap-2">
+                <button
+                  onClick={scrollTestimonialsLeft}
+                  disabled={!canScrollLeft}
+                  className={`p-3 rounded-full border transition-all duration-200 ${
+                    canScrollLeft 
+                      ? 'bg-white hover:bg-gray-50 border-gray-200 text-gray-700 hover:text-gray-900 shadow-sm hover:shadow-md' 
+                      : 'bg-gray-100 border-gray-100 text-gray-400 cursor-not-allowed'
+                  }`}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={scrollTestimonialsRight}
+                  disabled={!canScrollRight}
+                  className={`p-3 rounded-full border transition-all duration-200 ${
+                    canScrollRight 
+                      ? 'bg-white hover:bg-gray-50 border-gray-200 text-gray-700 hover:text-gray-900 shadow-sm hover:shadow-md' 
+                      : 'bg-gray-100 border-gray-100 text-gray-400 cursor-not-allowed'
+                  }`}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
             </div>
 
-            {/* Columns 2-4 - First 3 Testimonial Cards */}
-            {testimonials.slice(0, 3).map((testimonial, index) => (
-              <div key={testimonial.id}>
-                <TestimonialCard testimonial={testimonial} index={index} />
+            {/* Horizontal Scrolling Cards */}
+            <div className="overflow-x-auto pb-6 scrollbar-hide" ref={testimonialsSliderRef}>
+              <div className="flex gap-6 min-w-max">
+                {testimonials.map((testimonial, index) => (
+                  <div key={testimonial.id} className="w-80 flex-shrink-0">
+                    <TestimonialCard testimonial={testimonial} index={index} />
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
 
-          {/* Desktop Layout: Navigation and Card 4 */}
-          <div className="hidden lg:block">
-            {/* Navigation Button Section */}
-            <div className="flex justify-center mb-8">
-              <button 
-                onClick={scrollToCard4}
-                className="bg-[#1E90FF] hover:bg-[#1E90FF]/90 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 flex items-center gap-2 hover:gap-3"
-              >
-                View More Stories
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-            </div>
 
-            {/* Card 4 - Centered */}
-            <div className="flex justify-center">
-              <div id="testimonial-card-4" className="w-1/4">
-                <TestimonialCard testimonial={testimonials[4]} index={4} />
-              </div>
-            </div>
-          </div>
 
           {/* Mobile Layout - Stack vertically with horizontal scrolling cards */}
           <div className="lg:hidden">
@@ -616,29 +650,11 @@ export function DigitalFutureTestimonialsSection() {
             {/* Horizontal Scrolling Cards */}
             <div className="overflow-x-auto pb-6 scrollbar-hide">
               <div className="flex gap-6 px-4 min-w-max">
-                {testimonials.slice(0, 3).map((testimonial, index) => (
+                {testimonials.map((testimonial, index) => (
                   <div key={testimonial.id} className="w-80 flex-shrink-0">
                     <TestimonialCard testimonial={testimonial} index={index} />
                   </div>
                 ))}
-                
-                {/* Navigation Button after 3rd card */}
-                <div className="w-80 flex-shrink-0 flex items-center justify-center">
-                  <button 
-                    onClick={scrollToCard4}
-                    className="bg-[#1E90FF] hover:bg-[#1E90FF]/90 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 flex items-center gap-2 hover:gap-3"
-                  >
-                    View More
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                </div>
-                
-                {/* Card 4 */}
-                <div id="testimonial-card-4-mobile" className="w-80 flex-shrink-0">
-                  <TestimonialCard testimonial={testimonials[4]} index={4} />
-                </div>
               </div>
             </div>
           </div>
