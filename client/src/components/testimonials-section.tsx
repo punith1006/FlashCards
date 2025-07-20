@@ -82,19 +82,19 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
             </div>
 
             {/* Author info at bottom with avatar */}
-            <div className="flex items-center gap-4 mt-auto">
-              <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+            <div className="flex items-center gap-3 mt-auto">
+              <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
                 <img 
-                  src={`https://ui-avatars.com/api/?name=${testimonial.author}&background=4F46E5&color=fff&size=48`}
+                  src={`https://ui-avatars.com/api/?name=${testimonial.author}&background=4F46E5&color=fff&size=40`}
                   alt={testimonial.author}
                   className="w-full h-full object-cover"
                 />
               </div>
               <div>
-                <div className="font-semibold text-sm text-gray-900">
+                <div className="font-medium text-sm text-gray-900">
                   {testimonial.role}, {testimonial.author}
                 </div>
-                <div className="text-xs text-gray-500">
+                <div className="text-xs text-gray-500 mt-0.5">
                   {testimonial.since}
                 </div>
               </div>
