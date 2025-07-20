@@ -48,15 +48,16 @@ export function DigitalFutureSection() {
           // Start animation when we're near the end of the Learn About Keto section
           const triggerStart = learnAboutKetoTop + learnAboutKetoHeight - windowHeight;
           
-          // Calculate the distance for 90% proximity to bottom alignment
-          // When digital future section bottom is 90% close to learn about keto bottom, stop animation
+          // Calculate 90% proximity: when digital future bottom is 90% close to learn about keto bottom
+          // This means 10% gap remaining from the learn about keto bottom
           const learnAboutKetoBottom = learnAboutKetoTop + learnAboutKetoHeight;
-          const targetPosition = learnAboutKetoBottom - (digitalFutureHeight * 0.1); // 90% proximity = 10% gap from bottom
-          const animationDistance = digitalFutureHeight - (digitalFutureHeight * 0.1); // Stop at 90% of full animation
+          const proximityGap = digitalFutureHeight * 0.1; // 10% gap = 90% proximity
+          const maxAnimationDistance = digitalFutureHeight - proximityGap;
           
           if (scrollY >= triggerStart) {
             const scrollDistance = scrollY - triggerStart;
-            const progress = Math.min(scrollDistance / animationDistance, 1);
+            // Cap the progress at the 90% proximity point
+            const progress = Math.min(scrollDistance / maxAnimationDistance, 1);
             setScrollProgress(progress);
           } else {
             setScrollProgress(0);
@@ -81,7 +82,7 @@ export function DigitalFutureSection() {
       ref={sectionRef}
       className="relative bg-white overflow-hidden"
       style={{
-        transform: `translateY(${-scrollProgress * (containerRef.current?.getBoundingClientRect().height || 500)}px)`,
+        transform: `translateY(${-scrollProgress * ((containerRef.current?.getBoundingClientRect().height || 500) * 0.9)}px)`,
         transition: 'transform 0.1s ease-out',
         zIndex: scrollProgress > 0 ? 10 : 1,
       }}
