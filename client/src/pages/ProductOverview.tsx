@@ -90,15 +90,7 @@ export function ProductOverview() {
 
             
 
-            {/* Reviews */}
-            <div className="flex items-center space-x-2">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-orange-400 text-orange-400" />
-                ))}
-              </div>
-              <span className="text-gray-600 text-sm">5951 reviews</span>
-            </div>
+            
 
             {/* Current Selection */}
             <div className="bg-gray-50 p-3 rounded">
