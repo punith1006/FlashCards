@@ -542,7 +542,6 @@ export function DigitalFutureTestimonialsSection() {
           )}
         </div>
       </section>
-
       {/* Testimonials Section - Now synchronized with scroll */}
       <div 
         ref={(el) => {
@@ -566,7 +565,7 @@ export function DigitalFutureTestimonialsSection() {
                   restaurant brands<br />
                   choose Snackpass
                 </h2>
-                <div className="space-y-6">
+                <div className="space-y-6 font-medium">
                   <p className="text-lg text-gray-600 leading-relaxed">
                     Future proof your business. Stay ahead of the competition without spending millions.
                   </p>
