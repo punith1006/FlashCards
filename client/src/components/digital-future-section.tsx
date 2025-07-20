@@ -161,11 +161,11 @@ export function DigitalFutureSection() {
           <div 
             className="relative z-10 p-12 rounded-t-[3rem]"
             style={{
-              background: 'rgba(254, 241, 225, 0.035)',
+              background: 'rgba(254, 241, 225, 0.02)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
-              border: '1px solid rgba(254, 241, 225, 0.07)',
-              boxShadow: '0 8px 32px rgba(254, 241, 225, 0.035), inset 0 1px 0 rgba(255, 255, 255, 0.07)',
+              border: '1px solid rgba(254, 241, 225, 0.04)',
+              boxShadow: '0 8px 32px rgba(254, 241, 225, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.04)',
             }}
           >
             {/* Back Button */}
