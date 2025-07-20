@@ -235,22 +235,4 @@
   .animate-breathe {
     animation: breathe 2s ease-in-out infinite;
   }
-
-  /* Smooth scroll-triggered animations */
-  .scroll-engulf {
-    will-change: transform, z-index, border-radius;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-  }
-
-  /* Improved scroll smoothness */
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* GPU acceleration for smooth scrolling */
-  * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
 }

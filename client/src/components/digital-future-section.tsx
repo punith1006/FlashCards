@@ -1,10 +1,8 @@
 import { ArrowRight, Play, ArrowLeft } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 
 export function DigitalFutureSection() {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const sectionRef = useRef<HTMLElement>(null);
 
   const handleGetStartedClick = () => {
     setIsExpanded(true);
@@ -14,69 +12,20 @@ export function DigitalFutureSection() {
     setIsExpanded(false);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-
-      const section = sectionRef.current;
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const windowHeight = window.innerHeight;
-      const scrollTop = window.scrollY;
-
-      // Calculate when section starts becoming visible
-      const triggerStart = sectionTop - windowHeight;
-      const triggerEnd = sectionTop + sectionHeight - windowHeight * 0.3;
-      
-      // Calculate scroll progress (0 to 1)
-      const progress = Math.max(0, Math.min(1, (scrollTop - triggerStart) / (triggerEnd - triggerStart)));
-      
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial calculation
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Calculate dynamic styles based on scroll progress
-  const engulfmentScale = 1 + scrollProgress * 0.15; // Slight scale increase
-  const borderRadius = Math.max(0, 48 - scrollProgress * 48); // Reduce border radius from 3rem to 0
-  const yTransform = -scrollProgress * 50; // Move upward to engulf
-
   return (
-    <section 
-      ref={sectionRef}
-      className="relative bg-white overflow-hidden scroll-engulf"
-      style={{
-        transform: `translateY(${yTransform}px)`,
-        zIndex: Math.floor(10 + scrollProgress * 40), // Increase z-index as it engulfs
-        transition: 'z-index 0.1s ease-out',
-      }}
-    >
+    <section className="relative bg-white overflow-hidden">
       <div 
-        className={`mx-auto relative overflow-hidden transform-gpu transition-all duration-1000 ease-in-out ${
+        className={`mx-auto rounded-t-[3rem] relative overflow-hidden transform-gpu transition-all duration-1000 ease-in-out ${
           isExpanded ? 'max-w-6xl bg-gray-50 shadow-2xl' : 'w-full bg-black shadow-lg'
         }`}
         style={{ 
           minHeight: '500px',
-          willChange: 'width, max-width, background-color, box-shadow, transform, border-radius',
-          transform: `scale(${engulfmentScale})`,
-          borderTopLeftRadius: `${borderRadius}px`,
-          borderTopRightRadius: `${borderRadius}px`,
-          transformOrigin: 'top center',
+          willChange: 'width, max-width, background-color, box-shadow'
         }}
       >
         {/* Video Background - Only show when not expanded */}
         {!isExpanded && (
-          <div 
-            className="absolute inset-0 overflow-hidden"
-            style={{
-              borderTopLeftRadius: `${borderRadius}px`,
-              borderTopRightRadius: `${borderRadius}px`,
-            }}
-          >
+          <div className="absolute inset-0 rounded-t-[3rem] overflow-hidden">
             <video
               className="w-full h-full object-cover opacity-40"
               autoPlay
