@@ -83,7 +83,7 @@ export function DigitalFutureSection() {
       className="relative overflow-hidden"
       style={{
         background: isExpanded 
-          ? 'linear-gradient(135deg, rgba(156, 163, 175, 0.08) 0%, rgba(209, 213, 219, 0.12) 50%, rgba(243, 244, 246, 0.15) 100%)'
+          ? 'linear-gradient(135deg, rgba(88, 204, 136, 0.08) 0%, rgba(88, 204, 136, 0.12) 50%, rgba(88, 204, 136, 0.06) 100%)'
           : 'white',
         backdropFilter: isExpanded ? 'blur(20px) saturate(150%)' : 'none',
         WebkitBackdropFilter: isExpanded ? 'blur(20px) saturate(150%)' : 'none',
@@ -161,11 +161,11 @@ export function DigitalFutureSection() {
           <div 
             className="relative z-10 p-12 rounded-t-[3rem]"
             style={{
-              background: 'rgba(255, 255, 255, 0.15)',
+              background: 'rgba(88, 204, 136, 0.08)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
-              border: '1px solid rgba(255, 255, 255, 0.3)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
+              border: '1px solid rgba(88, 204, 136, 0.2)',
+              boxShadow: '0 8px 32px rgba(88, 204, 136, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
             }}
           >
             {/* Back Button */}
