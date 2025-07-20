@@ -243,72 +243,7 @@ export function ProductOverview() {
           </div>
         </div>
 
-        {/* Key Features Section */}
-        <div className="py-16">
-          <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-black mb-12">Key Features</h2>
-            
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <img 
-                  src="https://shop.perfectketo.com/cdn/shop/files/us_v_them_collagen.jpg?v=1752762775&width=600"
-                  alt="Perfect Keto vs Others Comparison"
-                  className="w-full rounded-lg"
-                />
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-1">
-                    <svg viewBox="0 0 24 24" className="w-4 h-4 text-white">
-                      <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-black mb-2">20g Protein Per Serving</h3>
-                    <p className="text-gray-600">High-quality protein to support muscle health and recovery.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-1">
-                    <svg viewBox="0 0 24 24" className="w-4 h-4 text-white">
-                      <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-black mb-2">Zero Sugar</h3>
-                    <p className="text-gray-600">Keto-friendly formula with no added sugars or artificial fillers.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-1">
-                    <svg viewBox="0 0 24 24" className="w-4 h-4 text-white">
-                      <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-black mb-2">Easy to Mix</h3>
-                    <p className="text-gray-600">Dissolves completely in hot or cold liquids without clumping.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-1">
-                    <svg viewBox="0 0 24 24" className="w-4 h-4 text-white">
-                      <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-black mb-2">Third-Party Tested</h3>
-                    <p className="text-gray-600">Quality assured through independent laboratory testing for purity.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
         {/* Nutrition Facts Section */}
         <div className="bg-gray-50 py-16">
