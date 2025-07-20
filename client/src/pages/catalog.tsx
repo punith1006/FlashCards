@@ -139,33 +139,27 @@ function ProductCard({ product }: { product: typeof staticProducts[0] }) {
 export default function Catalog() {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header Section - Exact Perfect Keto styling */}
-      <div className="bg-white py-16 px-4">
-        <div className="max-w-7xl mx-auto">
+      {/* Header Section - Exact Perfect Keto replica */}
+      <div className="bg-white py-12 px-4">
+        <div className="max-w-5xl mx-auto">
           <div className="flex items-center justify-between">
-            <div className="flex-1">
-              <h1 className="text-5xl font-bold text-gray-900">All products</h1>
+            <div>
+              <h1 className="text-4xl font-bold text-gray-900">All products</h1>
             </div>
-            <div className="hidden md:block ml-8">
-              <div className="relative w-80 h-40 bg-gradient-to-br from-blue-100 via-blue-150 to-blue-200 rounded-2xl overflow-hidden">
-                {/* Product arrangement - multiple collagen jars */}
-                <div className="absolute inset-0 flex items-end justify-center pb-8">
-                  <div className="relative flex items-end space-x-2">
-                    {/* Left jar - smaller */}
-                    <div className="w-12 h-16 bg-green-100 rounded-lg border border-gray-200 shadow-sm"></div>
-                    {/* Center back jar - tallest */}
-                    <div className="w-14 h-20 bg-amber-100 rounded-lg border border-gray-200 shadow-sm -mb-2"></div>
-                    {/* Center front jar - medium */}
-                    <div className="w-13 h-18 bg-orange-100 rounded-lg border border-gray-200 shadow-sm"></div>
-                    {/* Right jar - medium */}
-                    <div className="w-12 h-17 bg-teal-100 rounded-lg border border-gray-200 shadow-sm"></div>
-                  </div>
-                  {/* Decorative elements */}
-                  <div className="absolute bottom-12 left-8 w-4 h-4 bg-green-300 rounded-full opacity-70"></div>
-                  <div className="absolute bottom-16 right-12 w-3 h-6 bg-amber-600 rounded opacity-60"></div>
-                </div>
-                {/* Yellow accent bar */}
-                <div className="absolute bottom-0 left-0 right-0 h-6 bg-yellow-400"></div>
+            <div className="hidden md:block">
+              <div className="relative w-80 h-32">
+                {/* Light blue background container */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg"></div>
+                
+                {/* Product image - using the actual Perfect Keto collagen products image */}
+                <img 
+                  src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=320&h=120&fit=crop&crop=center"
+                  alt="Perfect Keto Collagen Products"
+                  className="absolute inset-0 w-full h-full object-contain p-2"
+                />
+                
+                {/* Yellow accent bar at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-4 bg-yellow-400 rounded-b-lg"></div>
               </div>
             </div>
           </div>
@@ -173,7 +167,7 @@ export default function Catalog() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-5xl mx-auto px-4 py-8">
         {/* Product Count */}
         <div className="mb-8 pb-4 border-b border-gray-200">
           <p className="text-sm font-medium text-gray-700">{staticProducts.length} Products</p>
