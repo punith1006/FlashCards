@@ -168,6 +168,28 @@ export function DigitalFutureSection() {
               boxShadow: '0 8px 32px rgba(254, 241, 225, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.04)',
             }}
           >
+            {/* Side overlays for focus effect */}
+            <div className="absolute inset-0 pointer-events-none">
+              {/* Left side overlay */}
+              <div 
+                className="absolute left-0 top-0 bottom-0 w-32 lg:w-48"
+                style={{
+                  background: 'linear-gradient(to right, rgba(254, 241, 225, 0.4) 0%, rgba(254, 241, 225, 0.1) 70%, transparent 100%)',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
+                }}
+              />
+              {/* Right side overlay */}
+              <div 
+                className="absolute right-0 top-0 bottom-0 w-32 lg:w-48"
+                style={{
+                  background: 'linear-gradient(to left, rgba(254, 241, 225, 0.4) 0%, rgba(254, 241, 225, 0.1) 70%, transparent 100%)',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
+                }}
+              />
+            </div>
+
             {/* Back Button */}
             <button
               onClick={handleBackClick}
