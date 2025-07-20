@@ -80,7 +80,7 @@ export function DigitalFutureSection() {
   return (
     <section 
       ref={sectionRef}
-      className="relative bg-white overflow-hidden"
+      className={`relative overflow-hidden ${isExpanded ? 'bg-gradient-to-br from-gray-50 via-white to-gray-100' : 'bg-white'}`}
       style={{
         transform: `translateY(${-scrollProgress * ((containerRef.current?.getBoundingClientRect().height || 500) * 0.9)}px)`,
         transition: 'transform 0.1s ease-out',
@@ -95,6 +95,13 @@ export function DigitalFutureSection() {
         style={{ 
           minHeight: '500px',
           willChange: 'width, max-width, background-color, box-shadow',
+          ...(isExpanded && {
+            background: 'rgba(255, 255, 255, 0.1)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            border: '1px solid rgba(107, 114, 128, 0.3)',
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+          })
         }}
       >
         {/* Video Background - Only show when not expanded */}
@@ -160,16 +167,7 @@ export function DigitalFutureSection() {
 
         {/* Expanded Content - Platform Description State */}
         {isExpanded && (
-          <div 
-            className="relative z-10 p-12 rounded-t-[3rem]"
-            style={{
-              background: 'rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(16px)',
-              WebkitBackdropFilter: 'blur(16px)',
-              border: '1px solid rgba(107, 114, 128, 0.3)',
-              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-            }}
-          >
+          <div className="relative z-10 p-12 rounded-t-[3rem]">
             {/* Back Button */}
             <button
               onClick={handleBackClick}
