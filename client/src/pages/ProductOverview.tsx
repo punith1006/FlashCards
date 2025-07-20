@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Star, Search, MapPin, User, ShoppingCart, Check } from "lucide-react";
+import { Star, Search, MapPin, User, ShoppingCart, Check, Minus, Plus } from "lucide-react";
 import { Link } from "wouter";
 
 export function ProductOverview() {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [selectedFlavor, setSelectedFlavor] = useState('vanilla');
-  const [selectedQuantity, setSelectedQuantity] = useState('1-tub');
+  const [quantity, setQuantity] = useState(1);
 
   // Product images from the Perfect Keto reference
   const productImages = [
@@ -33,11 +33,7 @@ export function ProductOverview() {
     { id: 'unflavored', name: 'Unflavored', image: 'https://shop.perfectketo.com/cdn/shop/files/Rectangle_38_7.png?v=1724663033' }
   ];
 
-  const quantityOptions = [
-    { id: '1-tub', name: '1 Tub', discount: '', image: 'https://shop.perfectketo.com/cdn/shop/files/Vanilla.png?v=1724740121' },
-    { id: '2-tubs', name: '2 Tubs', discount: 'Up to 15% off', image: 'https://shop.perfectketo.com/cdn/shop/files/Vanilla.png?v=1724740121' },
-    { id: '3-tubs', name: '3 Tubs', discount: 'Up to 20% off', image: 'https://shop.perfectketo.com/cdn/shop/files/Vanilla.png?v=1724740121' }
-  ];
+
 
   return (
     <div className="min-h-screen bg-white">
@@ -176,39 +172,35 @@ export function ProductOverview() {
               </div>
             </div>
 
-            {/* Quantity Selection */}
-            <div className="mb-8">
-              <h3 className="font-semibold text-black mb-4">Quantity</h3>
-              <div className="grid grid-cols-3 gap-3">
-                {quantityOptions.map((option) => (
-                  <button
-                    key={option.id}
-                    onClick={() => setSelectedQuantity(option.id)}
-                    className={`p-4 border rounded-lg text-center hover:border-black transition-colors ${
-                      selectedQuantity === option.id ? 'border-black bg-gray-50' : 'border-gray-300'
-                    }`}
-                  >
-                    <div className="w-12 h-12 mx-auto mb-2 bg-white rounded-full flex items-center justify-center">
-                      <img 
-                        src={option.image} 
-                        alt={option.name}
-                        className="w-8 h-8 object-contain"
-                      />
-                    </div>
-                    <p className="text-sm text-black font-medium mb-1">{option.name}</p>
-                    {option.discount && (
-                      <p className="text-xs text-green-600 font-medium">{option.discount}</p>
-                    )}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Add to Cart Section */}
+            {/* Quantity and Add to Cart Section */}
             <div className="space-y-4">
-              <Button className="w-full bg-black hover:bg-gray-800 text-white py-4 text-lg font-semibold rounded-lg">
-                ADD TO CART
-              </Button>
+              <div className="flex items-center gap-4">
+                {/* Quantity Controls */}
+                <div className="flex items-center">
+                  <span className="text-sm font-medium text-gray-500 uppercase tracking-wider mr-4">QUANTITY</span>
+                  <div className="flex items-center border border-gray-300 rounded-lg">
+                    <button 
+                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                      className="p-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <Minus className="w-4 h-4" />
+                    </button>
+                    <span className="px-4 py-3 text-lg font-medium min-w-[60px] text-center">{quantity}</span>
+                    <button 
+                      onClick={() => setQuantity(quantity + 1)}
+                      className="p-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <Plus className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Add to Cart Button */}
+                <Button className="flex-1 bg-green-500 hover:bg-green-600 text-white py-4 text-lg font-semibold rounded-lg flex items-center justify-center gap-2">
+                  <ShoppingCart className="w-5 h-5" />
+                  Add to Cart
+                </Button>
+              </div>
               
               <div className="grid grid-cols-2 gap-3">
                 <Button variant="outline" className="border-gray-300 text-black py-3">
