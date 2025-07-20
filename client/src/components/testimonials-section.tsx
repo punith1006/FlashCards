@@ -1,186 +1,172 @@
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+// TestimonialCard component for different card types
+function TestimonialCard({ testimonial, index }: { testimonial: any, index: number }) {
+  const getCardClasses = () => {
+    if (testimonial.cardType === 'dark-overlay') {
+      return 'relative bg-gray-900 text-white overflow-hidden';
+    }
+    return 'bg-orange-50 text-gray-800';
+  };
 
-interface Testimonial {
-  id: string;
-  title: string;
-  subtitle: string;
-  quote: string;
-  author: string;
-  role: string;
-  company: string;
-  since: string;
-  image: string;
+  const getQuoteClasses = () => {
+    if (testimonial.cardType === 'dark-overlay') {
+      return 'text-white font-normal italic';
+    }
+    return 'text-gray-700 font-normal italic';
+  };
+
+  return (
+    <div className={`rounded-2xl p-6 h-80 flex flex-col justify-between shadow-lg hover:shadow-xl transition-all duration-300 ${getCardClasses()}`}>
+      {/* Background image overlay for dark cards */}
+      {testimonial.hasBackgroundImage && (
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-600 via-gray-700 to-gray-900 opacity-90 rounded-2xl"></div>
+      )}
+      
+      {/* Story badge for story cards */}
+      {testimonial.isStoryCard && (
+        <div className="absolute top-4 left-4 z-10">
+          <span className="text-xs font-semibold text-white/80">Snackpass Stories</span>
+        </div>
+      )}
+      
+      <div className="relative z-10">
+        {/* Header */}
+        <div className="mb-4">
+          <h3 className="text-xl font-bold mb-1">
+            {testimonial.title}
+          </h3>
+          <p className={`text-sm font-medium ${testimonial.cardType === 'dark-overlay' ? 'text-white/80' : 'text-gray-600'}`}>
+            {testimonial.subtitle}
+          </p>
+        </div>
+
+        {/* Quote */}
+        <blockquote className={`leading-relaxed mb-6 text-sm ${getQuoteClasses()}`}>
+          "{testimonial.quote.slice(0, 140)}..."
+        </blockquote>
+      </div>
+
+      {/* Author Info */}
+      <div className="relative z-10 flex items-center gap-3">
+        <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
+          <img 
+            src={`https://ui-avatars.com/api/?name=${testimonial.author}&background=58CC88&color=fff&size=40`}
+            alt={testimonial.author}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <div className={`font-semibold text-sm ${testimonial.cardType === 'dark-overlay' ? 'text-white' : 'text-gray-900'}`}>
+            {testimonial.role}, {testimonial.author}
+          </div>
+          <div className={`text-xs ${testimonial.cardType === 'dark-overlay' ? 'text-white/70' : 'text-gray-500'}`}>
+            {testimonial.since}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export function TestimonialsSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const testimonials: Testimonial[] = [
+  // Testimonials data
+  const testimonials = [
     {
-      id: "keto-kingdom",
-      title: "Keto Kingdom",
-      subtitle: "Premium Keto Product Line",
-      quote: "When it comes time to serve our keto community, it is very helpful to be able to turn our platform into a comprehensive resource... and have customers discover products for themselves while we dedicate our efforts to creating the highest quality keto solutions.",
-      author: "Sarah Mitchell",
+      id: "xing-fu-tang",
+      title: "Xing Fu Tang",
+      subtitle: "Taiwan's No.1 Boba Brand",
+      quote: "When it comes time to service a lot of tickets in short order, it is very helpful to be able to turn the POS into a kiosk... and have customers order for themselves and then dedicate their power to making the actual drinks.",
+      author: "Andrew Chuang",
       role: "CEO",
-      company: "Keto Kingdom",
-      since: "Keto Partner Since 2023",
-      image: "K"
+      company: "Xing Fu Tang",
+      since: "Snackpass Partner Since 2023",
+      cardType: "dark-overlay",
+      hasBackgroundImage: true
     },
     {
-      id: "pure-wellness",
-      title: "Pure Wellness Express",
-      subtitle: "50K+ Health Enthusiasts",
-      quote: "With this keto platform we were finally able to bring all our wellness operations under one roof, eliminating the stress of managing multiple supplement sources. Our day-to-day health optimization has never been more efficient.",
-      author: "Dr. Michael Chen",
+      id: "ole-ole-burrito",
+      title: "Ole Ole Burrito Express",
+      subtitle: "30K Subscribers On Snackpass",
+      quote: "With Snackpass we were finally able to bring all our operations under one roof, eliminating the stress of integrating and purchasing multiple solutions. Our day-to-day work has never been more efficient.",
+      author: "Amin Fasil",
       role: "Owner",
-      company: "Pure Wellness Express",
-      since: "Keto Partner Since 2022",
-      image: "P"
+      company: "Ole Ole Burrito Express",
+      since: "Snackpass Partner Since 2020",
+      cardType: "light-beige",
+      hasBackgroundImage: false
     },
     {
-      id: "macro-masters",
-      title: "Macro Masters",
-      subtitle: "1st Advanced Keto Tracking App",
-      quote: "Everything is connected. Customers can track macros in-app, online, or via our platform and always maintain ketosis. This consistency keeps our users engaged and coming back for their keto journey.",
-      author: "Lisa Rodriguez",
+      id: "presotea",
+      title: "Presotea",
+      subtitle: "Stories Collection",
+      quote: "Snackpass technology has a great addition to our corporate and franchise locations. It's has helped streamline operations, but it's been the most valuable for our marketing and customer engagement efforts.",
+      author: "Regional Manager",
+      role: "Operations",
+      company: "Presotea",
+      since: "Snackpass Partner Since 2022",
+      cardType: "dark-overlay",
+      hasBackgroundImage: true,
+      isStoryCard: true
+    },
+    {
+      id: "bubble-tea-place",
+      title: "Bubble Tea Co",
+      subtitle: "Growing Chain Restaurant",
+      quote: "Everything is connected. Customers can order in-app, online, or via kiosk and always be part of our loyalty program. This consistency keeps our customers coming back and helps us grow faster.",
+      author: "Maria Rodriguez",
       role: "Founder",
-      company: "Macro Masters",
-      since: "Keto Partner Since 2021",
-      image: "M"
-    },
-    {
-      id: "ketogenic-solutions",
-      title: "Ketogenic Solutions",
-      subtitle: "10K+ Subscribers Through Platform",
-      quote: "Implementing this keto system wasn't just a lifestyle upgrade; it was a health game-changer. With our keto platform, we've been able to help more people achieve ketosis and boost their everyday energy levels.",
-      author: "James Wilson",
-      role: "CEO",
-      company: "Ketogenic Solutions",
-      since: "Keto Partner Since 2020",
-      image: "G"
+      company: "Bubble Tea Co",
+      since: "Snackpass Partner Since 2021",
+      cardType: "light-beige",
+      hasBackgroundImage: false
     }
   ];
 
-  const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  const currentTestimonial = testimonials[currentIndex];
-
   return (
-    <section className="py-16 bg-white overflow-hidden">
+    <div className="bg-white py-20">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           {/* Left Content */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
-                Why fast growing keto brands choose our platform
+              <h2 className="text-4xl lg:text-5xl font-serif text-gray-900 leading-tight mb-6">
+                Why fast growing restaurant brands choose Snackpass
               </h2>
               <div className="space-y-4">
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Future proof your wellness business. Stay ahead of the keto competition without spending millions.
+                  Future proof your business. Stay ahead of the competition without spending millions.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Offer next generation customer experiences like leading wellness brands. All customized to your keto brand.
+                  Offer next generation customer experiences like leading brands. All customized to your brand.
                 </p>
               </div>
             </div>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200">
+            <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 shadow-lg">
               Case Studies
             </button>
           </div>
 
-          {/* Right Content - Testimonial Cards */}
-          <div className="lg:col-span-7 relative">
-            <div className="flex overflow-hidden">
-              <div 
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-              >
-                {testimonials.map((testimonial) => (
-                  <div 
-                    key={testimonial.id}
-                    className="w-full flex-shrink-0 px-4"
-                  >
-                    <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm">
-                      {/* Header */}
-                      <div className="mb-6">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                          {testimonial.title}
-                        </h3>
-                        <p className="text-gray-600 font-medium">
-                          {testimonial.subtitle}
-                        </p>
-                      </div>
+          {/* Right Content - Testimonial Cards Carousel */}
+          <div className="lg:col-span-7">
+            {/* Desktop: Grid Layout */}
+            <div className="hidden lg:grid lg:grid-cols-3 gap-4">
+              {testimonials.slice(0, 3).map((testimonial, index) => (
+                <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} />
+              ))}
+            </div>
 
-                      {/* Quote */}
-                      <blockquote className="text-lg text-gray-800 leading-relaxed mb-8 font-medium">
-                        "{testimonial.quote}"
-                      </blockquote>
-
-                      {/* Author Info */}
-                      <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-[#58CC88] rounded-full flex items-center justify-center flex-shrink-0">
-                          <span className="text-white text-lg font-bold">
-                            {testimonial.image}
-                          </span>
-                        </div>
-                        <div>
-                          <div className="font-semibold text-gray-900">
-                            {testimonial.role}, {testimonial.author}
-                          </div>
-                          <div className="text-gray-600 text-sm mt-1">
-                            {testimonial.since}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+            {/* Mobile: Horizontal Scroll */}
+            <div className="lg:hidden overflow-x-auto">
+              <div className="flex gap-4 pb-4" style={{ width: 'max-content' }}>
+                {testimonials.map((testimonial, index) => (
+                  <div key={testimonial.id} className="w-80 flex-shrink-0">
+                    <TestimonialCard testimonial={testimonial} index={index} />
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* Navigation */}
-            <div className="flex justify-center mt-8 gap-4">
-              <button
-                onClick={prevTestimonial}
-                className="p-2 rounded-full border border-gray-300 hover:border-gray-400 transition-colors duration-200"
-                aria-label="Previous testimonial"
-              >
-                <ChevronLeft className="w-5 h-5 text-gray-600" />
-              </button>
-              <button
-                onClick={nextTestimonial}
-                className="p-2 rounded-full border border-gray-300 hover:border-gray-400 transition-colors duration-200"
-                aria-label="Next testimonial"
-              >
-                <ChevronRight className="w-5 h-5 text-gray-600" />
-              </button>
-            </div>
-
-            {/* Dots Indicator */}
-            <div className="flex justify-center mt-4 gap-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-colors duration-200 ${
-                    index === currentIndex ? 'bg-blue-500' : 'bg-gray-300'
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
-            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
