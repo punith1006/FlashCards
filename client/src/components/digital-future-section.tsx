@@ -1,6 +1,6 @@
 import { ArrowRight, Play, ArrowLeft } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-import { TestimonialsSection } from "./testimonials-section";
+
 
 export function DigitalFutureSection() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -295,9 +295,6 @@ export function DigitalFutureSection() {
           </div>
         )}
         </div>
-        
-        {/* Testimonials Section - Always Visible */}
-        <TestimonialsSection />
       </section>
   );
 }
