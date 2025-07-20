@@ -126,9 +126,15 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
 
 export function TestimonialsSection() {
   const scrollToCard4 = () => {
+    // For desktop, scroll to the centered card
     const card4Element = document.getElementById('testimonial-card-4');
-    if (card4Element) {
+    // For mobile, scroll to the card in the horizontal scroll
+    const card4MobileElement = document.getElementById('testimonial-card-4-mobile');
+    
+    if (card4Element && window.innerWidth >= 1024) {
       card4Element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else if (card4MobileElement) {
+      card4MobileElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
   };
   // Expanded testimonials data based on Snackpass website
