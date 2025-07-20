@@ -28,44 +28,79 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
         relative z-20 p-8 h-full flex flex-col
         ${testimonial.isStoryCard ? 'pt-16' : 'pt-8'}
       `}>
-        {/* Spacer to push quote to middle */}
-        <div className="flex-1"></div>
+        {isDark ? (
+          <>
+            {/* Dark cards layout (like first reference image) */}
+            {/* Spacer to push quote to middle */}
+            <div className="flex-1"></div>
 
-        {/* Quote - Starting from middle, scrollable */}
-        <div className="flex-1 mb-8 overflow-y-auto scrollbar-hide">
-          <blockquote className={`
-            leading-relaxed text-lg font-normal
-            ${isDark ? 'text-white' : 'text-gray-800'}
-          `}>
-            "{testimonial.quote}"
-          </blockquote>
-        </div>
-
-        {/* Bottom section - Fixed at bottom, slimmer */}
-        <div className="flex-shrink-0">
-          {/* Snackpass Stories badge - only for story cards */}
-          {testimonial.isStoryCard && (
-            <div className="mb-1">
-              <span className="text-xs font-medium text-white/90 tracking-wide">Snackpass Stories</span>
+            {/* Quote - Starting from middle, scrollable */}
+            <div className="flex-1 mb-8 overflow-y-auto scrollbar-hide">
+              <blockquote className="leading-relaxed text-lg font-normal text-white">
+                "{testimonial.quote}"
+              </blockquote>
             </div>
-          )}
-          
-          {/* Company name - Large title */}
-          <h3 className={`
-            ${isDark ? 'text-white' : 'text-gray-900'} 
-            text-3xl font-bold leading-none
-          `}>
-            {testimonial.title}
-          </h3>
 
-          {/* Author name only - simple text below company */}
-          <div className={`
-            text-sm font-normal mt-1
-            ${isDark ? 'text-white/80' : 'text-gray-700'}
-          `}>
-            {testimonial.author}
-          </div>
-        </div>
+            {/* Bottom section - Fixed at bottom, slimmer */}
+            <div className="flex-shrink-0">
+              {/* Snackpass Stories badge - only for story cards */}
+              {testimonial.isStoryCard && (
+                <div className="mb-1">
+                  <span className="text-xs font-medium text-white/90 tracking-wide">Snackpass Stories</span>
+                </div>
+              )}
+              
+              {/* Company name - Large title */}
+              <h3 className="text-white text-3xl font-bold leading-none">
+                {testimonial.title}
+              </h3>
+
+              {/* Author name only - simple text below company */}
+              <div className="text-sm font-normal mt-1 text-white/80">
+                {testimonial.author}
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            {/* Light cards layout (like second reference image) */}
+            {/* Header at top */}
+            <div className="mb-6">
+              <h3 className="text-gray-900 text-2xl font-bold leading-tight mb-2">
+                {testimonial.title}
+              </h3>
+              <p className="text-gray-600 text-base font-medium">
+                {testimonial.subtitle}
+              </p>
+            </div>
+
+            {/* Quote in middle, scrollable */}
+            <div className="flex-1 mb-8 overflow-y-auto scrollbar-hide">
+              <blockquote className="leading-relaxed text-base text-gray-800">
+                "{testimonial.quote}"
+              </blockquote>
+            </div>
+
+            {/* Author info at bottom with avatar */}
+            <div className="flex items-center gap-4 mt-auto">
+              <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                <img 
+                  src={`https://ui-avatars.com/api/?name=${testimonial.author}&background=4F46E5&color=fff&size=48`}
+                  alt={testimonial.author}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <div className="font-semibold text-sm text-gray-900">
+                  {testimonial.role}, {testimonial.author}
+                </div>
+                <div className="text-xs text-gray-500">
+                  {testimonial.since}
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
