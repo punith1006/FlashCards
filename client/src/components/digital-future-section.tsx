@@ -80,8 +80,13 @@ export function DigitalFutureSection() {
   return (
     <section 
       ref={sectionRef}
-      className={`relative overflow-hidden ${isExpanded ? 'bg-gradient-to-br from-blue-50 via-gray-50 to-green-50' : 'bg-white'}`}
+      className="relative overflow-hidden"
       style={{
+        background: isExpanded 
+          ? 'linear-gradient(135deg, rgba(156, 163, 175, 0.08) 0%, rgba(209, 213, 219, 0.12) 50%, rgba(243, 244, 246, 0.15) 100%)'
+          : 'white',
+        backdropFilter: isExpanded ? 'blur(20px) saturate(150%)' : 'none',
+        WebkitBackdropFilter: isExpanded ? 'blur(20px) saturate(150%)' : 'none',
         transform: `translateY(${-scrollProgress * ((containerRef.current?.getBoundingClientRect().height || 500) * 0.9)}px)`,
         transition: 'transform 0.1s ease-out',
         zIndex: scrollProgress > 0 ? 10 : 1,
