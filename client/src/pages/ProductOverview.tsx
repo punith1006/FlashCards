@@ -37,15 +37,7 @@ export function ProductOverview() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Top Bar */}
-      <div className="bg-black text-white text-center py-2 text-sm">
-        <div className="flex items-center justify-center space-x-2">
-          <span>Free Shipping on All Orders $75+</span>
-          <Button className="bg-white text-black text-xs px-3 py-1 hover:bg-gray-100">
-            SHOP NOW
-          </Button>
-        </div>
-      </div>
+      
       
       {/* Main Product Section */}
       <div className="max-w-7xl mx-auto px-6 py-8">
