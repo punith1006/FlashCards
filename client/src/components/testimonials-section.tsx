@@ -179,7 +179,7 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <div className="bg-gray-50 py-40 pt-[10px] pb-[10px]">
+    <div className="bg-gray-50 pt-0 pb-20">
       <div className="container mx-auto px-8 max-w-[1400px]">
         {/* Desktop Layout: 4-column grid with text section as first column */}
         <div className="hidden lg:grid lg:grid-cols-4 gap-6 items-start">
@@ -213,7 +213,39 @@ export function TestimonialsSection() {
           ))}
         </div>
 
-        
+        {/* Mobile Layout - Stack vertically with horizontal scrolling cards */}
+        <div className="lg:hidden">
+          {/* Header Section */}
+          <div className="mb-12 px-4">
+            <h2 className="text-3xl font-serif text-black leading-[1.15] font-normal mb-6">
+              Why fast growing<br />
+              restaurant brands<br />
+              choose Snackpass
+            </h2>
+            <div className="space-y-4 mb-8">
+              <p className="text-base text-gray-600 leading-relaxed">
+                Future proof your business. Stay ahead of the competition without spending millions.
+              </p>
+              <p className="text-base text-gray-600 leading-relaxed">
+                Offer next generation customer experiences like Starbucks and McDonalds. All customized to your brand.
+              </p>
+            </div>
+            <button className="bg-[#1E90FF] hover:bg-[#1E90FF]/90 text-white px-8 py-4 rounded-xl font-semibold text-base transition-colors duration-200 w-fit">
+              Case Studies
+            </button>
+          </div>
+
+          {/* Horizontal Scrolling Cards */}
+          <div className="overflow-x-auto pb-6 scrollbar-hide">
+            <div className="flex gap-6 px-4 min-w-max">
+              {testimonials.slice(0, 3).map((testimonial, index) => (
+                <div key={testimonial.id} className="w-80 flex-shrink-0">
+                  <TestimonialCard testimonial={testimonial} index={index} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
