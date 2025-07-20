@@ -1,137 +1,62 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 
-const FLAVORS = [
-  { 
-    id: 'vanilla', 
-    name: 'Vanilla',
-    image: 'https://shop.perfectketo.com/cdn/shop/files/Vanilla.png?v=1724740121',
-    color: '#F5E6D3'
-  },
-  { 
-    id: 'mint-chocolate', 
-    name: 'Mint Chocolate',
-    image: 'https://shop.perfectketo.com/cdn/shop/files/Rectangle_38.png?v=1724662815',
-    color: '#A8E6CF'
-  },
-  { 
-    id: 'salted-caramel', 
-    name: 'Salted Caramel',
-    image: 'https://shop.perfectketo.com/cdn/shop/files/Rectangle_38_3.png?v=1724662914',
-    color: '#D4A574'
-  },
-  { 
-    id: 'cinnamon-toast', 
-    name: 'Cinnamon Toast',
-    image: 'https://shop.perfectketo.com/cdn/shop/files/Rectangle_38_4.png?v=1724662945',
-    color: '#C8A882'
-  },
-  { 
-    id: 'strawberry', 
-    name: 'Strawberry',
-    image: 'https://shop.perfectketo.com/cdn/shop/files/Rectangle_38_5.png?v=1724662971',
-    color: '#FFB6C1'
-  },
-  { 
-    id: 'peanut-butter', 
-    name: 'Peanut Butter',
-    image: 'https://shop.perfectketo.com/cdn/shop/files/Rectangle_38_6.png?v=1724663000',
-    color: '#D2B48C'
-  },
-  { 
-    id: 'chocolate', 
-    name: 'Chocolate',
-    image: 'https://shop.perfectketo.com/cdn/shop/files/Rectangle_38_1.png?v=1724662855',
-    color: '#8B4513'
-  },
-  { 
-    id: 'unflavored', 
-    name: 'Unflavored',
-    image: 'https://shop.perfectketo.com/cdn/shop/files/Rectangle_38_7.png?v=1724663033',
-    color: '#F5F5F5'
-  }
-];
-
-const QUANTITY_OPTIONS = [
-  { 
-    id: '1-tub', 
-    label: '1 Tub',
-    price: 43.99,
-    originalPrice: null,
-    discount: null
-  },
-  { 
-    id: '2-tubs', 
-    label: '2 Tubs',
-    price: 75.99,
-    originalPrice: 87.98,
-    discount: 'Up to 15% off'
-  },
-  { 
-    id: '3-tubs', 
-    label: '3 Tubs',
-    price: 105.99,
-    originalPrice: 131.97,
-    discount: 'Up to 20% off'
-  }
-];
-
 export function ProductOverview() {
-  const [selectedFlavor, setSelectedFlavor] = useState('vanilla');
-  const [selectedQuantity, setSelectedQuantity] = useState('1-tub');
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
-  const selectedFlavorData = FLAVORS.find(f => f.id === selectedFlavor)!;
-  const selectedQuantityData = QUANTITY_OPTIONS.find(q => q.id === selectedQuantity)!;
-
-  // Product images for the main image gallery
+  // Product images from the Perfect Keto reference
   const productImages = [
     'https://shop.perfectketo.com/cdn/shop/files/PK_CollagenPeptides-RENDER-Vanilla-Tub_24-07-03.png?v=1733936162&width=880',
     'https://shop.perfectketo.com/cdn/shop/files/collagen-peptides-vanilla-mct-boost.png?v=1752762775&width=880',
     'https://shop.perfectketo.com/cdn/shop/files/PK_Collagen-Peptides_20serv-Vanilla-SFP_2024-07-08_30777c53-35bb-4478-812f-c9195f374b5e.png?v=1752762775&width=880'
   ];
 
+  const thumbnailImages = [
+    'https://shop.perfectketo.com/cdn/shop/files/PK_CollagenPeptides-RENDER-Vanilla-Tub_24-07-03.png?v=1733936162&width=100',
+    'https://shop.perfectketo.com/cdn/shop/files/collagen-peptides-vanilla-mct-boost.png?v=1752762775&width=100',
+    'https://shop.perfectketo.com/cdn/shop/files/PK_Collagen-Peptides_20serv-Vanilla-SFP_2024-07-08_30777c53-35bb-4478-812f-c9195f374b5e.png?v=1752762775&width=100'
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       {/* Top Banner */}
-      <div className="bg-black text-white text-center py-2 text-sm">
+      <div className="bg-black text-white text-center py-2 text-sm font-medium">
         Free Shipping on All Orders $75+ 
-        <Button variant="ghost" className="text-white ml-4 text-sm font-semibold bg-white text-black px-4 py-1 rounded hover:bg-gray-100">
+        <Button className="ml-4 text-sm font-bold bg-white text-black px-4 py-1 rounded hover:bg-gray-100 h-auto">
           SHOP NOW
         </Button>
       </div>
 
       {/* Main Product Section */}
-      <div className="container mx-auto px-6 py-12 max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-12">
+      <div className="container mx-auto px-6 py-8 max-w-6xl">
+        <div className="grid lg:grid-cols-2 gap-8">
           
           {/* Product Images Section */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             {/* Main Product Image */}
-            <div className="aspect-square bg-gray-50 rounded-2xl flex items-center justify-center p-8">
+            <div className="aspect-square bg-white flex items-center justify-center">
               <img 
                 src={productImages[selectedImageIndex]}
                 alt="Grass-Fed Collagen Peptides"
-                className="w-full h-full object-contain max-w-md"
+                className="w-full h-full object-contain"
               />
             </div>
 
             {/* Thumbnail Images */}
-            <div className="flex space-x-4 justify-center">
-              {productImages.map((image, index) => (
+            <div className="flex space-x-3 justify-center">
+              {thumbnailImages.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedImageIndex(index)}
-                  className={`w-20 h-20 rounded-lg border-2 overflow-hidden transition-all duration-200 ${
-                    selectedImageIndex === index ? 'border-orange-500' : 'border-gray-200 hover:border-gray-300'
+                  className={`w-16 h-16 border-2 overflow-hidden transition-all duration-200 ${
+                    selectedImageIndex === index ? 'border-orange-400' : 'border-gray-200 hover:border-gray-300'
                   }`}
                 >
                   <img 
                     src={image}
                     alt={`Product view ${index + 1}`}
-                    className="w-full h-full object-contain bg-gray-50"
+                    className="w-full h-full object-contain bg-white"
                   />
                 </button>
               ))}
@@ -139,143 +64,201 @@ export function ProductOverview() {
           </div>
 
           {/* Product Details Section */}
-          <div className="space-y-8">
-            {/* Product Title and Description */}
-            <div>
-              <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Grass-Fed Collagen Peptides & MCT Brain Boost
-              </h1>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                Get the protein your body needs in a delicious, low-carb supplement formulated to minimize impact 
-                on your blood sugar levels. Clinical studies have shown collagen supports hair & nail, skin, joint 
-                and gut health. Our grass-fed collagen peptides (formerly Keto Collagen) also include MCTs (medium 
-                chain triglycerides) to help support cognition and mental clarity.
-              </p>
+          <div className="space-y-6">
+            {/* Product Title */}
+            <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 leading-tight">
+              Grass-Fed Collagen Peptides & MCT Brain Boost
+            </h1>
+
+            {/* Product Description */}
+            <p className="text-gray-700 text-base leading-relaxed">
+              Get the protein your body needs in a delicious, low-carb supplement formulated to minimize impact 
+              on your blood sugar levels. Clinical studies have shown collagen supports hair & nail, skin, joint 
+              and gut health. Our grass-fed collagen peptides (formerly Keto Collagen) also include MCTs (medium 
+              chain triglycerides) to help support cognition and mental clarity.
+            </p>
+
+            {/* Clinicians' Choice Badge */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="flex items-center space-x-3">
+                <div className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  Clinicians' Choice
+                </div>
+                <p className="text-sm text-gray-700">
+                  124 clinicians share this without compensation.
+                </p>
+              </div>
+              <div className="mt-3 flex items-center space-x-2">
+                <div className="flex -space-x-1">
+                  <img 
+                    src="https://assets.app.thefrontrowhealth.com/6ga051ctceywn9jfxyxg03azzwc2" 
+                    alt="Dr. Keemberly Kim, MD"
+                    className="w-8 h-8 rounded-full border-2 border-white"
+                  />
+                  <img 
+                    src="https://assets.app.thefrontrowhealth.com/j3dpo0lkq5u6etn5fezqeizarel4" 
+                    alt="Ageless Aesthetics"
+                    className="w-8 h-8 rounded-full border-2 border-white"
+                  />
+                  <img 
+                    src="https://assets.app.thefrontrowhealth.com/4e8he28d9xopj5iyyv83w41q78xi" 
+                    alt="Brittany Reynolds, DNP"
+                    className="w-8 h-8 rounded-full border-2 border-white"
+                  />
+                </div>
+                <button className="text-blue-600 text-sm font-medium hover:underline">
+                  View clinicians & learn more
+                </button>
+              </div>
             </div>
 
             {/* Reviews */}
             <div className="flex items-center space-x-2">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-orange-400 text-orange-400" />
+                  <Star key={i} className="w-4 h-4 fill-orange-400 text-orange-400" />
                 ))}
               </div>
-              <span className="text-gray-600">5951 reviews</span>
+              <span className="text-gray-600 text-sm">5951 reviews</span>
             </div>
 
-            {/* Current Selection Display */}
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <p className="text-sm text-gray-600 mb-1">Current Selection:</p>
-              <p className="font-semibold text-gray-900">
-                {selectedFlavorData.name} | {selectedQuantityData.label}
-              </p>
+            {/* Current Selection */}
+            <div className="bg-gray-50 p-3 rounded">
+              <p className="text-sm text-gray-600">Current Selection: <span className="font-medium text-gray-900">Vanilla | 1 Tub up to 10% off</span></p>
             </div>
 
-            {/* Flavor Selection */}
+            {/* Quantity Options */}
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Flavor</h3>
-              <div className="grid grid-cols-4 gap-3">
-                {FLAVORS.map((flavor) => (
-                  <button
-                    key={flavor.id}
-                    onClick={() => setSelectedFlavor(flavor.id)}
-                    className={`p-3 rounded-xl border-2 transition-all duration-200 text-center ${
-                      selectedFlavor === flavor.id
-                        ? 'border-orange-500 bg-orange-50'
-                        : 'border-gray-200 hover:border-gray-300 bg-white'
-                    }`}
-                  >
-                    <div 
-                      className="w-12 h-12 rounded-full mx-auto mb-2"
-                      style={{ backgroundColor: flavor.color }}
-                    />
-                    <p className="text-xs font-medium text-gray-700">{flavor.name}</p>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Quantity Selection */}
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Quantity</h3>
-              <div className="space-y-3">
-                {QUANTITY_OPTIONS.map((option) => (
-                  <button
-                    key={option.id}
-                    onClick={() => setSelectedQuantity(option.id)}
-                    className={`w-full p-4 rounded-xl border-2 transition-all duration-200 text-left ${
-                      selectedQuantity === option.id
-                        ? 'border-orange-500 bg-orange-50'
-                        : 'border-gray-200 hover:border-gray-300 bg-white'
-                    }`}
-                  >
-                    <div className="flex justify-between items-center">
+              <h3 className="text-base font-semibold text-gray-900 mb-3">Quantity</h3>
+              <div className="space-y-2">
+                <label className="flex items-center space-x-3 p-3 border border-gray-200 rounded hover:border-gray-300 cursor-pointer">
+                  <input type="radio" name="quantity" value="1-tub" defaultChecked className="text-orange-500" />
+                  <div className="flex-1 flex justify-between items-center">
+                    <div className="flex items-center space-x-3">
+                      <img 
+                        src="https://shop.perfectketo.com/cdn/shop/files/Vanilla.png?v=1724740121" 
+                        alt="1 Tub"
+                        className="w-12 h-12 object-contain"
+                      />
+                      <span className="font-medium text-gray-900">1 Tub</span>
+                    </div>
+                    <span className="font-bold text-gray-900">$43.99</span>
+                  </div>
+                </label>
+                
+                <label className="flex items-center space-x-3 p-3 border border-gray-200 rounded hover:border-gray-300 cursor-pointer">
+                  <input type="radio" name="quantity" value="2-tubs" className="text-orange-500" />
+                  <div className="flex-1 flex justify-between items-center">
+                    <div className="flex items-center space-x-3">
+                      <img 
+                        src="https://shop.perfectketo.com/cdn/shop/files/Vanilla.png?v=1724740121" 
+                        alt="2 Tubs"
+                        className="w-12 h-12 object-contain"
+                      />
                       <div>
-                        <p className="font-medium text-gray-900">{option.label}</p>
-                        {option.discount && (
-                          <p className="text-sm text-green-600 font-medium">{option.discount}</p>
-                        )}
-                      </div>
-                      <div className="text-right">
-                        <p className="text-xl font-bold text-gray-900">${option.price}</p>
-                        {option.originalPrice && (
-                          <p className="text-sm text-gray-500 line-through">${option.originalPrice}</p>
-                        )}
+                        <span className="font-medium text-gray-900">2 Tubs</span>
+                        <p className="text-sm text-green-600 font-medium">Up to 15% off</p>
                       </div>
                     </div>
-                  </button>
-                ))}
+                    <div className="text-right">
+                      <span className="font-bold text-gray-900">$75.99</span>
+                      <p className="text-sm text-gray-500 line-through">$87.98</p>
+                    </div>
+                  </div>
+                </label>
+                
+                <label className="flex items-center space-x-3 p-3 border border-gray-200 rounded hover:border-gray-300 cursor-pointer">
+                  <input type="radio" name="quantity" value="3-tubs" className="text-orange-500" />
+                  <div className="flex-1 flex justify-between items-center">
+                    <div className="flex items-center space-x-3">
+                      <img 
+                        src="https://shop.perfectketo.com/cdn/shop/files/Vanilla.png?v=1724740121" 
+                        alt="3 Tubs"
+                        className="w-12 h-12 object-contain"
+                      />
+                      <div>
+                        <span className="font-medium text-gray-900">3 Tubs</span>
+                        <p className="text-sm text-green-600 font-medium">Up to 20% off</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <span className="font-bold text-gray-900">$105.99</span>
+                      <p className="text-sm text-gray-500 line-through">$131.97</p>
+                    </div>
+                  </div>
+                </label>
               </div>
             </div>
 
             {/* Add to Cart Section */}
-            <div className="space-y-4">
-              <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 text-lg font-semibold rounded-xl transition-colors duration-200">
-                Add to Cart - ${selectedQuantityData.price}
+            <div className="space-y-3">
+              <Button className="w-full bg-black hover:bg-gray-800 text-white py-3 text-lg font-semibold rounded transition-colors duration-200">
+                Add to Cart
               </Button>
               
               <p className="text-center text-sm text-gray-600">
                 Free U.S. shipping for orders $75+, and a risk-free{' '}
-                <a href="#" className="text-orange-500 hover:text-orange-600 underline">
+                <a href="#" className="text-blue-600 hover:underline">
                   quality guarantee
                 </a>
               </p>
             </div>
 
             {/* Product Highlights */}
-            <Card className="bg-gray-50 border-0">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Highlights</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start">
-                    <span className="font-semibold mr-2">Made to:</span>
-                    <span className="italic">Maintain joint health, promote hair, skin and nail growth, help muscle recovery, support digestion, increase focus</span>
-                  </li>
-                  <li>• Made with grass-fed collagen and added MCTs for focus and satiation</li>
-                  <li>• Dairy free</li>
-                  <li>• No artificial sweeteners</li>
-                </ul>
-              </CardContent>
-            </Card>
+            <div className="bg-gray-50 p-4 rounded">
+              <h3 className="text-base font-semibold text-gray-900 mb-3">Highlights</h3>
+              <ul className="space-y-1 text-sm text-gray-700">
+                <li>
+                  <span className="font-semibold">Made to:</span>{' '}
+                  <span className="italic">Maintain joint health, promote hair, skin and nail growth, help muscle recovery, support digestion, increase focus</span>
+                </li>
+                <li>• Made with grass-fed collagen and added MCTs for focus and satiation</li>
+                <li>• Dairy free</li>
+                <li>• No artificial sweeteners</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-            {/* Clinicians' Choice Badge */}
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-100">
-              <div className="flex items-start space-x-4">
-                <div className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                  Clinicians' Choice
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900">124 clinicians share this without compensation.</p>
-                  <p className="text-sm text-gray-600 mt-1">
-                    124 clinicians share this on FrontrowMD without compensation.
-                  </p>
-                  <Button variant="outline" className="mt-3 text-sm">
-                    View clinicians & learn more
-                  </Button>
-                </div>
+        {/* When To Use Section */}
+        <div className="mt-12 grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 className="text-xl font-bold text-gray-900 mb-6">When To Use</h2>
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-semibold text-gray-900">Morning</h4>
+                <p className="text-sm text-gray-600">Mix with your morning coffee.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900">Evening</h4>
+                <p className="text-sm text-gray-600">To help your muscles relax before bed.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900">Dessert</h4>
+                <p className="text-sm text-gray-600">To satisfy your sweet tooth.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900">Workout</h4>
+                <p className="text-sm text-gray-600">Help your sore joints recover.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900">Travel</h4>
+                <p className="text-sm text-gray-600">To support your digestion when away from home.</p>
               </div>
             </div>
           </div>
+          <div>
+            <img 
+              src="https://cdn.shopify.com/s/files/1/1786/3461/files/collagen_lifestyle_01.jpg?v=1689777431"
+              alt="Collagen lifestyle"
+              className="w-full rounded-lg"
+            />
+          </div>
+        </div>
+
+        {/* Move Better, Feel Better Section */}
+        <div className="mt-8">
+          <h2 className="text-xl font-bold text-gray-900">Move Better, Feel Better</h2>
         </div>
       </div>
     </div>
