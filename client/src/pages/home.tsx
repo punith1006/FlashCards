@@ -15,6 +15,7 @@ export default function Home() {
       <FeaturedProducts />
       <LearnAboutKeto />
       <DigitalFutureSection />
+      <TestimonialsSection />
     </div>
   );
 }
