@@ -148,23 +148,23 @@ export function TestimonialsSection() {
         {/* Desktop Layout: 4-column grid with text section as first column */}
         <div className="hidden lg:grid lg:grid-cols-4 gap-8 items-start">
           {/* First Column - Header Section (plain text, same width as cards) */}
-          <div className="flex flex-col justify-between h-[480px]">
-            <div className="space-y-8">
-              <h2 className="text-3xl font-serif text-gray-900 leading-[1.1] font-normal">
+          <div className="flex flex-col justify-between h-[480px] pr-8">
+            <div className="space-y-10">
+              <h2 className="text-4xl font-serif text-black leading-[1.15] font-normal">
                 Why fast growing<br />
                 restaurant brands<br />
                 choose Snackpass
               </h2>
               <div className="space-y-6">
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-base text-gray-600 leading-relaxed">
                   Future proof your business. Stay ahead of the competition without spending millions.
                 </p>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-base text-gray-600 leading-relaxed">
                   Offer next generation customer experiences like Starbucks and McDonalds. All customized to your brand.
                 </p>
               </div>
             </div>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-colors duration-200 shadow-lg mt-auto">
+            <button className="bg-[#1E90FF] hover:bg-[#1E90FF]/90 text-white px-8 py-4 rounded-xl font-semibold text-base transition-colors duration-200 w-fit">
               Case Studies
             </button>
           </div>
