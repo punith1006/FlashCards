@@ -6,7 +6,7 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
     <div className={`
       relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300
       ${isDark ? 'bg-gray-900 text-white' : 'bg-orange-50 text-gray-800'}
-      ${index === 0 ? 'h-[400px]' : 'h-[380px]'}
+      h-[400px]
     `}>
       {/* Background Image for dark cards */}
       {testimonial.hasBackgroundImage && (
@@ -37,8 +37,7 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
         <div className="space-y-3">
           <h3 className={`
             ${isDark ? 'text-white' : 'text-gray-900'} 
-            ${index === 0 ? 'text-2xl' : 'text-xl'} 
-            font-bold leading-tight
+            text-xl font-bold leading-tight
           `}>
             {testimonial.title}
           </h3>
@@ -53,9 +52,8 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
         {/* Quote - positioned in middle */}
         <div className="flex-1 flex items-center py-6">
           <blockquote className={`
-            leading-relaxed italic
+            leading-relaxed italic text-sm
             ${isDark ? 'text-white' : 'text-gray-700'}
-            ${index === 0 ? 'text-base' : 'text-sm'}
           `}>
             "{testimonial.quote}"
           </blockquote>
@@ -161,9 +159,9 @@ export function TestimonialsSection() {
           {/* Right Content - Testimonial Cards Grid */}
           <div className="flex-1">
             {/* Desktop: 3-column grid matching reference */}
-            <div className="hidden lg:grid lg:grid-cols-3 gap-6">
+            <div className="hidden lg:grid lg:grid-cols-3 gap-6 items-start">
               {testimonials.slice(0, 3).map((testimonial, index) => (
-                <div key={testimonial.id} className={index === 0 ? 'row-span-1' : ''}>
+                <div key={testimonial.id}>
                   <TestimonialCard testimonial={testimonial} index={index} />
                 </div>
               ))}
