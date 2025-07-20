@@ -95,9 +95,6 @@ export function DigitalFutureSection() {
         style={{ 
           minHeight: '500px',
           willChange: 'width, max-width, background-color, box-shadow',
-          ...(isExpanded && {
-            background: 'linear-gradient(135deg, rgba(88, 204, 136, 0.1) 0%, rgba(75, 179, 119, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%)',
-          })
         }}
       >
         {/* Video Background - Only show when not expanded */}
@@ -142,6 +139,22 @@ export function DigitalFutureSection() {
                 Watch a Demo
               </button>
             </div>
+          </div>
+        )}
+
+        {/* Background Pattern for Expanded State */}
+        {isExpanded && (
+          <div className="absolute inset-0 rounded-t-[3rem] overflow-hidden">
+            <div 
+              className="w-full h-full"
+              style={{
+                background: 'linear-gradient(135deg, rgba(88, 204, 136, 0.15) 0%, rgba(75, 179, 119, 0.1) 50%, rgba(255, 255, 255, 0.2) 100%)',
+                backgroundImage: `
+                  radial-gradient(circle at 25% 25%, rgba(88, 204, 136, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 75% 75%, rgba(75, 179, 119, 0.08) 0%, transparent 50%)
+                `
+              }}
+            />
           </div>
         )}
 
