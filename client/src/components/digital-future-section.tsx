@@ -80,7 +80,7 @@ export function DigitalFutureSection() {
   return (
     <section 
       ref={sectionRef}
-      className={`relative overflow-hidden ${isExpanded ? 'bg-gradient-to-br from-gray-50 via-white to-gray-100' : 'bg-white'}`}
+      className={`relative overflow-hidden ${isExpanded ? 'bg-gradient-to-br from-blue-50 via-gray-50 to-green-50' : 'bg-white'}`}
       style={{
         transform: `translateY(${-scrollProgress * ((containerRef.current?.getBoundingClientRect().height || 500) * 0.9)}px)`,
         transition: 'transform 0.1s ease-out',
@@ -149,21 +149,7 @@ export function DigitalFutureSection() {
           </div>
         )}
 
-        {/* Background Pattern for Expanded State */}
-        {isExpanded && (
-          <div className="absolute inset-0 rounded-t-[3rem] overflow-hidden">
-            <div 
-              className="w-full h-full"
-              style={{
-                background: 'linear-gradient(135deg, rgba(88, 204, 136, 0.15) 0%, rgba(75, 179, 119, 0.1) 50%, rgba(255, 255, 255, 0.2) 100%)',
-                backgroundImage: `
-                  radial-gradient(circle at 25% 25%, rgba(88, 204, 136, 0.1) 0%, transparent 50%),
-                  radial-gradient(circle at 75% 75%, rgba(75, 179, 119, 0.08) 0%, transparent 50%)
-                `
-              }}
-            />
-          </div>
-        )}
+
 
         {/* Expanded Content - Platform Description State */}
         {isExpanded && (
