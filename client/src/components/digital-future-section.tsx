@@ -83,7 +83,7 @@ export function DigitalFutureSection() {
       className="relative overflow-hidden"
       style={{
         background: isExpanded 
-          ? 'linear-gradient(135deg, rgba(254, 241, 225, 0.6) 0%, rgba(254, 241, 225, 0.7) 50%, rgba(254, 241, 225, 0.5) 100%)'
+          ? 'linear-gradient(135deg, rgba(254, 241, 225, 0.3) 0%, rgba(254, 241, 225, 0.4) 50%, rgba(254, 241, 225, 0.2) 100%)'
           : 'white',
         backdropFilter: isExpanded ? 'blur(20px) saturate(150%)' : 'none',
         WebkitBackdropFilter: isExpanded ? 'blur(20px) saturate(150%)' : 'none',
