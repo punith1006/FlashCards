@@ -132,12 +132,7 @@ export function ProductOverview() {
 
             
 
-            {/* Current Selection */}
-            <div className="bg-gray-50 p-3 rounded mb-6">
-              <p className="text-sm text-gray-700">
-                <span className="font-semibold text-black">Current Selection:</span> Vanilla | 1 Tub Up to 10% off
-              </p>
-            </div>
+            
 
             
 
@@ -171,14 +166,7 @@ export function ProductOverview() {
                 </Button>
               </div>
               
-              <div className="grid grid-cols-2 gap-3">
-                <Button variant="outline" className="border-gray-300 text-black py-3">
-                  Buy with Shop Pay
-                </Button>
-                <Button variant="outline" className="border-gray-300 text-black py-3">
-                  More payment options
-                </Button>
-              </div>
+              
             </div>
           </div>
         </div>
