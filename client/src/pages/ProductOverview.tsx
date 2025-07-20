@@ -132,38 +132,7 @@ export function ProductOverview() {
               </p>
             </div>
 
-            {/* Clinicians' Choice Badge */}
-            <div className="bg-teal-50 border border-teal-200 rounded-lg p-4 mb-6">
-              <div className="flex items-center space-x-3 mb-3">
-                <div className="flex items-center space-x-2">
-                  <Check className="w-5 h-5 text-teal-600" />
-                  <span className="font-semibold text-teal-800">Clinicians' Choice</span>
-                </div>
-              </div>
-              <p className="text-sm text-gray-700 mb-3">
-                127 clinicians share this on FrontrowMD without compensation.
-              </p>
-              <div className="flex space-x-2 mb-3">
-                <img 
-                  src="https://assets.app.thefrontrowhealth.com/6ga051ctceywn9jfxyxg03azzwc2" 
-                  alt="Dr. Keemberly Kim, MD"
-                  className="w-8 h-8 rounded-full object-cover"
-                />
-                <img 
-                  src="https://assets.app.thefrontrowhealth.com/j3dpo0lkq5u6etn5fezqeizarel4" 
-                  alt="Ageless Aesthetics & Beauty Bar"
-                  className="w-8 h-8 rounded-full object-cover"
-                />
-                <img 
-                  src="https://assets.app.thefrontrowhealth.com/4e8he28d9xopj5iyyv83w41q78xi" 
-                  alt="Brittany Reynolds, DNP"
-                  className="w-8 h-8 rounded-full object-cover"
-                />
-              </div>
-              <Button variant="link" className="text-teal-600 p-0 h-auto text-sm">
-                View clinicians & learn more
-              </Button>
-            </div>
+            
 
             {/* Reviews */}
             <div className="flex items-center space-x-3 mb-6">
@@ -253,53 +222,7 @@ export function ProductOverview() {
           </div>
         </div>
 
-        {/* When To Use Section */}
-        <div className="mt-16 bg-gray-50 rounded-2xl p-8">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h2 className="text-2xl font-bold text-black mb-6">When To Use</h2>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center mt-1">
-                    <Check className="w-5 h-5 text-teal-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-black mb-1">Morning Routine</h3>
-                    <p className="text-gray-600 text-sm">Add to your morning coffee or smoothie for sustained energy and mental clarity throughout the day.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center mt-1">
-                    <Check className="w-5 h-5 text-teal-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-black mb-1">Pre-Workout</h3>
-                    <p className="text-gray-600 text-sm">Support joint health and provide clean protein 30 minutes before your workout for optimal performance.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center mt-1">
-                    <Check className="w-5 h-5 text-teal-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-black mb-1">Beauty Routine</h3>
-                    <p className="text-gray-600 text-sm">Daily collagen support for healthy hair, skin, and nails from the inside out.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="flex justify-center">
-              <img 
-                src="https://shop.perfectketo.com/cdn/shop/files/collagen-peptides-vanilla-mct-boost.png?v=1752762775&width=400" 
-                alt="Collagen lifestyle"
-                className="max-w-md w-full h-auto"
-              />
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   );
