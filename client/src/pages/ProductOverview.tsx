@@ -46,7 +46,6 @@ export function ProductOverview() {
           </Button>
         </div>
       </div>
-
       {/* Header */}
       <header className="bg-black text-white py-4">
         <div className="max-w-7xl mx-auto px-6">
@@ -78,7 +77,6 @@ export function ProductOverview() {
           </div>
         </div>
       </header>
-
       {/* Main Product Section */}
       <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="grid lg:grid-cols-2 gap-12">
@@ -138,7 +136,7 @@ export function ProductOverview() {
 
             {/* Quantity and Add to Cart Section */}
             <div className="space-y-4">
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 pt-[50px] pb-[50px]">
                 {/* Quantity Controls */}
                 <div className="flex items-center">
                   <span className="text-sm font-medium text-gray-500 uppercase tracking-wider mr-4">QUANTITY</span>
