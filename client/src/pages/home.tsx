@@ -3,8 +3,7 @@ import { ScrollingHighlights } from "@/components/scrolling-highlights";
 import { FeaturesSection } from "@/components/features-section";
 import { FeaturedProducts } from "@/components/featured-products";
 import { LearnAboutKeto } from "@/components/learn-about-keto";
-import { DigitalFutureSection } from "@/components/digital-future-section";
-import { TestimonialsSection } from "@/components/testimonials-section";
+import { DigitalFutureTestimonialsSection } from "@/components/digital-future-testimonials-section";
 
 export default function Home() {
   return (
@@ -14,8 +13,7 @@ export default function Home() {
       <FeaturesSection />
       <FeaturedProducts />
       <LearnAboutKeto />
-      <DigitalFutureSection />
-      <TestimonialsSection />
+      <DigitalFutureTestimonialsSection />
     </div>
   );
 }
