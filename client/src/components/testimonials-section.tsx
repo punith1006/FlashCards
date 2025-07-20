@@ -180,7 +180,7 @@ export function TestimonialsSection() {
 
   return (
     <div className="bg-gray-50 pb-20" style={{ marginTop: 'calc(500px * 0.9)' }}>
-      <div className="container mx-auto px-8 max-w-[1400px] pt-16">
+      <div className="container mx-auto px-8 max-w-[1400px] pl-[32px] pr-[32px] pt-[0px] pb-[0px]">
         {/* Desktop Layout: 4-column grid with text section as first column */}
         <div className="hidden lg:grid lg:grid-cols-4 gap-6 items-start">
           {/* First Column - Header Section (plain text, same width as cards) */}
