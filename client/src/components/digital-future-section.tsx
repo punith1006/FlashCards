@@ -48,9 +48,9 @@ export function DigitalFutureSection() {
           // Start animation when we're near the end of the Learn About Keto section
           const triggerStart = learnAboutKetoTop + learnAboutKetoHeight - windowHeight;
           
-          // Calculate the distance needed for bottom-to-bottom alignment
-          // The Digital Future section needs to move up by its own height to align bottoms
-          const animationDistance = digitalFutureHeight;
+          // Calculate the distance needed for 90% proximity to bottom alignment
+          // Stop animation when Digital Future section bottom is 90% close to Learn About Keto bottom
+          const animationDistance = digitalFutureHeight * 0.9; // Only animate 90% of the full height
           
           if (scrollY >= triggerStart) {
             const scrollDistance = scrollY - triggerStart;
