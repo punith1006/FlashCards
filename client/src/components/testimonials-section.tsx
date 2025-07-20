@@ -21,65 +21,64 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
         </>
       )}
       
-      {/* Story badge for the last card */}
-      {testimonial.isStoryCard && (
-        <div className="absolute top-6 left-6 z-20">
-          <span className="text-xs font-medium text-white/90 tracking-wide">Snackpass Stories</span>
-        </div>
-      )}
+
       
       {/* Content container */}
       <div className={`
-        relative z-20 p-10 h-full flex flex-col
-        ${testimonial.isStoryCard ? 'pt-20' : 'pt-10'}
+        relative z-20 p-8 h-full flex flex-col
+        ${testimonial.isStoryCard ? 'pt-16' : 'pt-8'}
       `}>
-        {/* Header - Fixed at top */}
-        <div className="space-y-4 flex-shrink-0">
-          <h3 className={`
-            ${isDark ? 'text-white' : 'text-gray-900'} 
-            text-2xl font-bold leading-tight
-          `}>
-            {testimonial.title}
-          </h3>
-          <p className={`
-            text-base font-medium
-            ${isDark ? 'text-white/80' : 'text-gray-600'}
-          `}>
-            {testimonial.subtitle}
-          </p>
-        </div>
-
-        {/* Quote - Scrollable content area */}
-        <div className="flex-1 py-8 overflow-y-auto scrollbar-hide">
+        {/* Quote - At the top */}
+        <div className="flex-1 mb-8">
           <blockquote className={`
-            leading-relaxed italic text-base
-            ${isDark ? 'text-white' : 'text-gray-700'}
+            leading-relaxed text-lg font-normal
+            ${isDark ? 'text-white' : 'text-gray-800'}
           `}>
             "{testimonial.quote}"
           </blockquote>
         </div>
 
-        {/* Author Info - Fixed at bottom */}
-        <div className="flex items-center gap-5 flex-shrink-0 mt-auto">
-          <div className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white/20">
-            <img 
-              src={`https://ui-avatars.com/api/?name=${testimonial.author}&background=4F46E5&color=fff&size=56`}
-              alt={testimonial.author}
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div>
-            <div className={`
-              font-semibold text-base
-              ${isDark ? 'text-white' : 'text-gray-900'}
-            `}>
-              {testimonial.role}, {testimonial.author}
+        {/* Bottom section - Fixed at bottom */}
+        <div className="mt-auto space-y-4">
+          {/* Snackpass Stories badge - only for story cards */}
+          {testimonial.isStoryCard && (
+            <div className="mb-4">
+              <span className="text-xs font-medium text-white/90 tracking-wide">Snackpass Stories</span>
             </div>
-            <div className={`
-              text-sm
-              ${isDark ? 'text-white/70' : 'text-gray-500'}
+          )}
+          
+          {/* Company name - Large title */}
+          <div className="mb-6">
+            <h3 className={`
+              ${isDark ? 'text-white' : 'text-gray-900'} 
+              text-3xl font-bold leading-tight
             `}>
-              {testimonial.since}
+              {testimonial.title}
+            </h3>
+          </div>
+
+          {/* Author Info - At very bottom */}
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+              <img 
+                src={`https://ui-avatars.com/api/?name=${testimonial.author}&background=4F46E5&color=fff&size=48`}
+                alt={testimonial.author}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div>
+              <div className={`
+                font-semibold text-sm
+                ${isDark ? 'text-white' : 'text-gray-900'}
+              `}>
+                {testimonial.role}, {testimonial.author}
+              </div>
+              <div className={`
+                text-xs
+                ${isDark ? 'text-white/70' : 'text-gray-500'}
+              `}>
+                {testimonial.since}
+              </div>
             </div>
           </div>
         </div>
