@@ -191,41 +191,16 @@ export default function Catalog() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="flex gap-8">
-          {/* Left Sidebar - Filter Section */}
-          <div className="hidden lg:block w-64 flex-shrink-0">
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase">Filter by</h3>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-sm font-medium text-gray-900 mb-3">Categories</h4>
-                  <div className="space-y-2">
-                    {["Best Sellers", "Collagen", "Supplements", "Food", "Bars"].map((category) => (
-                      <label key={category} className="flex items-center text-sm text-gray-600">
-                        <input type="checkbox" className="mr-2 rounded border-gray-300" />
-                        {category}
-                      </label>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Product Count */}
+        <div className="mb-6">
+          <p className="text-sm text-gray-600">{staticProducts.length} Products</p>
+        </div>
 
-          {/* Products Grid */}
-          <div className="flex-1">
-            {/* Product Count */}
-            <div className="mb-6">
-              <p className="text-sm text-gray-600">{staticProducts.length} Products</p>
-            </div>
-
-            {/* Products Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {staticProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-          </div>
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {staticProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
       </div>
     </div>
