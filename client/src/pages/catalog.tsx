@@ -162,8 +162,8 @@ export default function Catalog() {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Product Count */}
-        <div className="mb-6">
-          <p className="text-sm text-gray-600">{staticProducts.length} Products</p>
+        <div className="mb-8 pb-4 border-b border-gray-200">
+          <p className="text-sm font-medium text-gray-700">{staticProducts.length} Products</p>
         </div>
 
         {/* Products Grid */}
