@@ -595,11 +595,11 @@ export function DigitalFutureTestimonialsSection() {
               </svg>
             </button>
 
-            {/* Right Navigation Button - At third card border */}
+            {/* Right Navigation Button - At right border of third card */}
             <button
               onClick={scrollTestimonialsRight}
               disabled={!canScrollRight}
-              className={`absolute left-[calc(320px+32px+640px+24px+24px)] top-1/2 -translate-y-1/2 z-10 p-3 rounded-full border transition-all duration-200 shadow-lg ${
+              className={`absolute left-[calc(320px+32px+960px+24px)] top-1/2 -translate-y-1/2 z-10 p-3 rounded-full border transition-all duration-200 shadow-lg ${
                 canScrollRight 
                   ? 'bg-white hover:bg-gray-50 border-gray-200 text-gray-700 hover:text-gray-900 hover:shadow-xl' 
                   : 'bg-gray-100 border-gray-100 text-gray-400 cursor-not-allowed'
