@@ -580,53 +580,43 @@ export function DigitalFutureTestimonialsSection() {
               </div>
             </div>
 
-            {/* Left Navigation Button - At first card border */}
-            <button
-              onClick={scrollTestimonialsLeft}
-              disabled={!canScrollLeft}
-              className={`absolute left-[calc(320px+32px-24px)] top-1/2 -translate-y-1/2 z-10 p-4 rounded-full transition-all duration-300 hover:scale-110 ${
-                canScrollLeft 
-                  ? 'text-gray-700 hover:text-gray-900' 
-                  : 'text-gray-400 cursor-not-allowed'
-              }`}
-              style={{
-                background: canScrollLeft ? 'rgba(254, 241, 225, 0.35)' : 'rgba(229, 231, 235, 0.5)',
-                backdropFilter: 'blur(40px) saturate(150%)',
-                WebkitBackdropFilter: 'blur(40px) saturate(150%)',
-                border: '1px solid rgba(254, 241, 225, 0.4)',
-                boxShadow: canScrollLeft 
-                  ? '0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 16px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(254, 241, 225, 0.3)'
-                  : '0 4px 16px rgba(0, 0, 0, 0.05)',
-              }}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
+            {/* Left Navigation Button - At first card border - Only visible when can scroll left */}
+            {canScrollLeft && (
+              <button
+                onClick={scrollTestimonialsLeft}
+                className="absolute left-[calc(320px+32px-24px)] top-1/2 -translate-y-1/2 z-10 p-4 rounded-full transition-all duration-300 hover:scale-110 text-gray-700 hover:text-gray-900"
+                style={{
+                  background: 'rgba(254, 241, 225, 0.35)',
+                  backdropFilter: 'blur(40px) saturate(150%)',
+                  WebkitBackdropFilter: 'blur(40px) saturate(150%)',
+                  border: '1px solid rgba(254, 241, 225, 0.4)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 16px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(254, 241, 225, 0.3)',
+                }}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+            )}
 
-            {/* Right Navigation Button - At right border of third card */}
-            <button
-              onClick={scrollTestimonialsRight}
-              disabled={!canScrollRight}
-              className={`absolute left-[calc(320px+32px+960px+24px)] top-1/2 -translate-y-1/2 z-10 p-4 rounded-full transition-all duration-300 hover:scale-110 ${
-                canScrollRight 
-                  ? 'text-gray-700 hover:text-gray-900' 
-                  : 'text-gray-400 cursor-not-allowed'
-              }`}
-              style={{
-                background: canScrollRight ? 'rgba(254, 241, 225, 0.35)' : 'rgba(229, 231, 235, 0.5)',
-                backdropFilter: 'blur(40px) saturate(150%)',
-                WebkitBackdropFilter: 'blur(40px) saturate(150%)',
-                border: '1px solid rgba(254, 241, 225, 0.4)',
-                boxShadow: canScrollRight 
-                  ? '0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 16px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(254, 241, 225, 0.3)'
-                  : '0 4px 16px rgba(0, 0, 0, 0.05)',
-              }}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
+            {/* Right Navigation Button - At right border of third card - Only visible when can scroll right */}
+            {canScrollRight && (
+              <button
+                onClick={scrollTestimonialsRight}
+                className="absolute left-[calc(320px+32px+960px+24px)] top-1/2 -translate-y-1/2 z-10 p-4 rounded-full transition-all duration-300 hover:scale-110 text-gray-700 hover:text-gray-900"
+                style={{
+                  background: 'rgba(254, 241, 225, 0.35)',
+                  backdropFilter: 'blur(40px) saturate(150%)',
+                  WebkitBackdropFilter: 'blur(40px) saturate(150%)',
+                  border: '1px solid rgba(254, 241, 225, 0.4)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 16px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(254, 241, 225, 0.3)',
+                }}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            )}
           </div>
 
 
