@@ -30,11 +30,11 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
       
       {/* Content container */}
       <div className={`
-        relative z-20 p-8 h-full flex flex-col justify-between
+        relative z-20 p-8 h-full flex flex-col
         ${testimonial.isStoryCard ? 'pt-16' : 'pt-8'}
       `}>
-        {/* Header */}
-        <div className="space-y-3">
+        {/* Header - Fixed at top */}
+        <div className="space-y-3 flex-shrink-0">
           <h3 className={`
             ${isDark ? 'text-white' : 'text-gray-900'} 
             text-xl font-bold leading-tight
@@ -49,8 +49,8 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
           </p>
         </div>
 
-        {/* Quote - positioned in middle */}
-        <div className="flex-1 flex items-center py-6">
+        {/* Quote - Scrollable content area */}
+        <div className="flex-1 py-6 overflow-y-auto scrollbar-hide">
           <blockquote className={`
             leading-relaxed italic text-sm
             ${isDark ? 'text-white' : 'text-gray-700'}
@@ -59,8 +59,8 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
           </blockquote>
         </div>
 
-        {/* Author Info - at bottom */}
-        <div className="flex items-center gap-4">
+        {/* Author Info - Fixed at bottom */}
+        <div className="flex items-center gap-4 flex-shrink-0 mt-auto">
           <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
             <img 
               src={`https://ui-avatars.com/api/?name=${testimonial.author}&background=4F46E5&color=fff&size=48`}
@@ -119,7 +119,7 @@ export function TestimonialsSection() {
       id: "presotea",
       title: "Presotea",
       subtitle: "Stories Collection",
-      quote: "Snackpass technology has a great addition to our corporate and franchise locations. NO has it helped streamline operations, but it's been the",
+      quote: "Snackpass technology has been a great addition to our corporate and franchise locations. Not only has it helped streamline operations, but it's been the most valuable tool for our marketing and customer engagement efforts. The integration was seamless and our customers love the convenience it provides. We've seen a significant increase in repeat orders and customer satisfaction since implementing this solution.",
       author: "Regional Manager",
       role: "Operations",
       company: "Presotea",
