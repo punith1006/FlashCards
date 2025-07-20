@@ -245,73 +245,7 @@ export function ProductOverview() {
 
         
 
-        {/* Nutrition Facts Section */}
-        <div className="bg-gray-50 py-16">
-          <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-black mb-12">Nutrition Facts</h2>
-            
-            <div className="bg-white border-2 border-black p-6 max-w-md mx-auto">
-              <div className="text-center border-b-4 border-black pb-2 mb-4">
-                <h3 className="text-2xl font-bold">Nutrition Facts</h3>
-                <p className="text-sm">Serving Size 1 Scoop (25g)</p>
-                <p className="text-sm">Servings Per Container 20</p>
-              </div>
-
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between border-b border-gray-300 pb-1">
-                  <span className="font-semibold">Amount Per Serving</span>
-                </div>
-                
-                <div className="flex justify-between">
-                  <span className="font-semibold">Calories</span>
-                  <span className="font-semibold">80</span>
-                </div>
-
-                <div className="border-b-4 border-black pb-2 mb-2">
-                  <div className="text-right text-xs">% Daily Value*</div>
-                </div>
-
-                <div className="flex justify-between">
-                  <span>Total Fat 0g</span>
-                  <span className="font-semibold">0%</span>
-                </div>
-
-                <div className="flex justify-between">
-                  <span>Total Carbohydrate 0g</span>
-                  <span className="font-semibold">0%</span>
-                </div>
-
-                <div className="flex justify-between">
-                  <span>Protein 20g</span>
-                  <span className="font-semibold">40%</span>
-                </div>
-
-                <div className="border-b border-gray-300 my-3"></div>
-
-                <div>
-                  <div className="font-semibold mb-2">Collagen Peptides Blend 20g</div>
-                  <div className="text-xs pl-4 space-y-1">
-                    <div>Bovine Collagen Peptides (Types I & III)</div>
-                    <div>MCT Oil Powder (from Coconut)</div>
-                  </div>
-                </div>
-
-                <div className="border-b border-gray-300 my-3"></div>
-
-                <div className="text-xs">
-                  <p>*Percent Daily Values are based on a 2,000 calorie diet.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="text-center mt-8">
-              <p className="text-sm text-gray-600 max-w-2xl mx-auto">
-                <strong>Other Ingredients:</strong> Natural flavors, stevia leaf extract, silica. 
-                Contains: Tree nuts (coconut). Manufactured in a facility that also processes milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, and soy.
-              </p>
-            </div>
-          </div>
-        </div>
+        
 
         {/* What's Inside Section */}
         <div className="py-16">
