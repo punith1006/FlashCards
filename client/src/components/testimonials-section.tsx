@@ -42,47 +42,28 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
         </div>
 
         {/* Bottom section - Fixed at bottom */}
-        <div className="flex-shrink-0 space-y-4">
+        <div className="flex-shrink-0 space-y-2">
           {/* Snackpass Stories badge - only for story cards */}
           {testimonial.isStoryCard && (
-            <div className="mb-4">
+            <div className="mb-2">
               <span className="text-xs font-medium text-white/90 tracking-wide">Snackpass Stories</span>
             </div>
           )}
           
           {/* Company name - Large title */}
-          <div className="mb-6">
-            <h3 className={`
-              ${isDark ? 'text-white' : 'text-gray-900'} 
-              text-3xl font-bold leading-tight
-            `}>
-              {testimonial.title}
-            </h3>
-          </div>
+          <h3 className={`
+            ${isDark ? 'text-white' : 'text-gray-900'} 
+            text-4xl font-bold leading-tight mb-1
+          `}>
+            {testimonial.title}
+          </h3>
 
-          {/* Author Info - At very bottom */}
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-              <img 
-                src={`https://ui-avatars.com/api/?name=${testimonial.author}&background=4F46E5&color=fff&size=48`}
-                alt={testimonial.author}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div>
-              <div className={`
-                font-semibold text-sm
-                ${isDark ? 'text-white' : 'text-gray-900'}
-              `}>
-                {testimonial.role}, {testimonial.author}
-              </div>
-              <div className={`
-                text-xs
-                ${isDark ? 'text-white/70' : 'text-gray-500'}
-              `}>
-                {testimonial.since}
-              </div>
-            </div>
+          {/* Author name only - simple text below company */}
+          <div className={`
+            text-base font-normal
+            ${isDark ? 'text-white/80' : 'text-gray-700'}
+          `}>
+            {testimonial.author}
           </div>
         </div>
       </div>
