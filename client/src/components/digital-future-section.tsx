@@ -90,11 +90,14 @@ export function DigitalFutureSection() {
         <div 
         ref={containerRef}
         className={`mx-auto rounded-t-[3rem] relative overflow-hidden transform-gpu transition-all duration-1000 ease-in-out ${
-          isExpanded ? 'max-w-6xl bg-gray-50 shadow-2xl' : 'w-full bg-black shadow-lg'
+          isExpanded ? 'max-w-6xl shadow-2xl' : 'w-full bg-black shadow-lg'
         }`}
         style={{ 
           minHeight: '500px',
           willChange: 'width, max-width, background-color, box-shadow',
+          ...(isExpanded && {
+            background: 'linear-gradient(135deg, rgba(88, 204, 136, 0.1) 0%, rgba(75, 179, 119, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%)',
+          })
         }}
       >
         {/* Video Background - Only show when not expanded */}
@@ -145,13 +148,13 @@ export function DigitalFutureSection() {
         {/* Expanded Content - Platform Description State */}
         {isExpanded && (
           <div 
-            className="relative z-10 p-12"
+            className="relative z-10 p-12 rounded-t-[3rem]"
             style={{
-              background: 'rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(16px)',
-              WebkitBackdropFilter: 'blur(16px)',
-              border: '1px solid rgba(107, 114, 128, 0.3)',
-              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+              background: 'rgba(255, 255, 255, 0.25)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.4)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
             }}
           >
             {/* Back Button */}
