@@ -190,7 +190,7 @@ export function DigitalFutureSection() {
                 </div>
                 {/* Description - Top Right */}
                 <div className="flex items-end">
-                  <p className="text-gray-600 text-lg leading-relaxed">
+                  <p className="text-gray-700 text-xl leading-relaxed font-medium">
                     Explore insights, innovations, and stories shaping the
                     future of ketogenic living.
                   </p>
@@ -201,9 +201,9 @@ export function DigitalFutureSection() {
               <div className="grid lg:grid-cols-12 gap-8 items-start">
                 {/* Navigation Links - Bottom Left */}
                 <div className="lg:col-span-2 space-y-4">
-                  <div className="text-gray-900 font-semibold">Keto Insights</div>
-                  <div className="text-gray-600 cursor-pointer hover:text-gray-900 transition-colors">Nutrition Trends</div>
-                  <div className="text-gray-600 cursor-pointer hover:text-gray-900 transition-colors">Health & Innovation</div>
+                  <div className="text-gray-900 font-bold text-lg">Keto Insights</div>
+                  <div className="text-gray-700 text-lg cursor-pointer hover:text-gray-900 transition-colors">Nutrition Trends</div>
+                  <div className="text-gray-700 text-lg cursor-pointer hover:text-gray-900 transition-colors">Health & Innovation</div>
                 </div>
 
                 {/* Featured Image - Center */}
@@ -223,15 +223,15 @@ export function DigitalFutureSection() {
                   <h3 className="text-2xl font-bold text-gray-900 leading-tight">
                     The Science of Ketosis: What It Means for Health
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-700 text-lg leading-relaxed font-medium">
                     Discover how ketogenic nutrition is redefining health optimization — from metabolic flexibility to sustained energy.
                   </p>
                   <button className="text-[#58CC88] hover:text-[#4bb377] font-medium transition-colors duration-200">
                     Learn More →
                   </button>
                   <div className="pt-4">
-                    <div className="text-sm text-gray-900 font-medium">Dr. Sarah Chen</div>
-                    <div className="text-sm text-gray-400">08 July 2025</div>
+                    <div className="text-base text-gray-900 font-semibold">Dr. Sarah Chen</div>
+                    <div className="text-base text-gray-500">08 July 2025</div>
                   </div>
                 </div>
               </div>
