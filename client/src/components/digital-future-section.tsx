@@ -1,8 +1,11 @@
 import { ArrowRight, Play, ArrowLeft } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export function DigitalFutureSection() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const handleGetStartedClick = () => {
     setIsExpanded(true);
@@ -12,15 +15,72 @@ export function DigitalFutureSection() {
     setIsExpanded(false);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+
+      const windowHeight = window.innerHeight;
+      const scrollY = window.scrollY;
+      const sectionRect = sectionRef.current.getBoundingClientRect();
+      const sectionTop = sectionRect.top + scrollY;
+      
+      // Find the Learn About Keto section (previous sibling)
+      const learnAboutKetoSection = sectionRef.current.previousElementSibling as HTMLElement;
+      if (!learnAboutKetoSection) return;
+      
+      const learnAboutKetoRect = learnAboutKetoSection.getBoundingClientRect();
+      const learnAboutKetoBottom = learnAboutKetoRect.bottom + scrollY;
+      
+      // Start overlay when user reaches the bottom of Learn About Keto section
+      const triggerPoint = learnAboutKetoBottom - windowHeight;
+      
+      if (scrollY >= triggerPoint) {
+        // Calculate how much the Digital Future section should overlay
+        const maxOverlay = Math.min(sectionRect.height, learnAboutKetoRect.height);
+        const currentOverlay = scrollY - triggerPoint;
+        const progress = Math.min(currentOverlay / maxOverlay, 1);
+        
+        setScrollProgress(progress);
+      } else {
+        setScrollProgress(0);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial call
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <section className="relative bg-white overflow-hidden">
-      <div 
+    <>
+      {/* Spacer to maintain document flow when section is fixed */}
+      {scrollProgress > 0 && (
+        <div style={{ height: '500px' }} />
+      )}
+      
+      <section 
+        ref={sectionRef}
+        className="relative bg-white overflow-hidden"
+        style={{
+          position: scrollProgress > 0 ? 'fixed' : 'relative',
+          top: scrollProgress > 0 ? `${(1 - scrollProgress) * 100}vh` : 'auto',
+          left: scrollProgress > 0 ? 0 : 'auto',
+          right: scrollProgress > 0 ? 0 : 'auto',
+          zIndex: scrollProgress > 0 ? 10 : 'auto',
+          transition: 'top 0.1s ease-out',
+        }}
+      >
+        <div 
+        ref={containerRef}
         className={`mx-auto rounded-t-[3rem] relative overflow-hidden transform-gpu transition-all duration-1000 ease-in-out ${
           isExpanded ? 'max-w-6xl bg-gray-50 shadow-2xl' : 'w-full bg-black shadow-lg'
         }`}
         style={{ 
           minHeight: '500px',
-          willChange: 'width, max-width, background-color, box-shadow'
+          willChange: 'width, max-width, background-color, box-shadow',
         }}
       >
         {/* Video Background - Only show when not expanded */}
@@ -139,7 +199,8 @@ export function DigitalFutureSection() {
             </div>
           </div>
         )}
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }
