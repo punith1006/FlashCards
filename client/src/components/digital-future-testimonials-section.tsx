@@ -11,11 +11,14 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
     triggerOnce: true 
   });
   
+  // Only apply typewriter effect to the first card (index 0)
+  const shouldUseTypewriter = index === 0;
+  
   const { displayText: typewriterText } = useTypewriter({
     text: testimonial.quote,
     speed: 30,
-    startDelay: index * 200, // Stagger animation for each card
-    shouldStart: isIntersecting
+    startDelay: 0,
+    shouldStart: shouldUseTypewriter && isIntersecting
   });
   
   return (
@@ -73,8 +76,8 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
             {/* Quote - Starting from middle, scrollable */}
             <div className="flex-1 mb-8 overflow-y-auto scrollbar-hide">
               <blockquote className="leading-relaxed text-lg font-normal text-white">
-                "{typewriterText}"
-                {isIntersecting && typewriterText.length < testimonial.quote.length && (
+                "{shouldUseTypewriter ? typewriterText : testimonial.quote}"
+                {shouldUseTypewriter && isIntersecting && typewriterText.length < testimonial.quote.length && (
                   <span className="animate-pulse">|</span>
                 )}
               </blockquote>
@@ -116,8 +119,8 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
             {/* Quote in middle, scrollable */}
             <div className="flex-1 mb-8 overflow-y-auto scrollbar-hide">
               <blockquote className="leading-relaxed text-base text-gray-800">
-                "{typewriterText}"
-                {isIntersecting && typewriterText.length < testimonial.quote.length && (
+                "{shouldUseTypewriter ? typewriterText : testimonial.quote}"
+                {shouldUseTypewriter && isIntersecting && typewriterText.length < testimonial.quote.length && (
                   <span className="animate-pulse text-gray-400">|</span>
                 )}
               </blockquote>
