@@ -163,59 +163,61 @@ export function DigitalFutureSection() {
               Back
             </button>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-              {/* Left Content */}
-              <div className="space-y-8">
+            <div className="max-w-6xl mx-auto">
+              {/* Top Section - Heading and Description */}
+              <div className="grid lg:grid-cols-2 gap-8 mb-12">
+                {/* Main Heading - Left */}
                 <div>
-                  <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                  <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                     EXPLORE INSIDE THE
                     <br />
                     KETO PLATFORM
                   </h2>
+                </div>
+                {/* Description - Top Right */}
+                <div className="flex items-end">
                   <p className="text-gray-600 text-lg leading-relaxed">
                     Explore insights, innovations, and stories shaping the
                     future of ketogenic living.
                   </p>
                 </div>
-
-                {/* Navigation Links */}
-                <div className="space-y-4">
-                  <div className="text-gray-900 font-semibold">Keto Insights</div>
-                  <div className="text-gray-600">Nutrition Trends</div>
-                  <div className="text-gray-600">Health & Innovation</div>
-                </div>
               </div>
 
-              {/* Right Content */}
-              <div className="space-y-6">
-                <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    The Science of Ketosis:
-                    What It Means for Health
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                    Discover how ketogenic nutrition is
-                    redefining health optimization — from metabolic
-                    flexibility to sustained energy.
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <button className="text-[#58CC88] hover:text-[#4bb377] font-medium text-sm">
-                      Learn More →
-                    </button>
-                    <div className="text-xs text-gray-400">
-                      <div>Dr. Sarah Chen</div>
-                      <div>08 July 2025</div>
+              {/* Bottom Section - Navigation, Image, and Article */}
+              <div className="grid lg:grid-cols-12 gap-8 items-start">
+                {/* Navigation Links - Bottom Left */}
+                <div className="lg:col-span-2 space-y-4">
+                  <div className="text-gray-900 font-semibold">Keto Insights</div>
+                  <div className="text-gray-600 cursor-pointer hover:text-gray-900 transition-colors">Nutrition Trends</div>
+                  <div className="text-gray-600 cursor-pointer hover:text-gray-900 transition-colors">Health & Innovation</div>
+                </div>
+
+                {/* Featured Image - Center */}
+                <div className="lg:col-span-6">
+                  <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl h-64 lg:h-80 flex items-center justify-center overflow-hidden">
+                    <div className="text-center">
+                      <div className="w-20 h-20 bg-[#58CC88] rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <span className="text-white text-2xl font-bold">K</span>
+                      </div>
+                      <p className="text-gray-600">Keto Platform Demo</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Featured Image Placeholder */}
-                <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl h-48 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-[#58CC88] rounded-full mx-auto mb-3 flex items-center justify-center">
-                      <span className="text-white text-xl font-bold">K</span>
-                    </div>
-                    <p className="text-gray-600 text-sm">Keto Platform Demo</p>
+                {/* Article Content - Right */}
+                <div className="lg:col-span-4 space-y-4">
+                  <h3 className="text-2xl font-bold text-gray-900 leading-tight">
+                    The Science of Ketosis: What It Means for Health
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Discover how ketogenic nutrition is redefining health optimization — from metabolic flexibility to sustained energy.
+                  </p>
+                  <button className="text-[#58CC88] hover:text-[#4bb377] font-medium transition-colors duration-200">
+                    Learn More →
+                  </button>
+                  <div className="pt-4">
+                    <div className="text-sm text-gray-900 font-medium">Dr. Sarah Chen</div>
+                    <div className="text-sm text-gray-400">08 July 2025</div>
                   </div>
                 </div>
               </div>
