@@ -269,18 +269,6 @@ export function DigitalFutureTestimonialsSection() {
       cardType: "dark-overlay",
       hasBackgroundImage: true,
       isStoryCard: true
-    },
-    {
-      id: "xing-fu-tang-duplicate",
-      title: "Xing Fu Tang",
-      subtitle: "Taiwan's No.1 Boba Brand",
-      quote: "When it comes time to service a lot of tickets in short order, it is very helpful to be able to turn the POS into a kiosk… and have customers order for themselves and then dedicate that man power to making the actual drinks.",
-      author: "Andrew Chuang",
-      role: "CEO",
-      company: "Xing Fu Tang",
-      since: "Snackpass Partner Since 2023",
-      cardType: "dark-overlay",
-      hasBackgroundImage: true
     }
   ];
 
