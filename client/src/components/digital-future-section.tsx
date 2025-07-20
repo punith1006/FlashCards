@@ -144,7 +144,16 @@ export function DigitalFutureSection() {
 
         {/* Expanded Content - Platform Description State */}
         {isExpanded && (
-          <div className="relative z-10 p-12">
+          <div 
+            className="relative z-10 p-12"
+            style={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              border: '1px solid rgba(107, 114, 128, 0.3)',
+              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+            }}
+          >
             {/* Back Button */}
             <button
               onClick={handleBackClick}
