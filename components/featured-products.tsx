@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useRef, useState, useEffect } from "react";
+import { Link } from "wouter";
 
 interface Product {
   id: number;
@@ -163,11 +164,13 @@ export function FeaturedProducts() {
                       {product.price}
                     </p>
                   </div>
-                  <Button 
-                    className="w-full bg-slate-800 text-white hover:bg-slate-700 py-3 rounded-xl font-semibold transition-colors duration-300 mt-auto"
-                  >
-                    Shop Now
-                  </Button>
+                  <Link href={product.id === 1 ? "/product/grass-fed-collagen-peptides" : "#"}>
+                    <Button 
+                      className="w-full bg-slate-800 text-white hover:bg-slate-700 py-3 rounded-xl font-semibold transition-colors duration-300 mt-auto"
+                    >
+                      Shop Now
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
