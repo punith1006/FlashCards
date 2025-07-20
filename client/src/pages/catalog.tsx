@@ -70,7 +70,7 @@ function ProductCard({ product }: { product: typeof staticProducts[0] }) {
   const [currentImage, setCurrentImage] = useState(product.image);
 
   return (
-    <div className="group relative bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300">
+    <div className="group relative bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col h-full">
       {/* Product Image */}
       <div 
         className="relative aspect-square bg-gray-50 overflow-hidden cursor-pointer"
@@ -94,7 +94,7 @@ function ProductCard({ product }: { product: typeof staticProducts[0] }) {
       </div>
 
       {/* Product Info */}
-      <div className="p-5">
+      <div className="p-5 flex flex-col flex-grow">
         {/* Product Name */}
         <h3 className="font-bold text-gray-900 text-lg leading-tight mb-2">
           {product.name}
@@ -106,10 +106,10 @@ function ProductCard({ product }: { product: typeof staticProducts[0] }) {
         )}
 
         {/* Description */}
-        <p className="text-sm text-gray-600 mb-4 leading-relaxed">{product.description}</p>
+        <p className="text-sm text-gray-600 mb-4 leading-relaxed flex-grow">{product.description}</p>
 
-        {/* Price and Button */}
-        <div className="flex items-end justify-between">
+        {/* Price and Button - Aligned to bottom */}
+        <div className="flex items-end justify-between mt-auto">
           <div>
             <p className="text-xs text-gray-500 mb-1">Sale price</p>
             <p className="text-xl font-bold text-gray-900">${product.price}</p>
