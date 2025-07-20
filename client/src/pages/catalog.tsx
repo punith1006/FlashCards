@@ -140,18 +140,21 @@ export default function Catalog() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section - Exact Perfect Keto styling */}
-      <div className="bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-200 py-16 px-4">
+      <div className="bg-white py-12 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-4xl font-bold text-gray-900">All products</h1>
             </div>
             <div className="hidden md:block">
-              <div className="w-80 h-32 bg-yellow-400 rounded flex items-center justify-center">
+              <div className="relative w-96 h-48 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg overflow-hidden">
+                {/* Yellow accent bar */}
+                <div className="absolute bottom-0 left-0 right-0 h-8 bg-yellow-400"></div>
+                {/* Product showcase image */}
                 <img 
-                  src="https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=320&h=128&fit=crop"
+                  src="https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=400&h=200&fit=crop"
                   alt="Perfect Keto Products"
-                  className="w-full h-full object-cover rounded"
+                  className="w-full h-full object-contain p-4"
                 />
               </div>
             </div>
