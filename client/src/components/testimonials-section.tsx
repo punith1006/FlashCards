@@ -9,11 +9,11 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
       h-[480px] transform hover:scale-105
     `}
     style={!isDark ? {
-      background: 'rgba(255, 255, 255, 0.03)',
+      background: 'rgba(254, 241, 225, 0.15)',
       backdropFilter: 'blur(40px) saturate(150%)',
       WebkitBackdropFilter: 'blur(40px) saturate(150%)',
-      border: '1px solid rgba(255, 255, 255, 0.12)',
-      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 16px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+      border: '1px solid rgba(254, 241, 225, 0.25)',
+      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 16px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(254, 241, 225, 0.2)',
     } : {}}>
       {/* Background Image for dark cards */}
       {testimonial.hasBackgroundImage && (
@@ -33,7 +33,7 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
         <div 
           className="absolute inset-0 pointer-events-none rounded-3xl"
           style={{
-            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%)',
+            background: 'linear-gradient(135deg, rgba(254, 241, 225, 0.08) 0%, rgba(254, 241, 225, 0.02) 100%)',
             backdropFilter: 'blur(50px) saturate(180%)',
             WebkitBackdropFilter: 'blur(50px) saturate(180%)',
           }}
