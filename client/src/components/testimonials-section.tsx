@@ -4,10 +4,17 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
   
   return (
     <div className={`
-      relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300
-      ${isDark ? 'bg-gray-900 text-white' : 'bg-orange-50 text-gray-800'}
+      relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500
+      ${isDark ? 'bg-gray-900 text-white' : 'text-gray-800'}
       h-[480px] transform hover:scale-105
-    `}>
+    `}
+    style={!isDark ? {
+      background: 'rgba(255, 255, 255, 0.03)',
+      backdropFilter: 'blur(40px) saturate(150%)',
+      WebkitBackdropFilter: 'blur(40px) saturate(150%)',
+      border: '1px solid rgba(255, 255, 255, 0.12)',
+      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 16px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+    } : {}}>
       {/* Background Image for dark cards */}
       {testimonial.hasBackgroundImage && (
         <>
@@ -21,6 +28,17 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
         </>
       )}
       
+      {/* Ultra-transparent glass overlay for light cards */}
+      {!isDark && (
+        <div 
+          className="absolute inset-0 pointer-events-none rounded-3xl"
+          style={{
+            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%)',
+            backdropFilter: 'blur(50px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(50px) saturate(180%)',
+          }}
+        />
+      )}
 
       
       {/* Content container */}
