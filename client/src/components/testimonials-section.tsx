@@ -28,8 +28,11 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
         relative z-20 p-8 h-full flex flex-col
         ${testimonial.isStoryCard ? 'pt-16' : 'pt-8'}
       `}>
-        {/* Quote - At the top */}
-        <div className="flex-1 mb-8">
+        {/* Spacer to push quote to middle */}
+        <div className="flex-1"></div>
+
+        {/* Quote - Starting from middle, scrollable */}
+        <div className="flex-1 mb-8 overflow-y-auto scrollbar-hide">
           <blockquote className={`
             leading-relaxed text-lg font-normal
             ${isDark ? 'text-white' : 'text-gray-800'}
@@ -39,7 +42,7 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
         </div>
 
         {/* Bottom section - Fixed at bottom */}
-        <div className="mt-auto space-y-4">
+        <div className="flex-shrink-0 space-y-4">
           {/* Snackpass Stories badge - only for story cards */}
           {testimonial.isStoryCard && (
             <div className="mb-4">
