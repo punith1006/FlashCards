@@ -156,14 +156,14 @@ export function DigitalFutureSection() {
 
         {/* Initial Content - Video Background State */}
         {!isExpanded && (
-          <div className="relative z-10 max-w-4xl mx-auto text-center py-16">
+          <div className="relative z-10 max-w-4xl mx-auto text-center pt-16 pb-0">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 leading-tight">
               READY TO STEP INTO YOUR
               <br />
               DIGITAL FUTURE?
             </h2>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <button 
                 onClick={handleGetStartedClick}
                 className="inline-flex items-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 group transform hover:scale-105 hover:shadow-xl active:scale-95"
@@ -185,7 +185,7 @@ export function DigitalFutureSection() {
         {/* Expanded Content - Platform Description State */}
         {isExpanded && (
           <div 
-            className="relative z-10 p-12 rounded-t-[3rem]"
+            className="relative z-10 px-12 pt-12 pb-0 rounded-t-[3rem]"
             style={{
               background: 'rgba(254, 241, 225, 0.02)',
               backdropFilter: 'blur(16px)',
@@ -287,6 +287,7 @@ export function DigitalFutureSection() {
                 </div>
               </div>
             </div>
+            <div className="h-8"></div>
           </div>
         )}
         </div>

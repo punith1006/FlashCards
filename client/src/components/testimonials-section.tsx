@@ -74,7 +74,7 @@ export function TestimonialsSection() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="pt-16 pb-16 bg-white overflow-hidden -mt-16">
+    <section className="py-16 bg-white overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           {/* Left Content */}
