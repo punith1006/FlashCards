@@ -1,6 +1,13 @@
 import { Button } from "@/components/ui/button";
+import { useLocation } from "wouter";
 
 export function HeroSection() {
+  const [, navigate] = useLocation();
+
+  const handleShopNow = () => {
+    navigate("/catalog");
+  };
+
   return (
     <section className="relative bg-gradient-to-br from-orange-50 via-white to-orange-100 overflow-hidden w-full">
       {/* Content Container */}
@@ -26,6 +33,7 @@ export function HeroSection() {
             
             <Button 
               size="lg" 
+              onClick={handleShopNow}
               className="bg-[hsl(210,24%,16%)] text-white hover:bg-[hsl(210,24%,12%)] px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Shop Now

@@ -1,8 +1,13 @@
-'use client';
-
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/button";
+import { useLocation } from "wouter";
 
 export function HeroSection() {
+  const [, navigate] = useLocation();
+
+  const handleShopNow = () => {
+    navigate("/catalog");
+  };
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
@@ -39,6 +44,7 @@ export function HeroSection() {
         </p>
         <Button 
           size="lg"
+          onClick={handleShopNow}
           className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-lg"
         >
           Shop Now
