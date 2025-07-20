@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
+import { Link } from "wouter";
 
 interface Product {
   id: number;
@@ -286,29 +287,31 @@ export function FeaturedProducts() {
                       {product.price}
                     </p>
                   </div>
-                  <Button 
-                    className="w-full py-3 rounded-2xl font-semibold mt-auto relative overflow-hidden group/button transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                    style={{
-                      background: 'rgba(16, 24, 40, 0.85)',
-                      backdropFilter: 'blur(25px) saturate(140%)',
-                      WebkitBackdropFilter: 'blur(25px) saturate(140%)',
-                      border: '1px solid rgba(255, 255, 255, 0.08)',
-                      color: 'rgba(255, 255, 255, 0.95)',
-                      textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
-                      boxShadow: '0 4px 20px rgba(16, 24, 40, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
-                    }}
-                  >
-                    {/* Ultra-subtle button glass overlay */}
-                    <div 
-                      className="absolute inset-0 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300 rounded-2xl"
+                  <Link href={product.id === 1 ? "/product/grass-fed-collagen-peptides" : "#"}>
+                    <Button 
+                      className="w-full py-3 rounded-2xl font-semibold mt-auto relative overflow-hidden group/button transition-all duration-300 hover:scale-105 hover:shadow-lg"
                       style={{
-                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%)',
-                        backdropFilter: 'blur(15px) saturate(150%)',
-                        WebkitBackdropFilter: 'blur(15px) saturate(150%)',
+                        background: 'rgba(16, 24, 40, 0.85)',
+                        backdropFilter: 'blur(25px) saturate(140%)',
+                        WebkitBackdropFilter: 'blur(25px) saturate(140%)',
+                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        color: 'rgba(255, 255, 255, 0.95)',
+                        textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
+                        boxShadow: '0 4px 20px rgba(16, 24, 40, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
                       }}
-                    />
-                    <span className="relative z-10">Shop Now</span>
-                  </Button>
+                    >
+                      {/* Ultra-subtle button glass overlay */}
+                      <div 
+                        className="absolute inset-0 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300 rounded-2xl"
+                        style={{
+                          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%)',
+                          backdropFilter: 'blur(15px) saturate(150%)',
+                          WebkitBackdropFilter: 'blur(15px) saturate(150%)',
+                        }}
+                      />
+                      <span className="relative z-10">Shop Now</span>
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
