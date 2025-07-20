@@ -1,16 +1,31 @@
 import { ArrowRight, Play, ArrowLeft } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { useTypewriter } from "@/hooks/use-typewriter";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 // TestimonialCard component matching the reference design
 function TestimonialCard({ testimonial, index }: { testimonial: any, index: number }) {
   const isDark = testimonial.cardType === 'dark-overlay';
+  const { ref, isIntersecting } = useIntersectionObserver({ 
+    threshold: 0.3,
+    triggerOnce: true 
+  });
+  
+  const { displayText: typewriterText } = useTypewriter({
+    text: testimonial.quote,
+    speed: 30,
+    startDelay: index * 200, // Stagger animation for each card
+    shouldStart: isIntersecting
+  });
   
   return (
-    <div className={`
-      relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500
-      ${isDark ? 'bg-gray-900 text-white' : 'text-gray-800'}
-      h-[580px] transform hover:scale-105
-    `}
+    <div 
+      ref={ref}
+      className={`
+        relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500
+        ${isDark ? 'bg-gray-900 text-white' : 'text-gray-800'}
+        h-[580px] transform hover:scale-105
+      `}
     style={!isDark ? {
       background: 'rgba(254, 241, 225, 0.35)',
       backdropFilter: 'blur(40px) saturate(150%)',
@@ -58,7 +73,10 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
             {/* Quote - Starting from middle, scrollable */}
             <div className="flex-1 mb-8 overflow-y-auto scrollbar-hide">
               <blockquote className="leading-relaxed text-lg font-normal text-white">
-                "{testimonial.quote}"
+                "{typewriterText}"
+                {isIntersecting && typewriterText.length < testimonial.quote.length && (
+                  <span className="animate-pulse">|</span>
+                )}
               </blockquote>
             </div>
 
@@ -98,7 +116,10 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
             {/* Quote in middle, scrollable */}
             <div className="flex-1 mb-8 overflow-y-auto scrollbar-hide">
               <blockquote className="leading-relaxed text-base text-gray-800">
-                "{testimonial.quote}"
+                "{typewriterText}"
+                {isIntersecting && typewriterText.length < testimonial.quote.length && (
+                  <span className="animate-pulse text-gray-400">|</span>
+                )}
               </blockquote>
             </div>
 
