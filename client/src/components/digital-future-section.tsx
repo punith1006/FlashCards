@@ -16,33 +16,46 @@ export function DigitalFutureSection() {
   };
 
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      if (!sectionRef.current) return;
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          if (!sectionRef.current) {
+            ticking = false;
+            return;
+          }
 
-      const windowHeight = window.innerHeight;
-      const scrollY = window.scrollY;
-      const sectionRect = sectionRef.current.getBoundingClientRect();
-      const sectionTop = sectionRect.top + scrollY;
-      
-      // Find the Learn About Keto section (previous sibling)
-      const learnAboutKetoSection = sectionRef.current.previousElementSibling as HTMLElement;
-      if (!learnAboutKetoSection) return;
-      
-      const learnAboutKetoRect = learnAboutKetoSection.getBoundingClientRect();
-      const learnAboutKetoBottom = learnAboutKetoRect.bottom + scrollY;
-      
-      // Start overlay when user reaches the bottom of Learn About Keto section
-      const triggerPoint = learnAboutKetoBottom - windowHeight;
-      
-      if (scrollY >= triggerPoint) {
-        // Calculate how much the Digital Future section should overlay
-        const maxOverlay = Math.min(sectionRect.height, learnAboutKetoRect.height);
-        const currentOverlay = scrollY - triggerPoint;
-        const progress = Math.min(currentOverlay / maxOverlay, 1);
-        
-        setScrollProgress(progress);
-      } else {
-        setScrollProgress(0);
+          const windowHeight = window.innerHeight;
+          const scrollY = window.scrollY;
+          
+          // Find the Learn About Keto section (previous sibling)
+          const learnAboutKetoSection = sectionRef.current.previousElementSibling as HTMLElement;
+          if (!learnAboutKetoSection) {
+            ticking = false;
+            return;
+          }
+          
+          // Get static positions to avoid recalculation issues
+          const learnAboutKetoRect = learnAboutKetoSection.getBoundingClientRect();
+          const learnAboutKetoTop = learnAboutKetoRect.top + scrollY;
+          const learnAboutKetoHeight = learnAboutKetoRect.height;
+          
+          // Start animation when we're near the end of the Learn About Keto section
+          const triggerStart = learnAboutKetoTop + learnAboutKetoHeight - windowHeight;
+          const animationDistance = windowHeight * 0.8; // 80vh of scroll for full animation
+          
+          if (scrollY >= triggerStart) {
+            const scrollDistance = scrollY - triggerStart;
+            const progress = Math.min(scrollDistance / animationDistance, 1);
+            setScrollProgress(progress);
+          } else {
+            setScrollProgress(0);
+          }
+          
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
@@ -55,24 +68,15 @@ export function DigitalFutureSection() {
   }, []);
 
   return (
-    <>
-      {/* Spacer to maintain document flow when section is fixed */}
-      {scrollProgress > 0 && (
-        <div style={{ height: '500px' }} />
-      )}
-      
-      <section 
-        ref={sectionRef}
-        className="relative bg-white overflow-hidden"
-        style={{
-          position: scrollProgress > 0 ? 'fixed' : 'relative',
-          top: scrollProgress > 0 ? `${(1 - scrollProgress) * 100}vh` : 'auto',
-          left: scrollProgress > 0 ? 0 : 'auto',
-          right: scrollProgress > 0 ? 0 : 'auto',
-          zIndex: scrollProgress > 0 ? 10 : 'auto',
-          transition: 'top 0.1s ease-out',
-        }}
-      >
+    <section 
+      ref={sectionRef}
+      className="relative bg-white overflow-hidden"
+      style={{
+        transform: `translateY(${-scrollProgress * 100}px)`,
+        transition: 'transform 0.1s ease-out',
+        zIndex: scrollProgress > 0 ? 10 : 1,
+      }}
+    >
         <div 
         ref={containerRef}
         className={`mx-auto rounded-t-[3rem] relative overflow-hidden transform-gpu transition-all duration-1000 ease-in-out ${
@@ -201,6 +205,5 @@ export function DigitalFutureSection() {
         )}
         </div>
       </section>
-    </>
   );
 }
