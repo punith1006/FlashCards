@@ -97,12 +97,7 @@ export function ProductOverview() {
 
             
 
-            {/* Current Selection */}
-            <div className="bg-gray-50 p-3 rounded">
-              <p className="text-sm text-gray-600">
-                Current Selection: <span className="font-medium text-black">Vanilla | 1 Tub up to 10% off</span>
-              </p>
-            </div>
+            
 
             
 
