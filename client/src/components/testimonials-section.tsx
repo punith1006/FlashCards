@@ -147,8 +147,8 @@ export function TestimonialsSection() {
       <div className="container mx-auto px-8 max-w-[1600px]">
         {/* Desktop Layout: 4-column grid with text section as first column */}
         <div className="hidden lg:grid lg:grid-cols-4 gap-8 items-start">
-          {/* First Column - Header Section (same width as cards) */}
-          <div className="space-y-10">
+          {/* First Column - Header Section (same width and height as cards) */}
+          <div className="h-[480px] flex flex-col justify-between p-8 bg-white rounded-3xl shadow-xl">
             <div className="space-y-8">
               <h2 className="text-4xl font-serif text-gray-900 leading-[1.1] font-normal">
                 Why fast growing<br />
@@ -164,7 +164,7 @@ export function TestimonialsSection() {
                 </p>
               </div>
             </div>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold text-base transition-colors duration-200 shadow-lg">
+            <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold text-base transition-colors duration-200 shadow-lg mt-auto">
               Case Studies
             </button>
           </div>
