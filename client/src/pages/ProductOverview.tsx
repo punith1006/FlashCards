@@ -46,37 +46,7 @@ export function ProductOverview() {
           </Button>
         </div>
       </div>
-      {/* Header */}
-      <header className="bg-black text-white py-4">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="text-2xl font-bold">Perfect Keto</Link>
-            <nav className="hidden md:flex space-x-8">
-              <Link href="#" className="hover:text-gray-300">Shop All</Link>
-              <Link href="#" className="hover:text-gray-300">Learn About Keto</Link>
-              <Link href="#" className="hover:text-gray-300">Keto Recipes</Link>
-              <Link href="#" className="hover:text-gray-300">Wholesale</Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Search className="w-5 h-5 cursor-pointer" />
-              <span className="text-xs uppercase tracking-wide">SEARCH</span>
-              <MapPin className="w-5 h-5 cursor-pointer" />
-              <span className="text-xs uppercase tracking-wide">ABOUT</span>
-              <User className="w-5 h-5 cursor-pointer" />
-              <span className="text-xs uppercase tracking-wide">LEARN</span>
-              <div className="flex items-center space-x-1">
-                <User className="w-5 h-5 cursor-pointer" />
-                <span className="text-xs uppercase tracking-wide">ACCOUNT</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <ShoppingCart className="w-5 h-5 cursor-pointer" />
-                <span className="text-xs uppercase tracking-wide">CART</span>
-                <span className="bg-yellow-500 text-black text-xs rounded-full px-2 py-1 ml-1">0</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+      
       {/* Main Product Section */}
       <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="grid lg:grid-cols-2 gap-12">
