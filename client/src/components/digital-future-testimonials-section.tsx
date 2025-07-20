@@ -584,13 +584,22 @@ export function DigitalFutureTestimonialsSection() {
             <button
               onClick={scrollTestimonialsLeft}
               disabled={!canScrollLeft}
-              className={`absolute left-[calc(320px+32px-24px)] top-1/2 -translate-y-1/2 z-10 p-3 rounded-full border transition-all duration-200 shadow-lg ${
+              className={`absolute left-[calc(320px+32px-24px)] top-1/2 -translate-y-1/2 z-10 p-4 rounded-full transition-all duration-300 hover:scale-110 ${
                 canScrollLeft 
-                  ? 'bg-white hover:bg-gray-50 border-gray-200 text-gray-700 hover:text-gray-900 hover:shadow-xl' 
-                  : 'bg-gray-100 border-gray-100 text-gray-400 cursor-not-allowed'
+                  ? 'text-gray-700 hover:text-gray-900' 
+                  : 'text-gray-400 cursor-not-allowed'
               }`}
+              style={{
+                background: canScrollLeft ? 'rgba(254, 241, 225, 0.35)' : 'rgba(229, 231, 235, 0.5)',
+                backdropFilter: 'blur(40px) saturate(150%)',
+                WebkitBackdropFilter: 'blur(40px) saturate(150%)',
+                border: '1px solid rgba(254, 241, 225, 0.4)',
+                boxShadow: canScrollLeft 
+                  ? '0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 16px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(254, 241, 225, 0.3)'
+                  : '0 4px 16px rgba(0, 0, 0, 0.05)',
+              }}
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
@@ -599,13 +608,22 @@ export function DigitalFutureTestimonialsSection() {
             <button
               onClick={scrollTestimonialsRight}
               disabled={!canScrollRight}
-              className={`absolute left-[calc(320px+32px+960px+24px)] top-1/2 -translate-y-1/2 z-10 p-3 rounded-full border transition-all duration-200 shadow-lg ${
+              className={`absolute left-[calc(320px+32px+960px+24px)] top-1/2 -translate-y-1/2 z-10 p-4 rounded-full transition-all duration-300 hover:scale-110 ${
                 canScrollRight 
-                  ? 'bg-white hover:bg-gray-50 border-gray-200 text-gray-700 hover:text-gray-900 hover:shadow-xl' 
-                  : 'bg-gray-100 border-gray-100 text-gray-400 cursor-not-allowed'
+                  ? 'text-gray-700 hover:text-gray-900' 
+                  : 'text-gray-400 cursor-not-allowed'
               }`}
+              style={{
+                background: canScrollRight ? 'rgba(254, 241, 225, 0.35)' : 'rgba(229, 231, 235, 0.5)',
+                backdropFilter: 'blur(40px) saturate(150%)',
+                WebkitBackdropFilter: 'blur(40px) saturate(150%)',
+                border: '1px solid rgba(254, 241, 225, 0.4)',
+                boxShadow: canScrollRight 
+                  ? '0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 16px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(254, 241, 225, 0.3)'
+                  : '0 4px 16px rgba(0, 0, 0, 0.05)',
+              }}
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
