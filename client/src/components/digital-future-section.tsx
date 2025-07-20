@@ -1,6 +1,5 @@
 import { ArrowRight, Play, ArrowLeft } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-import { TestimonialsSection } from "./testimonials-section";
 
 
 export function DigitalFutureSection() {
@@ -295,11 +294,6 @@ export function DigitalFutureSection() {
             <div className="h-8"></div>
           </div>
         )}
-
-        {/* Testimonials Section - Attached to the bottom */}
-        <div className="w-full">
-          <TestimonialsSection />
-        </div>
         </div>
       </section>
   );
