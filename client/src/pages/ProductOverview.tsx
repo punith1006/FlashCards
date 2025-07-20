@@ -192,6 +192,256 @@ export function ProductOverview() {
             </div>
           </div>
         </div>
+
+        {/* Product Benefits Section */}
+        <div className="bg-gray-50 py-16">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-black mb-4">Why Choose Perfect Keto Collagen?</h2>
+              <p className="text-gray-600 max-w-3xl mx-auto">
+                Our grass-fed collagen peptides are formulated with the highest quality ingredients to support your health and wellness goals.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" className="w-8 h-8 text-green-600">
+                    <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-black mb-3">Grass-Fed & Pasture-Raised</h3>
+                <p className="text-gray-600">
+                  Sourced from grass-fed, pasture-raised cattle for the highest quality collagen peptides.
+                </p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" className="w-8 h-8 text-green-600">
+                    <path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-black mb-3">MCT Brain Boost</h3>
+                <p className="text-gray-600">
+                  Enhanced with MCTs to support cognitive function and mental clarity throughout your day.
+                </p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" className="w-8 h-8 text-green-600">
+                    <path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-black mb-3">Clinical Studies</h3>
+                <p className="text-gray-600">
+                  Backed by clinical research showing benefits for hair, nails, skin, joints, and gut health.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Key Features Section */}
+        <div className="py-16">
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center text-black mb-12">Key Features</h2>
+            
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <img 
+                  src="https://shop.perfectketo.com/cdn/shop/files/us_v_them_collagen.jpg?v=1752762775&width=600"
+                  alt="Perfect Keto vs Others Comparison"
+                  className="w-full rounded-lg"
+                />
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-1">
+                    <svg viewBox="0 0 24 24" className="w-4 h-4 text-white">
+                      <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-black mb-2">20g Protein Per Serving</h3>
+                    <p className="text-gray-600">High-quality protein to support muscle health and recovery.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-1">
+                    <svg viewBox="0 0 24 24" className="w-4 h-4 text-white">
+                      <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-black mb-2">Zero Sugar</h3>
+                    <p className="text-gray-600">Keto-friendly formula with no added sugars or artificial fillers.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-1">
+                    <svg viewBox="0 0 24 24" className="w-4 h-4 text-white">
+                      <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-black mb-2">Easy to Mix</h3>
+                    <p className="text-gray-600">Dissolves completely in hot or cold liquids without clumping.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-1">
+                    <svg viewBox="0 0 24 24" className="w-4 h-4 text-white">
+                      <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-black mb-2">Third-Party Tested</h3>
+                    <p className="text-gray-600">Quality assured through independent laboratory testing for purity.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Nutrition Facts Section */}
+        <div className="bg-gray-50 py-16">
+          <div className="max-w-4xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center text-black mb-12">Nutrition Facts</h2>
+            
+            <div className="bg-white border-2 border-black p-6 max-w-md mx-auto">
+              <div className="text-center border-b-4 border-black pb-2 mb-4">
+                <h3 className="text-2xl font-bold">Nutrition Facts</h3>
+                <p className="text-sm">Serving Size 1 Scoop (25g)</p>
+                <p className="text-sm">Servings Per Container 20</p>
+              </div>
+
+              <div className="space-y-2 text-sm">
+                <div className="flex justify-between border-b border-gray-300 pb-1">
+                  <span className="font-semibold">Amount Per Serving</span>
+                </div>
+                
+                <div className="flex justify-between">
+                  <span className="font-semibold">Calories</span>
+                  <span className="font-semibold">80</span>
+                </div>
+
+                <div className="border-b-4 border-black pb-2 mb-2">
+                  <div className="text-right text-xs">% Daily Value*</div>
+                </div>
+
+                <div className="flex justify-between">
+                  <span>Total Fat 0g</span>
+                  <span className="font-semibold">0%</span>
+                </div>
+
+                <div className="flex justify-between">
+                  <span>Total Carbohydrate 0g</span>
+                  <span className="font-semibold">0%</span>
+                </div>
+
+                <div className="flex justify-between">
+                  <span>Protein 20g</span>
+                  <span className="font-semibold">40%</span>
+                </div>
+
+                <div className="border-b border-gray-300 my-3"></div>
+
+                <div>
+                  <div className="font-semibold mb-2">Collagen Peptides Blend 20g</div>
+                  <div className="text-xs pl-4 space-y-1">
+                    <div>Bovine Collagen Peptides (Types I & III)</div>
+                    <div>MCT Oil Powder (from Coconut)</div>
+                  </div>
+                </div>
+
+                <div className="border-b border-gray-300 my-3"></div>
+
+                <div className="text-xs">
+                  <p>*Percent Daily Values are based on a 2,000 calorie diet.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center mt-8">
+              <p className="text-sm text-gray-600 max-w-2xl mx-auto">
+                <strong>Other Ingredients:</strong> Natural flavors, stevia leaf extract, silica. 
+                Contains: Tree nuts (coconut). Manufactured in a facility that also processes milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, and soy.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* What's Inside Section */}
+        <div className="py-16">
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center text-black mb-12">What's Inside</h2>
+            
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-2xl font-semibold text-black mb-4">Grass-Fed Collagen Peptides</h3>
+                  <p className="text-gray-600 mb-4">
+                    Our premium collagen peptides are sourced from grass-fed, pasture-raised cattle, providing Types I and III collagen to support:
+                  </p>
+                  <ul className="space-y-2 text-gray-600">
+                    <li className="flex items-center">
+                      <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                      Hair, skin, and nail health
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                      Joint and bone support
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                      Gut health and digestion
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                      Muscle recovery and growth
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-semibold text-black mb-4">MCT Oil Powder</h3>
+                  <p className="text-gray-600 mb-4">
+                    Medium-chain triglycerides from coconut oil provide quick energy and support:
+                  </p>
+                  <ul className="space-y-2 text-gray-600">
+                    <li className="flex items-center">
+                      <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                      Mental clarity and focus
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                      Sustained energy levels
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                      Ketone production
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <img 
+                  src="https://shop.perfectketo.com/cdn/shop/files/collagen-peptides-vanilla-mct-boost.png?v=1752762775&width=600"
+                  alt="Collagen Peptides with MCT Boost"
+                  className="w-full rounded-lg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
