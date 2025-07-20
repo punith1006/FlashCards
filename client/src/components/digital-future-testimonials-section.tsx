@@ -4,21 +4,23 @@ import { useTypewriter } from "@/hooks/use-typewriter";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 // TestimonialCard component matching the reference design
-function TestimonialCard({ testimonial, index }: { testimonial: any, index: number }) {
+function TestimonialCard({ testimonial, index, isSectionVisible }: { testimonial: any, index: number, isSectionVisible: boolean }) {
   const isDark = testimonial.cardType === 'dark-overlay';
   const { ref, isIntersecting } = useIntersectionObserver({ 
     threshold: 0.3,
     triggerOnce: true 
   });
   
-  // Only apply typewriter effect to the first card (index 0)
-  const shouldUseTypewriter = index === 0;
+  // Apply typewriter effect to the first card (index 0) and fourth card (index 3)
+  const shouldUseTypewriter = index === 0 || index === 3;
   
   const { displayText: typewriterText } = useTypewriter({
     text: testimonial.quote,
     speed: 30,
-    startDelay: 0,
-    shouldStart: shouldUseTypewriter && isIntersecting
+    startDelay: index === 3 ? 1000 : 0, // Delay 4th card slightly for variety
+    shouldStart: shouldUseTypewriter && isIntersecting && isSectionVisible,
+    loop: shouldUseTypewriter, // Enable looping for typewriter cards
+    pauseDuration: 3000 // Pause for 3 seconds between loops
   });
   
   return (
@@ -159,6 +161,12 @@ export function DigitalFutureTestimonialsSection() {
   const [canScrollRight, setCanScrollRight] = useState(true);
   
   const testimonialsSliderRef = useRef<HTMLDivElement>(null);
+  
+  // Section-level intersection observer to track if user is in testimonials section
+  const { ref: sectionIntersectionRef, isIntersecting: isSectionVisible } = useIntersectionObserver({ 
+    threshold: 0.2,
+    triggerOnce: false 
+  });
 
   // Handle scroll to update navigation button states for testimonials
   useEffect(() => {
@@ -537,7 +545,10 @@ export function DigitalFutureTestimonialsSection() {
 
       {/* Testimonials Section - Now synchronized with scroll */}
       <div 
-        ref={testimonialsRef}
+        ref={(el) => {
+          testimonialsRef.current = el;
+          sectionIntersectionRef.current = el;
+        }}
         className="bg-gray-50 pb-20"
         style={{
           transform: testimonialsTransform,
@@ -574,7 +585,7 @@ export function DigitalFutureTestimonialsSection() {
               <div className="flex gap-6 min-w-max">
                 {testimonials.map((testimonial, index) => (
                   <div key={testimonial.id} className="w-80 flex-shrink-0">
-                    <TestimonialCard testimonial={testimonial} index={index} />
+                    <TestimonialCard testimonial={testimonial} index={index} isSectionVisible={isSectionVisible} />
                   </div>
                 ))}
               </div>
@@ -648,7 +659,7 @@ export function DigitalFutureTestimonialsSection() {
               <div className="flex gap-6 px-4 min-w-max">
                 {testimonials.map((testimonial, index) => (
                   <div key={testimonial.id} className="w-80 flex-shrink-0">
-                    <TestimonialCard testimonial={testimonial} index={index} />
+                    <TestimonialCard testimonial={testimonial} index={index} isSectionVisible={isSectionVisible} />
                   </div>
                 ))}
               </div>
