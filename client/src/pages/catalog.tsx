@@ -134,16 +134,54 @@ export default function Catalog() {
               <h1 className="text-5xl font-bold text-gray-900">All products</h1>
             </div>
             <div className="hidden lg:block">
-              <div className="relative w-96 h-28 rounded-lg overflow-hidden">
-                {/* Kitchen scene image matching Perfect Keto */}
-                <img 
-                  src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=120&fit=crop"
-                  alt="Perfect Keto Kitchen Scene"
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative w-96 h-32 rounded-lg overflow-hidden">
+                {/* Light blue background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-200"></div>
+                
+                {/* Collagen products arrangement - exact replica */}
+                <div className="absolute inset-0 flex items-end justify-center pb-4">
+                  {/* Background decorative elements */}
+                  <div className="absolute bottom-8 left-12 w-6 h-6 bg-green-200 rounded-full opacity-60"></div>
+                  <div className="absolute bottom-12 right-16 w-4 h-8 bg-amber-700 rounded opacity-40"></div>
+                  
+                  {/* Product arrangement */}
+                  <div className="relative flex items-end space-x-1">
+                    {/* Left green collagen jar */}
+                    <div className="w-12 h-16 bg-gradient-to-b from-green-100 to-green-200 rounded-lg border border-gray-300 shadow-sm relative">
+                      <div className="absolute top-1 inset-x-1 h-2 bg-gray-800 rounded-sm"></div>
+                      <div className="absolute top-4 inset-x-2 h-6 bg-white rounded text-xs flex items-center justify-center">
+                        <div className="w-1 h-4 bg-green-500"></div>
+                      </div>
+                    </div>
+                    
+                    {/* Center back tall jar */}
+                    <div className="w-14 h-20 bg-gradient-to-b from-amber-100 to-amber-200 rounded-lg border border-gray-300 shadow-md relative -mb-2">
+                      <div className="absolute top-1 inset-x-1 h-2 bg-gray-800 rounded-sm"></div>
+                      <div className="absolute top-4 inset-x-2 h-8 bg-white rounded text-xs flex items-center justify-center">
+                        <div className="w-1 h-6 bg-amber-600"></div>
+                      </div>
+                    </div>
+                    
+                    {/* Center front medium jar */}
+                    <div className="w-13 h-18 bg-gradient-to-b from-orange-100 to-orange-200 rounded-lg border border-gray-300 shadow-sm relative">
+                      <div className="absolute top-1 inset-x-1 h-2 bg-gray-800 rounded-sm"></div>
+                      <div className="absolute top-3 inset-x-2 h-6 bg-white rounded text-xs flex items-center justify-center">
+                        <div className="w-1 h-4 bg-orange-500"></div>
+                      </div>
+                    </div>
+                    
+                    {/* Right teal jar */}
+                    <div className="w-12 h-17 bg-gradient-to-b from-teal-100 to-teal-200 rounded-lg border border-gray-300 shadow-sm relative">
+                      <div className="absolute top-1 inset-x-1 h-2 bg-gray-800 rounded-sm"></div>
+                      <div className="absolute top-4 inset-x-2 h-5 bg-white rounded text-xs flex items-center justify-center">
+                        <div className="w-1 h-3 bg-teal-500"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 
                 {/* Yellow accent bar at bottom */}
-                <div className="absolute bottom-0 left-0 right-0 h-3 bg-yellow-400"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-4 bg-yellow-400"></div>
               </div>
             </div>
           </div>
