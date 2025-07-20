@@ -145,56 +145,86 @@ export function TestimonialsSection() {
   return (
     <div className="bg-gray-50 py-32">
       <div className="container mx-auto px-8 max-w-[1600px]">
-        {/* Header Section */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl lg:text-6xl font-serif text-gray-900 leading-[1.1] font-normal mb-8">
-            Why fast growing<br />
-            restaurant brands<br />
-            choose Snackpass
-          </h2>
-          <div className="max-w-3xl mx-auto space-y-6">
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Future proof your business. Stay ahead of the competition without spending millions.
-            </p>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Offer next generation customer experiences like Starbucks and McDonalds. All customized to your brand.
-            </p>
-          </div>
-          <div className="mt-12">
+        {/* Desktop Layout: Side by side */}
+        <div className="hidden lg:flex gap-16 items-start">
+          {/* Left Content - Header Section */}
+          <div className="flex-shrink-0 w-[400px] space-y-10">
+            <div className="space-y-8">
+              <h2 className="text-5xl font-serif text-gray-900 leading-[1.1] font-normal">
+                Why fast growing<br />
+                restaurant brands<br />
+                choose Snackpass
+              </h2>
+              <div className="space-y-6">
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Future proof your business. Stay ahead of the competition without spending millions.
+                </p>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Offer next generation customer experiences like Starbucks and McDonalds. All customized to your brand.
+                </p>
+              </div>
+            </div>
             <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 shadow-lg">
               Case Studies
             </button>
           </div>
-        </div>
 
-        {/* Testimonial Cards Grid - Much Larger */}
-        <div className="space-y-12">
-          {/* Desktop: 4-column grid for maximum impact */}
-          <div className="hidden lg:grid lg:grid-cols-4 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={testimonial.id}>
-                <TestimonialCard testimonial={testimonial} index={index} />
-              </div>
-            ))}
-          </div>
-
-          {/* Tablet: 2-column grid */}
-          <div className="hidden md:grid lg:hidden md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={testimonial.id}>
-                <TestimonialCard testimonial={testimonial} index={index} />
-              </div>
-            ))}
-          </div>
-
-          {/* Mobile: Horizontal scroll with larger cards */}
-          <div className="md:hidden overflow-x-auto scrollbar-hide">
-            <div className="flex gap-8 pb-6" style={{ width: 'max-content' }}>
-              {testimonials.map((testimonial, index) => (
-                <div key={testimonial.id} className="w-96 flex-shrink-0">
+          {/* Right Content - Testimonial Cards Grid */}
+          <div className="flex-1">
+            <div className="grid grid-cols-3 gap-8">
+              {testimonials.slice(0, 3).map((testimonial, index) => (
+                <div key={testimonial.id}>
                   <TestimonialCard testimonial={testimonial} index={index} />
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile & Tablet Layout: Stacked */}
+        <div className="lg:hidden space-y-16">
+          {/* Header Section */}
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 leading-[1.1] font-normal mb-8">
+              Why fast growing<br />
+              restaurant brands<br />
+              choose Snackpass
+            </h2>
+            <div className="max-w-3xl mx-auto space-y-6">
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Future proof your business. Stay ahead of the competition without spending millions.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Offer next generation customer experiences like Starbucks and McDonalds. All customized to your brand.
+              </p>
+            </div>
+            <div className="mt-10">
+              <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 shadow-lg">
+                Case Studies
+              </button>
+            </div>
+          </div>
+
+          {/* Cards Grid */}
+          <div className="space-y-8">
+            {/* Tablet: 2-column grid */}
+            <div className="hidden md:grid md:grid-cols-2 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <div key={testimonial.id}>
+                  <TestimonialCard testimonial={testimonial} index={index} />
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile: Horizontal scroll */}
+            <div className="md:hidden overflow-x-auto scrollbar-hide">
+              <div className="flex gap-6 pb-6" style={{ width: 'max-content' }}>
+                {testimonials.map((testimonial, index) => (
+                  <div key={testimonial.id} className="w-80 flex-shrink-0">
+                    <TestimonialCard testimonial={testimonial} index={index} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
