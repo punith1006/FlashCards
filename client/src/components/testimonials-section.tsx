@@ -179,7 +179,7 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <div className="bg-gray-50 py-40">
+    <div className="bg-gray-50 py-40 pt-[10px] pb-[10px]">
       <div className="container mx-auto px-8 max-w-[1400px]">
         {/* Desktop Layout: 4-column grid with text section as first column */}
         <div className="hidden lg:grid lg:grid-cols-4 gap-6 items-start">
