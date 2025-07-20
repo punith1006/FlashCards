@@ -4,8 +4,34 @@ import { useState, useEffect, useRef } from "react";
 export function DigitalFutureSection() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState('keto-insights');
   const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Content data for different sections
+  const sectionContent = {
+    'keto-insights': {
+      title: 'The Science of Ketosis: What It Means for Health',
+      description: 'Discover how ketogenic nutrition is redefining health optimization — from metabolic flexibility to sustained energy.',
+      author: 'Dr. Sarah Chen',
+      date: '08 July 2025',
+      image: 'K'
+    },
+    'nutrition-trends': {
+      title: 'Latest Nutrition Trends: Beyond Traditional Dieting',
+      description: 'Explore emerging nutritional approaches that are transforming how we think about food, metabolism, and long-term health.',
+      author: 'Dr. Michael Torres',
+      date: '12 July 2025',
+      image: 'N'
+    },
+    'health-innovation': {
+      title: 'Health Innovation: Technology Meets Wellness',
+      description: 'See how cutting-edge technology is revolutionizing personal health monitoring and lifestyle optimization.',
+      author: 'Dr. Lisa Wang',
+      date: '15 July 2025',
+      image: 'H'
+    }
+  };
 
   const handleGetStartedClick = () => {
     setIsExpanded(true);
@@ -201,17 +227,38 @@ export function DigitalFutureSection() {
               <div className="grid lg:grid-cols-12 gap-8 items-start">
                 {/* Navigation Links - Bottom Left */}
                 <div className="lg:col-span-2 space-y-4">
-                  <div className="text-gray-900 font-bold text-lg">Keto Insights</div>
-                  <div className="text-gray-700 text-lg cursor-pointer hover:text-gray-900 transition-colors">Nutrition Trends</div>
-                  <div className="text-gray-700 text-lg cursor-pointer hover:text-gray-900 transition-colors">Health & Innovation</div>
+                  <button
+                    onClick={() => setActiveSection('keto-insights')}
+                    className={`text-left text-lg cursor-pointer hover:text-gray-900 transition-colors ${
+                      activeSection === 'keto-insights' ? 'text-gray-900 font-bold' : 'text-gray-700'
+                    }`}
+                  >
+                    Keto Insights
+                  </button>
+                  <button
+                    onClick={() => setActiveSection('nutrition-trends')}
+                    className={`text-left text-lg cursor-pointer hover:text-gray-900 transition-colors ${
+                      activeSection === 'nutrition-trends' ? 'text-gray-900 font-bold' : 'text-gray-700'
+                    }`}
+                  >
+                    Nutrition Trends
+                  </button>
+                  <button
+                    onClick={() => setActiveSection('health-innovation')}
+                    className={`text-left text-lg cursor-pointer hover:text-gray-900 transition-colors ${
+                      activeSection === 'health-innovation' ? 'text-gray-900 font-bold' : 'text-gray-700'
+                    }`}
+                  >
+                    Health & Innovation
+                  </button>
                 </div>
 
                 {/* Featured Image - Center */}
                 <div className="lg:col-span-6">
-                  <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl h-64 lg:h-80 flex items-center justify-center overflow-hidden">
+                  <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl h-64 lg:h-80 flex items-center justify-center overflow-hidden transition-all duration-300">
                     <div className="text-center">
-                      <div className="w-20 h-20 bg-[#58CC88] rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <span className="text-white text-2xl font-bold">K</span>
+                      <div className="w-20 h-20 bg-[#58CC88] rounded-full mx-auto mb-4 flex items-center justify-center transition-all duration-300">
+                        <span className="text-white text-2xl font-bold">{sectionContent[activeSection as keyof typeof sectionContent].image}</span>
                       </div>
                       <p className="text-gray-600">Keto Platform Demo</p>
                     </div>
@@ -220,18 +267,22 @@ export function DigitalFutureSection() {
 
                 {/* Article Content - Right */}
                 <div className="lg:col-span-4 space-y-4">
-                  <h3 className="text-2xl font-bold text-gray-900 leading-tight">
-                    The Science of Ketosis: What It Means for Health
+                  <h3 className="text-2xl font-bold text-gray-900 leading-tight transition-all duration-300">
+                    {sectionContent[activeSection as keyof typeof sectionContent].title}
                   </h3>
-                  <p className="text-gray-700 text-lg leading-relaxed font-medium">
-                    Discover how ketogenic nutrition is redefining health optimization — from metabolic flexibility to sustained energy.
+                  <p className="text-gray-700 text-lg leading-relaxed font-medium transition-all duration-300">
+                    {sectionContent[activeSection as keyof typeof sectionContent].description}
                   </p>
                   <button className="text-[#58CC88] hover:text-[#4bb377] font-medium transition-colors duration-200">
                     Learn More →
                   </button>
                   <div className="pt-4">
-                    <div className="text-base text-gray-900 font-semibold">Dr. Sarah Chen</div>
-                    <div className="text-base text-gray-500">08 July 2025</div>
+                    <div className="text-base text-gray-900 font-semibold transition-all duration-300">
+                      {sectionContent[activeSection as keyof typeof sectionContent].author}
+                    </div>
+                    <div className="text-base text-gray-500 transition-all duration-300">
+                      {sectionContent[activeSection as keyof typeof sectionContent].date}
+                    </div>
                   </div>
                 </div>
               </div>
