@@ -125,6 +125,12 @@ function TestimonialCard({ testimonial, index }: { testimonial: any, index: numb
 }
 
 export function TestimonialsSection() {
+  const scrollToCard4 = () => {
+    const card4Element = document.getElementById('testimonial-card-4');
+    if (card4Element) {
+      card4Element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
   // Expanded testimonials data based on Snackpass website
   const testimonials = [
     {
@@ -175,14 +181,26 @@ export function TestimonialsSection() {
       cardType: "dark-overlay",
       hasBackgroundImage: true,
       isStoryCard: true
+    },
+    {
+      id: "xing-fu-tang-duplicate",
+      title: "Xing Fu Tang",
+      subtitle: "Taiwan's No.1 Boba Brand",
+      quote: "When it comes time to service a lot of tickets in short order, it is very helpful to be able to turn the POS into a kiosk… and have customers order for themselves and then dedicate that man power to making the actual drinks.",
+      author: "Andrew Chuang",
+      role: "CEO",
+      company: "Xing Fu Tang",
+      since: "Snackpass Partner Since 2023",
+      cardType: "dark-overlay",
+      hasBackgroundImage: true
     }
   ];
 
   return (
     <div className="bg-gray-50 pb-20" style={{ marginTop: 'calc(500px * 0.9)' }}>
       <div className="container mx-auto px-8 max-w-[1400px] pl-[32px] pr-[32px] pt-[0px] pb-[0px]">
-        {/* Desktop Layout: 4-column grid with text section as first column */}
-        <div className="hidden lg:grid lg:grid-cols-4 gap-6 items-start">
+        {/* Desktop Layout: First row with header + 3 cards */}
+        <div className="hidden lg:grid lg:grid-cols-4 gap-6 items-start mb-12">
           {/* First Column - Header Section (plain text, same width as cards) */}
           <div className="flex flex-col justify-between h-[580px] pr-6">
             <div className="space-y-10">
@@ -205,12 +223,35 @@ export function TestimonialsSection() {
             </button>
           </div>
 
-          {/* Columns 2-4 - Testimonial Cards */}
+          {/* Columns 2-4 - First 3 Testimonial Cards */}
           {testimonials.slice(0, 3).map((testimonial, index) => (
             <div key={testimonial.id}>
               <TestimonialCard testimonial={testimonial} index={index} />
             </div>
           ))}
+        </div>
+
+        {/* Desktop Layout: Navigation and Card 4 */}
+        <div className="hidden lg:block">
+          {/* Navigation Button Section */}
+          <div className="flex justify-center mb-8">
+            <button 
+              onClick={scrollToCard4}
+              className="bg-[#1E90FF] hover:bg-[#1E90FF]/90 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 flex items-center gap-2 hover:gap-3"
+            >
+              View More Stories
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Card 4 - Centered */}
+          <div className="flex justify-center">
+            <div id="testimonial-card-4" className="w-1/4">
+              <TestimonialCard testimonial={testimonials[4]} index={4} />
+            </div>
+          </div>
         </div>
 
         {/* Mobile Layout - Stack vertically with horizontal scrolling cards */}
@@ -243,6 +284,24 @@ export function TestimonialsSection() {
                   <TestimonialCard testimonial={testimonial} index={index} />
                 </div>
               ))}
+              
+              {/* Navigation Button after 3rd card */}
+              <div className="w-80 flex-shrink-0 flex items-center justify-center">
+                <button 
+                  onClick={scrollToCard4}
+                  className="bg-[#1E90FF] hover:bg-[#1E90FF]/90 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 flex items-center gap-2 hover:gap-3"
+                >
+                  View More
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
+              
+              {/* Card 4 */}
+              <div id="testimonial-card-4-mobile" className="w-80 flex-shrink-0">
+                <TestimonialCard testimonial={testimonials[4]} index={4} />
+              </div>
             </div>
           </div>
         </div>
