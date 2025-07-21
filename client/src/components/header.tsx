@@ -21,11 +21,7 @@ export function Header() {
               <span className="text-xs mt-1 uppercase tracking-wide">Search</span>
             </button>
 
-            {/* About */}
-            <button className="flex flex-col items-center text-white hover:text-gray-300 transition-colors group">
-              <Info className="h-5 w-5" />
-              <span className="text-xs mt-1 uppercase tracking-wide">About</span>
-            </button>
+            
 
             {/* Learn */}
             <button className="flex flex-col items-center text-white hover:text-gray-300 transition-colors group">
