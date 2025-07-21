@@ -33,11 +33,7 @@ export function Header() {
               <span className="text-xs mt-1 uppercase tracking-wide">Learn</span>
             </button>
 
-            {/* Cart */}
-            <Link href="/cart" className="flex flex-col items-center text-white hover:text-gray-300 transition-colors group">
-              <ShoppingCart className="h-5 w-5" />
-              <span className="text-xs mt-1 uppercase tracking-wide">Cart</span>
-            </Link>
+            
           </div>
         </div>
       </div>
