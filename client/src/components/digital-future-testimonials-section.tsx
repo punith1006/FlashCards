@@ -331,30 +331,49 @@ export function DigitalFutureTestimonialsSection() {
             const footerTop = footerRect.top + scrollY;
             const footerHeight = footerRect.height;
             
-            // Stop animation when footer bottom is at the bottom of the viewport
-            // This means the footer is fully visible and is the last item on screen
+            // Calculate the current position of footer bottom relative to viewport
             const footerBottom = footerTop + footerHeight;
-            const viewportBottom = scrollY + windowHeight;
+            const currentViewportBottom = scrollY + windowHeight;
             
-            // Calculate when animation should stop so footer bottom aligns with viewport bottom
-            stopAnimationPoint = footerBottom - windowHeight;
+            // Stop animation when we can scroll no further (footer bottom reaches viewport bottom)
+            // Account for the transform that moves footer up
+            const maxScrollPosition = footerBottom - windowHeight;
+            
+            // If we're at or past the max scroll position, stop animation
+            if (scrollY >= maxScrollPosition) {
+              setScrollProgress(1);
+              ticking = false;
+              return;
+            }
           }
           
           // Start animation when we're near the end of the Learn About Keto section
           const triggerStart = learnAboutKetoTop + learnAboutKetoHeight - windowHeight;
           
-          // Calculate max animation distance to stop when footer bottom reaches viewport bottom
-          const maxAnimationDistance = Math.max(0, stopAnimationPoint - triggerStart);
-          
-          if (scrollY >= triggerStart && maxAnimationDistance > 0) {
-            const scrollDistance = scrollY - triggerStart;
-            const progress = Math.min(scrollDistance / maxAnimationDistance, 1);
-            setScrollProgress(progress);
-          } else if (scrollY >= stopAnimationPoint) {
-            // Keep progress at 1 when we've reached the stop point
-            setScrollProgress(1);
+          // Calculate animation progress based on how much we can scroll
+          if (footer) {
+            const footerRect = footer.getBoundingClientRect();
+            const footerTop = footerRect.top + scrollY;
+            const footerHeight = footerRect.height;
+            const maxScrollPosition = footerTop + footerHeight - windowHeight;
+            const animationRange = maxScrollPosition - triggerStart;
+            
+            if (scrollY >= triggerStart && animationRange > 0) {
+              const scrollDistance = scrollY - triggerStart;
+              const progress = Math.min(scrollDistance / animationRange, 1);
+              setScrollProgress(progress);
+            } else if (scrollY < triggerStart) {
+              setScrollProgress(0);
+            }
           } else {
-            setScrollProgress(0);
+            // Fallback if footer not found
+            if (scrollY >= triggerStart) {
+              const scrollDistance = scrollY - triggerStart;
+              const progress = Math.min(scrollDistance / (digitalFutureHeight * 0.9), 1);
+              setScrollProgress(progress);
+            } else {
+              setScrollProgress(0);
+            }
           }
           
           ticking = false;
