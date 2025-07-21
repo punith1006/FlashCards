@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import { Link } from "wouter";
+import { useCart } from "@/hooks/use-cart";
 
 interface Product {
   id: number;
@@ -10,42 +11,49 @@ interface Product {
   price: string;
   originalPrice?: string;
   image: string;
+  numericPrice: number;
 }
 
 export function FeaturedProducts() {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const { addItem, openCart } = useCart();
 
   const products: Product[] = [
     {
       id: 1,
       name: "Grass-Fed Collagen Peptides",
       price: "$43.99",
+      numericPrice: 43.99,
       image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
     },
     {
       id: 2,
       name: "Collagen Protein Bars",
       price: "$44.99",
+      numericPrice: 44.99,
       image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
     },
     {
       id: 3,
       name: "Nola Bars",
       price: "$24.99",
+      numericPrice: 24.99,
       image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
     },
     {
       id: 4,
       name: "Base Ketones",
       price: "$42.99",
+      numericPrice: 42.99,
       image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
     },
     {
       id: 5,
       name: "MCT Oil Powder",
       price: "$40.99",
+      numericPrice: 40.99,
       image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
     },
     {
@@ -53,18 +61,21 @@ export function FeaturedProducts() {
       name: "Daily Electrolytes",
       price: "$30.99",
       originalPrice: "$37.99",
+      numericPrice: 30.99,
       image: "https://images.unsplash.com/photo-1594736797933-d0f25c5376d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
     },
     {
       id: 7,
       name: "Keto Cookies",
       price: "$19.99",
+      numericPrice: 19.99,
       image: "https://images.unsplash.com/photo-1548365328-8c6db3220e4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
     },
     {
       id: 8,
       name: "Keto Nut Butter",
       price: "$16.99",
+      numericPrice: 16.99,
       image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
     }
   ];
@@ -99,6 +110,17 @@ export function FeaturedProducts() {
     if (sliderRef.current) {
       sliderRef.current.scrollBy({ left: 320, behavior: 'smooth' });
     }
+  };
+
+  const handleQuickBuy = (product: Product) => {
+    addItem({
+      id: String(product.id),
+      name: product.name,
+      variant: "Standard",
+      price: product.numericPrice,
+      image: product.image
+    });
+    openCart();
   };
 
   return (
@@ -287,31 +309,30 @@ export function FeaturedProducts() {
                       {product.price}
                     </p>
                   </div>
-                  <Link href={product.id === 1 ? "/product/grass-fed-collagen-peptides" : "#"}>
-                    <Button 
-                      className="w-full py-3 rounded-2xl font-semibold mt-auto relative overflow-hidden group/button transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  <Button 
+                    onClick={() => handleQuickBuy(product)}
+                    className="w-full py-3 rounded-2xl font-semibold mt-auto relative overflow-hidden group/button transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                    style={{
+                      background: 'rgba(16, 24, 40, 0.85)',
+                      backdropFilter: 'blur(25px) saturate(140%)',
+                      WebkitBackdropFilter: 'blur(25px) saturate(140%)',
+                      border: '1px solid rgba(255, 255, 255, 0.08)',
+                      color: 'rgba(255, 255, 255, 0.95)',
+                      textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
+                      boxShadow: '0 4px 20px rgba(16, 24, 40, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+                    }}
+                  >
+                    {/* Ultra-subtle button glass overlay */}
+                    <div 
+                      className="absolute inset-0 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300 rounded-2xl"
                       style={{
-                        background: 'rgba(16, 24, 40, 0.85)',
-                        backdropFilter: 'blur(25px) saturate(140%)',
-                        WebkitBackdropFilter: 'blur(25px) saturate(140%)',
-                        border: '1px solid rgba(255, 255, 255, 0.08)',
-                        color: 'rgba(255, 255, 255, 0.95)',
-                        textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
-                        boxShadow: '0 4px 20px rgba(16, 24, 40, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%)',
+                        backdropFilter: 'blur(15px) saturate(150%)',
+                        WebkitBackdropFilter: 'blur(15px) saturate(150%)',
                       }}
-                    >
-                      {/* Ultra-subtle button glass overlay */}
-                      <div 
-                        className="absolute inset-0 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300 rounded-2xl"
-                        style={{
-                          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%)',
-                          backdropFilter: 'blur(15px) saturate(150%)',
-                          WebkitBackdropFilter: 'blur(15px) saturate(150%)',
-                        }}
-                      />
-                      <span className="relative z-10">Shop Now</span>
-                    </Button>
-                  </Link>
+                    />
+                    <span className="relative z-10">Quick Buy</span>
+                  </Button>
                 </CardContent>
               </Card>
             ))}

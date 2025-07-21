@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/hooks/use-cart";
 
 // Static product data with working image URLs
 const staticProducts = [
@@ -68,6 +69,18 @@ const staticProducts = [
 
 function ProductCard({ product }: { product: typeof staticProducts[0] }) {
   const [currentImage, setCurrentImage] = useState(product.image);
+  const { addItem, openCart } = useCart();
+
+  const handleQuickBuy = () => {
+    addItem({
+      id: String(product.id),
+      name: product.name,
+      variant: product.flavors ? product.flavors[0] : "Standard",
+      price: product.price,
+      image: product.image
+    });
+    openCart();
+  };
 
   return (
     <div className="group relative bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col h-full">
@@ -114,7 +127,10 @@ function ProductCard({ product }: { product: typeof staticProducts[0] }) {
             <p className="text-xs text-gray-500 mb-1">Sale price</p>
             <p className="text-xl font-bold text-gray-900">${product.price}</p>
           </div>
-          <button className="px-6 py-2 border-2 border-gray-900 text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-900 hover:text-white transition-colors duration-200">
+          <button 
+            onClick={handleQuickBuy}
+            className="px-6 py-2 border-2 border-gray-900 text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-900 hover:text-white transition-colors duration-200"
+          >
             Quick Buy
           </button>
         </div>
