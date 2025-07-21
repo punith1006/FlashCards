@@ -318,31 +318,44 @@ export function DigitalFutureTestimonialsSection() {
           const digitalFutureRect = sectionRef.current.getBoundingClientRect();
           const digitalFutureHeight = digitalFutureRect.height;
           
+          // Get testimonials section height
+          const testimonialsRect = testimonialsRef.current.getBoundingClientRect();
+          const testimonialsHeight = testimonialsRect.height;
+          
           // Find footer element to determine when to stop animation
           const footer = document.querySelector('footer');
+          let stopAnimationPoint = learnAboutKetoTop + learnAboutKetoHeight + digitalFutureHeight;
           
           if (footer) {
             const footerRect = footer.getBoundingClientRect();
             const footerTop = footerRect.top + scrollY;
             const footerHeight = footerRect.height;
             
-            // Start animation when we're near the end of the Learn About Keto section
-            const triggerStart = learnAboutKetoTop + learnAboutKetoHeight - windowHeight;
+            // Calculate the current position of footer bottom relative to viewport
+            const footerBottom = footerTop + footerHeight;
+            const currentViewportBottom = scrollY + windowHeight;
             
-            // Calculate the original footer position (without transforms)
-            const originalFooterBottom = footerTop + footerHeight;
+            // Stop animation when we can scroll no further (footer bottom reaches viewport bottom)
+            // Account for the transform that moves footer up
+            const maxScrollPosition = footerBottom - windowHeight;
             
-            // The maximum scroll position should be when footer bottom aligns with viewport bottom
-            const maxScrollPosition = originalFooterBottom - windowHeight;
-            
-            // Prevent scrolling beyond footer bottom by constraining the document height
-            const documentBody = document.body;
-            const maxDocumentHeight = originalFooterBottom;
-            if (documentBody.style.height !== `${maxDocumentHeight}px`) {
-              documentBody.style.height = `${maxDocumentHeight}px`;
+            // If we're at or past the max scroll position, stop animation
+            if (scrollY >= maxScrollPosition) {
+              setScrollProgress(1);
+              ticking = false;
+              return;
             }
-            
-            // Calculate animation range
+          }
+          
+          // Start animation when we're near the end of the Learn About Keto section
+          const triggerStart = learnAboutKetoTop + learnAboutKetoHeight - windowHeight;
+          
+          // Calculate animation progress based on how much we can scroll
+          if (footer) {
+            const footerRect = footer.getBoundingClientRect();
+            const footerTop = footerRect.top + scrollY;
+            const footerHeight = footerRect.height;
+            const maxScrollPosition = footerTop + footerHeight - windowHeight;
             const animationRange = maxScrollPosition - triggerStart;
             
             if (scrollY >= triggerStart && animationRange > 0) {
@@ -351,12 +364,9 @@ export function DigitalFutureTestimonialsSection() {
               setScrollProgress(progress);
             } else if (scrollY < triggerStart) {
               setScrollProgress(0);
-            } else {
-              setScrollProgress(1);
             }
           } else {
             // Fallback if footer not found
-            const triggerStart = learnAboutKetoTop + learnAboutKetoHeight - windowHeight;
             if (scrollY >= triggerStart) {
               const scrollDistance = scrollY - triggerStart;
               const progress = Math.min(scrollDistance / (digitalFutureHeight * 0.9), 1);
