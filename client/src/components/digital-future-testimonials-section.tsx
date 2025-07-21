@@ -318,18 +318,32 @@ export function DigitalFutureTestimonialsSection() {
           const digitalFutureRect = sectionRef.current.getBoundingClientRect();
           const digitalFutureHeight = digitalFutureRect.height;
           
+          // Get testimonials section height
+          const testimonialsRect = testimonialsRef.current.getBoundingClientRect();
+          const testimonialsHeight = testimonialsRect.height;
+          
+          // Find footer element to determine when to stop animation
+          const footer = document.querySelector('footer');
+          let stopAnimationPoint = learnAboutKetoTop + learnAboutKetoHeight + digitalFutureHeight;
+          
+          if (footer) {
+            const footerRect = footer.getBoundingClientRect();
+            const footerTop = footerRect.top + scrollY;
+            // Stop animation when testimonials section bottom would reach footer
+            stopAnimationPoint = footerTop - testimonialsHeight;
+          }
+          
           // Start animation when we're near the end of the Learn About Keto section
           const triggerStart = learnAboutKetoTop + learnAboutKetoHeight - windowHeight;
           
-          // Calculate 90% proximity: when digital future bottom is 90% close to learn about keto bottom
-          // This means 10% gap remaining from the learn about keto bottom
-          const learnAboutKetoBottom = learnAboutKetoTop + learnAboutKetoHeight;
-          const proximityGap = digitalFutureHeight * 0.1; // 10% gap = 90% proximity
-          const maxAnimationDistance = digitalFutureHeight - proximityGap;
+          // Calculate max animation distance considering footer constraint
+          const maxAnimationDistance = Math.min(
+            digitalFutureHeight * 0.9, // Original 90% limit
+            stopAnimationPoint - triggerStart // Distance until footer constraint
+          );
           
-          if (scrollY >= triggerStart) {
+          if (scrollY >= triggerStart && maxAnimationDistance > 0) {
             const scrollDistance = scrollY - triggerStart;
-            // Cap the progress at the 90% proximity point
             const progress = Math.min(scrollDistance / maxAnimationDistance, 1);
             setScrollProgress(progress);
           } else {
