@@ -102,8 +102,9 @@ export function CartOverlay({ isOpen, onClose, items, onUpdateQuantity, onRemove
                     <div className="flex items-center gap-3 mb-3">
                       <div className="flex items-center border rounded">
                         <button 
-                          onClick={() => onUpdateQuantity(item.id, Math.max(0, item.quantity - 1))}
-                          className="p-1 hover:bg-gray-100"
+                          onClick={() => onUpdateQuantity(item.id, Math.max(1, item.quantity - 1))}
+                          className="p-1 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                          disabled={item.quantity <= 1}
                         >
                           <Minus className="h-4 w-4" />
                         </button>

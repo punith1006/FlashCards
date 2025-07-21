@@ -59,9 +59,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
   };
 
   const updateQuantity = (id: string, quantity: number) => {
-    if (quantity <= 0) {
-      removeItem(id);
-      return;
+    if (quantity < 1) {
+      return; // Don't allow quantity below 1
     }
     setItems(prev =>
       prev.map(item =>
