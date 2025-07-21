@@ -329,23 +329,30 @@ export function DigitalFutureTestimonialsSection() {
           if (footer) {
             const footerRect = footer.getBoundingClientRect();
             const footerTop = footerRect.top + scrollY;
-            // Stop animation when testimonials section bottom would reach footer
-            stopAnimationPoint = footerTop - testimonialsHeight;
+            const footerHeight = footerRect.height;
+            
+            // Stop animation when footer bottom is at the bottom of the viewport
+            // This means the footer is fully visible and is the last item on screen
+            const footerBottom = footerTop + footerHeight;
+            const viewportBottom = scrollY + windowHeight;
+            
+            // Calculate when animation should stop so footer bottom aligns with viewport bottom
+            stopAnimationPoint = footerBottom - windowHeight;
           }
           
           // Start animation when we're near the end of the Learn About Keto section
           const triggerStart = learnAboutKetoTop + learnAboutKetoHeight - windowHeight;
           
-          // Calculate max animation distance considering footer constraint
-          const maxAnimationDistance = Math.min(
-            digitalFutureHeight * 0.9, // Original 90% limit
-            stopAnimationPoint - triggerStart // Distance until footer constraint
-          );
+          // Calculate max animation distance to stop when footer bottom reaches viewport bottom
+          const maxAnimationDistance = Math.max(0, stopAnimationPoint - triggerStart);
           
           if (scrollY >= triggerStart && maxAnimationDistance > 0) {
             const scrollDistance = scrollY - triggerStart;
             const progress = Math.min(scrollDistance / maxAnimationDistance, 1);
             setScrollProgress(progress);
+          } else if (scrollY >= stopAnimationPoint) {
+            // Keep progress at 1 when we've reached the stop point
+            setScrollProgress(1);
           } else {
             setScrollProgress(0);
           }
@@ -365,8 +372,10 @@ export function DigitalFutureTestimonialsSection() {
   }, []);
 
   // Calculate transform values for both sections
-  const digitalFutureTransform = `translateY(${-scrollProgress * ((containerRef.current?.getBoundingClientRect().height || 500) * 0.9)}px)`;
-  const testimonialsTransform = `translateY(${-scrollProgress * ((containerRef.current?.getBoundingClientRect().height || 500) * 0.9)}px)`;
+  // Use a more controlled transform that ensures footer stays as last visible item
+  const maxTransform = containerRef.current?.getBoundingClientRect().height || 500;
+  const digitalFutureTransform = `translateY(${-scrollProgress * maxTransform}px)`;
+  const testimonialsTransform = `translateY(${-scrollProgress * maxTransform}px)`;
 
   return (
     <>
