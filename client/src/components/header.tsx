@@ -33,12 +33,6 @@ export function Header() {
               <span className="text-xs mt-1 uppercase tracking-wide">Learn</span>
             </button>
 
-            {/* Account */}
-            <button className="flex flex-col items-center text-white hover:text-gray-300 transition-colors group">
-              <CircleUserRound className="h-5 w-5" />
-              <span className="text-xs mt-1 uppercase tracking-wide">Account</span>
-            </button>
-
             {/* Cart */}
             <Link href="/cart" className="flex flex-col items-center text-white hover:text-gray-300 transition-colors group">
               <ShoppingCart className="h-5 w-5" />
