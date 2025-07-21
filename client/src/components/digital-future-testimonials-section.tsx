@@ -685,8 +685,16 @@ export function DigitalFutureTestimonialsSection() {
         </div>
       </div>
       
-      {/* Footer Section - Outside transform container to prevent gaps */}
-      <footer className="bg-gray-100 py-16 border-t border-gray-200" style={{ position: 'relative', zIndex: 1 }}>
+      {/* Footer Section - Synchronized with testimonials animation */}
+      <footer 
+        className="bg-gray-100 py-16 border-t border-gray-200" 
+        style={{ 
+          position: 'relative', 
+          zIndex: 1,
+          transform: testimonialsTransform,
+          transition: 'transform 0.1s ease-out'
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Blank footer content area */}
           <div className="h-24 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
