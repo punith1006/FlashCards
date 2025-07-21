@@ -4,6 +4,7 @@ import { FeaturesSection } from "@/components/features-section";
 import { FeaturedProducts } from "@/components/featured-products";
 import { LearnAboutKeto } from "@/components/learn-about-keto";
 import { DigitalFutureTestimonialsSection } from "@/components/digital-future-testimonials-section";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <FeaturedProducts />
       <LearnAboutKeto />
       <DigitalFutureTestimonialsSection />
+      <Footer />
     </div>
   );
 }
