@@ -545,10 +545,14 @@ export function DigitalFutureTestimonialsSection() {
       {/* Testimonials Section - Now synchronized with scroll */}
       <div 
         ref={(el) => {
-          testimonialsRef.current = el;
-          sectionIntersectionRef.current = el;
+          if (testimonialsRef.current !== el) {
+            testimonialsRef.current = el;
+          }
+          if (sectionIntersectionRef.current !== el) {
+            sectionIntersectionRef.current = el;
+          }
         }}
-        className="bg-gray-50 pb-20"
+        className="bg-gray-50 pb-0"
         style={{
           transform: testimonialsTransform,
           transition: 'transform 0.1s ease-out',
@@ -667,8 +671,8 @@ export function DigitalFutureTestimonialsSection() {
         </div>
       </div>
       
-      {/* Footer Section - Integrated to avoid scroll gaps */}
-      <footer className="bg-gray-100 py-16 border-t border-gray-200">
+      {/* Footer Section - Outside transform container to prevent gaps */}
+      <footer className="bg-gray-100 py-16 border-t border-gray-200" style={{ position: 'relative', zIndex: 1 }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Blank footer content area */}
           <div className="h-24 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
