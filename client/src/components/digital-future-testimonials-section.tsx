@@ -397,21 +397,30 @@ export function DigitalFutureTestimonialsSection() {
   const testimonialsTransform = `translateY(${-scrollProgress * maxTransform}px)`;
 
   return (
-    <>
-      {/* Digital Future Section */}
-      <section 
-        ref={sectionRef}
-        className="relative overflow-hidden"
+    <div className="relative">
+      {/* Container that prevents vacant space by adjusting height */}
+      <div 
+        className="relative"
         style={{
-          background: isExpanded 
-            ? 'linear-gradient(135deg, rgba(254, 241, 225, 0.3) 0%, rgba(254, 241, 225, 0.4) 50%, rgba(254, 241, 225, 0.2) 100%)'
-            : 'white',
-          backdropFilter: isExpanded ? 'blur(20px) saturate(150%)' : 'none',
-          WebkitBackdropFilter: isExpanded ? 'blur(20px) saturate(150%)' : 'none',
-          transform: digitalFutureTransform,
-          transition: 'transform 0.1s ease-out',
-          zIndex: scrollProgress > 0 ? 10 : 1,
+          // Reduce container height as scroll progresses to eliminate vacant space
+          marginBottom: scrollProgress > 0 ? `${-scrollProgress * (maxTransform * 0.6)}px` : '0px',
+          transition: 'margin-bottom 0.1s ease-out'
         }}
+      >
+        {/* Digital Future Section */}
+        <section 
+          ref={sectionRef}
+          className="relative overflow-hidden"
+          style={{
+            background: isExpanded 
+              ? 'linear-gradient(135deg, rgba(254, 241, 225, 0.3) 0%, rgba(254, 241, 225, 0.4) 50%, rgba(254, 241, 225, 0.2) 100%)'
+              : 'white',
+            backdropFilter: isExpanded ? 'blur(20px) saturate(150%)' : 'none',
+            WebkitBackdropFilter: isExpanded ? 'blur(20px) saturate(150%)' : 'none',
+            transform: digitalFutureTransform,
+            transition: 'transform 0.1s ease-out',
+            zIndex: scrollProgress > 0 ? 10 : 1,
+          }}
       >
         <div 
           ref={containerRef}
@@ -583,16 +592,13 @@ export function DigitalFutureTestimonialsSection() {
             </div>
           )}
         </div>
-      </section>
-      {/* Testimonials Section - Now synchronized with scroll */}
-      <div 
+        </section>
+        
+        {/* Testimonials Section - Now synchronized with scroll */}
+        <div 
         ref={(el) => {
-          if (testimonialsRef.current !== el) {
-            testimonialsRef.current = el;
-          }
-          if (sectionIntersectionRef.current !== el) {
-            sectionIntersectionRef.current = el;
-          }
+          testimonialsRef.current = el;
+          sectionIntersectionRef.current = el;
         }}
         className="bg-gray-50 pb-0"
         style={{
@@ -711,10 +717,10 @@ export function DigitalFutureTestimonialsSection() {
             </div>
           </div>
         </div>
-      </div>
-      
-      {/* Footer Section - Synchronized with testimonials animation */}
-      <footer 
+        </div>
+        
+        {/* Footer Section - Synchronized with testimonials animation */}
+        <footer 
         className="bg-gray-100 py-16 border-t border-gray-200" 
         style={{ 
           position: 'relative', 
@@ -730,6 +736,7 @@ export function DigitalFutureTestimonialsSection() {
           </div>
         </div>
       </footer>
-    </>
+      </div>
+    </div>
   );
 }
