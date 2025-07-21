@@ -1,4 +1,4 @@
-import { ShoppingCart, Search, CircleUserRound, MapPin, Info } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { Link } from "wouter";
 
 export function Header() {
@@ -13,27 +13,12 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Right side icons */}
-          <div className="flex items-center space-x-6">
-            {/* Search */}
-            <button className="flex flex-col items-center text-white hover:text-gray-300 transition-colors group">
-              <Search className="h-5 w-5" />
-              <span className="text-xs mt-1 uppercase tracking-wide">Search</span>
-            </button>
-
-            {/* About */}
-            <button className="flex flex-col items-center text-white hover:text-gray-300 transition-colors group">
-              <Info className="h-5 w-5" />
-              <span className="text-xs mt-1 uppercase tracking-wide">About</span>
-            </button>
-
-            {/* Learn */}
-            <button className="flex flex-col items-center text-white hover:text-gray-300 transition-colors group">
-              <MapPin className="h-5 w-5" />
-              <span className="text-xs mt-1 uppercase tracking-wide">Learn</span>
-            </button>
-
-            
+          {/* Cart */}
+          <div className="flex items-center">
+            <Link href="/cart" className="flex flex-col items-center text-white hover:text-gray-300 transition-colors group">
+              <ShoppingBag className="h-5 w-5" />
+              <span className="text-xs mt-1 uppercase tracking-wide">Cart</span>
+            </Link>
           </div>
         </div>
       </div>
