@@ -8,7 +8,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-white text-xl font-semibold hover:text-gray-300 transition-colors">
+            <Link href="/" className="text-white hover:text-gray-300 transition-colors font-bold text-[25px]">
               AI Cards
             </Link>
           </div>
