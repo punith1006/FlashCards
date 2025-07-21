@@ -123,11 +123,7 @@ export function CartOverlay({ isOpen, onClose, items, onUpdateQuantity, onRemove
                       </button>
                     </div>
                     
-                    {/* Subscribe and Save */}
-                    <button className="border border-gray-300 rounded-full px-4 py-1 text-xs hover:bg-gray-50 flex items-center gap-1">
-                      <span className="text-sm">🔄</span>
-                      <span>Subscribe and save</span>
-                    </button>
+                    
                   </div>
                 </div>
               ))}
