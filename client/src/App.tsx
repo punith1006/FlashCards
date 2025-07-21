@@ -17,12 +17,14 @@ function Router() {
   return (
     <div>
       <Header />
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/catalog" component={Catalog} />
-        <Route path="/product/grass-fed-collagen-peptides" component={ProductOverview} />
-        <Route component={NotFound} />
-      </Switch>
+      <main className="pt-16">
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/catalog" component={Catalog} />
+          <Route path="/product/grass-fed-collagen-peptides" component={ProductOverview} />
+          <Route component={NotFound} />
+        </Switch>
+      </main>
       <CartOverlay 
         isOpen={isOpen}
         onClose={closeCart}
